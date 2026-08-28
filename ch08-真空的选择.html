@@ -131,25 +131,46 @@ nav.pager span{color:#b5aea4}
 <p>这条曲线的形状是本章唯一值得画一张图的东西。它中间鼓起、四周下凹，绕竖直轴转一圈就是一道等高的谷底——大家管它叫墨西哥帽。这张图你大概见过，但很可能没人告诉过你该看哪儿。</p>
 
 <figure>
-<svg viewBox="0 0 680 316" role="img" aria-label="墨西哥帽势能的截面">
-  <line x1="340" y1="24" x2="340" y2="286" stroke="#ddd6c9" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="50" y1="286" x2="644" y2="286" stroke="#ddd6c9" stroke-width="1"/>
-  <text x="640" y="304" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660" text-anchor="end">场的取值 →</text>
-  <text x="56" y="38" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">↑ 能量</text>
-  <path d="M60 40 C130 60 160 235 200 235 C250 235 300 200 340 150 C380 200 430 235 480 235 C520 235 550 60 620 40"
-        fill="none" stroke="#22201d" stroke-width="2.2"/>
-  <circle cx="340" cy="141" r="8.5" fill="#faf8f4" stroke="#a4501e" stroke-width="2.2"/>
-  <text x="340" y="120" font-family="system-ui,sans-serif" font-size="12.5" fill="#a4501e" text-anchor="middle">对称，但不稳</text>
-  <circle cx="480" cy="226" r="8.5" fill="#1e4d6b"/>
-  <text x="496" y="214" font-family="system-ui,sans-serif" font-size="12.5" fill="#1e4d6b">真空挑定的那一点</text>
-  <path d="M200 258 L480 258" stroke="#a4501e" stroke-width="1" stroke-dasharray="3 3"/>
-  <path d="M200 254 L200 262 M480 254 L480 262" stroke="#a4501e" stroke-width="1"/>
-  <text x="340" y="278" font-family="system-ui,sans-serif" font-size="12.5" fill="#a4501e" text-anchor="middle">谷底等高：沿这个方向推它不花钱 ⇒ 无质量</text>
-  <path d="M497 197 L560 143" stroke="#1e4d6b" stroke-width="1" fill="none"/>
-  <text x="600" y="132" font-family="system-ui,sans-serif" font-size="12.5" fill="#1e4d6b" text-anchor="middle">垂直爬坡</text>
-  <text x="600" y="149" font-family="system-ui,sans-serif" font-size="12.5" fill="#1e4d6b" text-anchor="middle">要花钱 ⇒ 有质量</text>
+<svg viewBox="0 0 680 306" role="img" aria-label="墨西哥帽势能：左为截面，右为俯视">
+  <text x="30" y="44" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">① 截面：能量怎么随场强变</text>
+  <text x="486" y="44" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">② 俯视：把左图绕中心转一圈</text>
+  <line x1="406" y1="58" x2="406" y2="288" stroke="#ddd6c9" stroke-width="1"/>
+
+  <line x1="196" y1="76" x2="196" y2="136" stroke="#ddd6c9" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="196" y1="182" x2="196" y2="252" stroke="#ddd6c9" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="30" y1="284" x2="372" y2="284" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="372" y="300" font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660" text-anchor="end">场的取值 →</text>
+  <text x="30" y="80" font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660">↑ 能量</text>
+  <polyline fill="none" stroke="#22201d" stroke-width="2.2" stroke-linejoin="round" points="36,89.3 42.7,123.9 49.3,152.5 56,175.5 62.7,193.5 69.3,207.2 76,217 82.7,223.4 89.3,226.9 96,228 102.7,227.1 109.3,224.5 116,220.6 122.7,215.8 129.3,210.4 136,204.7 142.7,198.8 149.3,193.1 156,187.8 162.7,183 169.3,178.8 176,175.5 182.7,173 189.3,171.5 196,171 202.7,171.5 209.3,173 216,175.5 222.7,178.8 229.3,183 236,187.8 242.7,193.1 249.3,198.8 256,204.7 262.7,210.4 269.3,215.8 276,220.6 282.7,224.5 289.3,227.1 296,228 302.7,226.9 309.3,223.4 316,217 322.7,207.2 329.3,193.5 336,175.5 342.7,152.5 349.3,123.9 356,89.3"/>
+  <circle cx="196" cy="171" r="7.5" fill="#faf8f4" stroke="#a4501e" stroke-width="2.2"/>
+  <text x="196" y="152" font-family="system-ui,sans-serif" font-size="12" fill="#a4501e" text-anchor="middle">对称，但不稳</text>
+  <circle cx="96" cy="228" r="6.5" fill="#faf8f4" stroke="#1e4d6b" stroke-width="1.8"/>
+  <circle cx="296" cy="228" r="8" fill="#1e4d6b"/>
+  <line x1="306" y1="214" x2="326.5" y2="188.8" stroke="#1e4d6b" stroke-width="1.6"/>
+  <polygon points="330,184 327.7,192.6 322.1,188.1" fill="#1e4d6b"/>
+  <line x1="332" y1="126" x2="345" y2="142" stroke="#1e4d6b" stroke-width="1"/>
+  <text x="328" y="112" font-family="system-ui,sans-serif" font-size="12" fill="#1e4d6b" text-anchor="end">垂直爬坡要花钱</text>
+  <text x="328" y="129" font-family="system-ui,sans-serif" font-size="12" fill="#1e4d6b" text-anchor="end">⇒ 有质量</text>
+  <path d="M96 248 L296 248" stroke="#a4501e" stroke-width="1" stroke-dasharray="3 3"/>
+  <path d="M96 244 L96 252 M296 244 L296 252" stroke="#a4501e" stroke-width="1"/>
+  <text x="196" y="266" font-family="system-ui,sans-serif" font-size="12" fill="#a4501e" text-anchor="middle">两个谷底一样低：这个方向不花钱 ⇒ 无质量</text>
+
+  <circle cx="550" cy="168" r="72" fill="none" stroke="#ddd6c9" stroke-width="1"/>
+  <circle cx="550" cy="168" r="48" fill="none" stroke="#a4501e" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <circle cx="550" cy="168" r="5.5" fill="#faf8f4" stroke="#a4501e" stroke-width="1.8"/>
+  <text x="550" y="192" font-family="system-ui,sans-serif" font-size="11" fill="#a4501e" text-anchor="middle">山顶</text>
+  <path d="M597.5 161.3 A 48 48 0 0 0 564.8 122.4" fill="none" stroke="#a4501e" stroke-width="1.4"/>
+  <polygon points="598.6,169.2 594.0,161.8 601.0,160.8" fill="#a4501e"/>
+  <polygon points="557.2,119.9 565.9,119.1 563.7,125.7" fill="#a4501e"/>
+  <line x1="592.9" y1="132" x2="602.1" y2="124.3" stroke="#1e4d6b" stroke-width="1.6"/>
+  <polygon points="606.7,120.4 604.7,127.4 599.5,121.2" fill="#1e4d6b"/>
+  <circle cx="586.8" cy="137.1" r="8" fill="#1e4d6b"/>
+  <line x1="576" y1="86" x2="584" y2="127" stroke="#1e4d6b" stroke-width="1"/>
+  <text x="550" y="78" font-family="system-ui,sans-serif" font-size="12" fill="#1e4d6b" text-anchor="middle">真空挑定的这一点</text>
+  <line x1="550" y1="262" x2="550" y2="220" stroke="#a4501e" stroke-width="1"/>
+  <text x="550" y="278" font-family="system-ui,sans-serif" font-size="12" fill="#a4501e" text-anchor="middle">这一圈上每一点都同样好</text>
 </svg>
-<figcaption>这是那顶帽子的一个截面（完整的曲面，是把它绕中间的虚线转一圈）。要看出的只有一件事：<b>最低点不在正中</b>。正中是唯一对称的位置，可它是山顶；真正的真空只能从谷底那一圈里挑一点。挑定之后，两个方向的性质就不一样了——沿谷底走不花能量，垂直爬坡要花能量。这个差别，就是「无质量」和「有质量」的差别。</figcaption>
+<figcaption>左边是那顶帽子的一个截面，右边是同一顶帽子从上往下看。左图要看出的只有一件事：<b>最低点不在正中</b>——正中是唯一对称的位置，可它是山顶；两侧的谷底一样低，所以两侧一样好（空心的那个圈就是同样好的另一个选择）。右图要看出的是：截面上那两个点，在完整的曲面上其实是<b>一整圈</b>，真空只能从这一圈里挑一点。挑定之后，两个方向的性质就不一样了——沿圈走不花能量（赭石色箭头，两个方向都行），垂直往外爬要花能量（蓝色箭头）。这个差别，就是「无质量」和「有质量」的差别。</figcaption>
 </figure>
 
 <h2>不花钱的那个方向</h2>
