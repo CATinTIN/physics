@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>间奏 I · 精密的算术 — 为什么我们还能理解世界</title>
+<style>
+:root{--paper:#faf8f4;--ink:#22201d;--dim:#6b6660;--blue:#1e4d6b;--ochre:#a4501e;--quote:#f1ece3;--rule:#ddd6c9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:19px/1.85 Georgia,"Songti SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+header.ch{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:40px}
+.part{font-size:13px;letter-spacing:.14em;color:var(--dim)}
+.num{font-size:13px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
+h1{font-size:34px;line-height:1.3;margin:.35em 0 .5em;font-weight:normal}
+.threads{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:12px;font-family:system-ui,sans-serif;color:var(--blue);
+  border:1px solid var(--blue);border-radius:11px;padding:2px 10px;opacity:.8}
+p{margin:0 0 1.25em;text-align:justify}
+p.lead{font-size:21px;color:#3a3730}
+.pull{font-size:23px;line-height:1.6;color:var(--blue);margin:1.8em 0;
+  padding-left:20px;border-left:3px solid var(--blue)}
+.aside{background:var(--quote);border-radius:5px;padding:20px 24px;margin:2em 0;
+  font-size:17px;line-height:1.75}
+.aside h4{margin:0 0 .6em;font-size:14px;letter-spacing:.1em;color:var(--dim);
+  font-family:system-ui,sans-serif;font-weight:600}
+.aside p:last-child{margin-bottom:0}
+.honest{border-left:3px solid var(--ochre);padding:4px 0 4px 20px;margin:2em 0;
+  font-size:17.5px;color:#4a453e}
+.honest b{color:var(--ochre);font-weight:normal}
+.honest p:last-child{margin-bottom:0}
+em.key{font-style:normal;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+blockquote{margin:2em 0;padding-left:22px;border-left:2px solid var(--rule);
+  font-size:18px;color:#3f3b35;line-height:1.78}
+blockquote p:last-child{margin-bottom:0}
+blockquote .src{display:block;margin-top:.7em;font-size:14.5px;color:var(--dim);
+  font-family:system-ui,sans-serif}
+h2{font-size:24px;font-weight:normal;margin:2.4em 0 .8em;color:var(--blue)}
+table.data{width:100%;border-collapse:collapse;margin:2em 0;font-size:16.5px;
+  font-family:system-ui,sans-serif}
+table.data th{text-align:left;font-weight:600;color:var(--dim);font-size:13.5px;
+  letter-spacing:.06em;padding:8px 10px;border-bottom:1px solid var(--rule)}
+table.data td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.data td.n{font-family:"Cambria Math",Cambria,Georgia,serif;color:var(--blue);
+  white-space:nowrap}
+table.data tr.hi td{background:var(--quote)}
+footer.ch{border-top:1px solid var(--rule);margin-top:56px;padding-top:26px}
+.prof{border:1px solid var(--rule);border-top:2px solid var(--blue);border-radius:4px;
+  padding:22px 26px;margin-bottom:30px;font-size:16.5px;line-height:1.72;color:#3a3730}
+.prof h4{margin:0 0 .2em;font-size:14px;letter-spacing:.1em;color:var(--blue);
+  font-family:system-ui,sans-serif;font-weight:600}
+.prof .sub{margin:0 0 1.1em;font-size:13.5px;color:var(--dim);
+  font-family:system-ui,sans-serif;line-height:1.5}
+.prof p:last-child{margin-bottom:0}
+nav.pager{display:flex;justify-content:space-between;font-size:15px;
+  font-family:system-ui,sans-serif}
+nav.pager a{color:var(--blue);text-decoration:none}
+nav.pager a:hover{text-decoration:underline}
+nav.pager span{color:#b5aea4}
+@media(max-width:600px){body{font-size:17.5px}.wrap{padding:36px 18px 72px}h1{font-size:27px}
+  table.data{font-size:15px}}
+</style></head><body><div class="wrap">
+
+<header class="ch">
+  <div class="part">第一部与第二部之间</div>
+  <div class="num">间奏 I</div>
+  <h1>精密的算术</h1>
+  <div class="threads"><span class="tag">T1 尺度组织了定律</span></div>
+</header>
+
+<main>
+<p class="lead">把一台钟从桌面上抬起一毫米。</p>
+
+<p>一毫米。指甲的厚度。你抬它的时候手腕几乎不用动。</p>
+
+<p>按照广义相对论，这台钟从此走得快了一点：离地心远了一点，时间流得快了一点。这个效应的大小是每上升一米，走快约十的负十六次方分之一——一毫米则是十的负十九次方。换成一句好懂的话：这台钟需要连续走大约三千亿年，才会比留在桌面上的那台多走出一秒钟。</p>
+
+<p>2022 年，美国科罗拉多州的 JILA 实验室把这个差别测了出来。</p>
+
+<p>他们用的是锶原子光晶格钟——把几千个锶原子用激光钉在一片竖直的驻波里，让它们排成一叠薄饼，然后去问最上面那层和最下面那层的原子：你们的钟走得一样快吗？两层之间的距离是一毫米。答案是不一样，而且不一样的程度恰好是爱因斯坦 1915 年那个公式给出的数值。</p>
+
+<p>这件事的分量不在于它验证了广义相对论。广义相对论早就被验证过了，1959 年庞德（Pound）和雷布卡（Rebka）在哈佛大学的一座 22 米高的塔里就已经测到过引力红移，那次的精度是百分之十。分量在于<em class="key">尺度</em>：</p>
+
+<div class="pull">一个曾经需要一座塔才能勉强测到的相对论效应，如今是同一个原子云内部的一项系统误差。</div>
+
+<p>也就是说，做钟的人今天必须在校准手册里写清楚原子云的竖直厚度，否则他们的钟就不准了。时空曲率进入了实验室的日常工作流程。它不再是一个要去验证的预言，它是一个要去扣掉的背景项——就像温度漂移、磁场梯度、真空度一样，是那种让实验员半夜起来检查的东西。</p>
+
+<p>我想不出比这更能说明「精度」这个词在过去七十年里发生了什么的例子了。</p>
+
+<div class="aside">
+<h4>他们是怎么做到的</h4>
+<p>那台钟的<b>绝对</b>不确定度并没有好到十的负十九次方——2026 年最好的光钟（铝离子钟、锶钟、镱钟）大约在十的负十八到十的负十九次方之间，而那是几十年一步一步啃出来的。能测到毫米量级的红移，靠的是另一个技巧：不去比较两台钟，而是比较<b>同一团原子云的上半部分和下半部分</b>。同一团云共享同一束激光、同一个磁场、同一个真空腔，绝大多数噪声在两层之间是完全相同的，做差之后自己就消掉了。</p>
+<p>这是精密测量最常用也最重要的一招，值得单独记住：不要去追求「测得准」，去构造一个让你关心的那个量单独活下来、其他一切成对抵消的比较。后面几乎每一项精密结果背后都有这一招的某个版本。</p>
+</div>
+
+<h2>四公里上的一千分之一个质子</h2>
+
+<p>第二件东西在路易斯安那州和华盛顿州各有一台，长得像两条互相垂直的四公里长的水泥隧道。</p>
+
+<p>LIGO 要测的是长度的变化率——一根尺子被拉长了百分之几。它的灵敏度是十的负二十一次方左右。四公里乘以十的负二十一次方，等于十的负十八次方米。</p>
+
+<p>质子的直径大约是十的负十五次方米。所以 LIGO 要在四公里的距离上，分辨出一段<em class="key">不到质子直径千分之一</em>的长度变化。</p>
+
+<p>我建议你在这里停一下，因为这个数字太容易滑过去了。四公里的隧道里有真空管、有反射镜、有悬挂系统，每一样东西都由原子组成，而原子本身就在以远大于十的负十八次方米的幅度热振动着。地面在动（潮汐、地震、几十公里外的卡车）。镜子表面的原子在动。真空管里剩下的稀薄气体分子在撞击镜面。连测量用的激光本身都在给镜子施加一个抖动的辐射压力，因为光子是一颗一颗到达的。</p>
+
+<p>要在这一切之中读出一个比质子小一千倍的位移，需要的不是一台更好的仪器，而是一整套关于「怎么把每一种噪声分别识别、分别建模、分别压下去」的知识体系。LIGO 从提案到第一次探测用了四十多年，绝大部分时间花在这件事上。它的最终灵敏度不是由某一项技术决定的，而是由几十条噪声曲线叠加起来的下包络线决定的——每一条曲线都有人用一整个博士学位去按住。</p>
+
+<p>这里我只讲「能测多小」。它究竟听见了什么、为什么那个信号可信、怎么排除掉一次恶作剧或一次巧合——那是第 15 章的事，我不在间奏里抢它。</p>
+
+<h2>从「一堆」到「一个」</h2>
+
+<p>第三件东西不是一个数字，是一个转变。</p>
+
+<p>十九世纪和二十世纪上半叶的实验物理，测的几乎全是<em class="key">平均值</em>。你测一块金属的电阻，得到的是十的二十三次方个电子的集体行为；你测一束光的强度，得到的是无数光子的平均流量。理论也是按这个格式写的：配分函数、期望值、截面。个体是原则上不可及的。玻尔兹曼、吉布斯以及后来所有写统计力学的人，都把「我们只能接触到平均值」当成一个前提，而不是当成一个技术限制。</p>
+
+<p>这个前提在二十世纪最后二十年被拆掉了。</p>
+
+<p>1980 年代，离子阱里的单个离子被激光照亮，肉眼就能在显微镜里看见它——一个原子，一个亮点，你可以指着它说「就是这一个」。它偶尔会跳到一个不发光的能级上，于是那个亮点忽然消失几秒钟，再忽然回来。这是量子跃迁第一次被逐个看见，而不是从谱线的形状里推断出来。1995 年，玻色-爱因斯坦凝聚（BEC）被做出来：几千个铷原子被冷到绝对零度之上不到百万分之一度，然后全部落进同一个量子态——它们不再是几千个原子，是一个可以用一个波函数描述的东西。此后是光晶格：一片激光驻波做成的鸡蛋盒，每个格点关一个原子，而且可以用显微镜逐格读出来「这一格里有没有原子」。</p>
+
+<p>要点不是「冷」。冷只是手段。要点是<em class="key">测量的对象从一堆变成了一个</em>。多体物理从此有了一种新的实验形态：你不再是把一块材料放进磁场里看它整体怎么反应，你是搭一个你自己设计的模型系统——格子的形状、相互作用的强弱、粒子的数目，全部由你旋钮控制——然后逐个格点地看它做什么。费曼 1981 年设想的「用一个可控的量子系统去模拟另一个不可控的量子系统」，从那时起变成了一个日常职业。</p>
+
+<p>这件能力是后面两部书的前提。第四部里贝尔实验要判决的是<em class="key">一对</em>粒子的关联，平均值在那里帮不上忙；第五部里量子霍尔平台要求的样品条件、以及分数电荷被听出来的那次噪声测量，都建立在同一批技术上。如果我们仍然只能接触平均值，第四部和第五部的内容会一个字都不存在。</p>
+
+<h2>并排放在一起</h2>
+
+<p>现在把它们摆在一张桌子上，加上几件顺路的：</p>
+
+<table class="data">
+<thead><tr><th>测的是什么</th><th>做到了多少</th><th>相当于</th></tr></thead>
+<tbody>
+<tr><td>时间（光钟）</td><td class="n">~10⁻¹⁸</td><td>连续走三百亿年，误差一秒（宇宙年龄的两倍）</td></tr>
+<tr><td>长度变化率（LIGO）</td><td class="n">~10⁻²¹</td><td>四公里上，千分之一个质子</td></tr>
+<tr class="hi"><td>电子磁矩（理论对实验）</td><td class="n">~10⁻¹²</td><td>小数点后第十二位仍然对得上</td></tr>
+<tr><td>引力常数 G</td><td class="n">~10⁻⁵</td><td>七十年过去，还是这本表里最差的一个</td></tr>
+<tr><td>质子电荷与电子电荷之差</td><td class="n">&lt;10⁻²¹</td><td>没测到差别（所以原子是中性的）</td></tr>
+<tr><td>中子的电偶极矩</td><td class="n">&lt;10⁻²⁶ e·cm</td><td>没测到（所以有第 44 章的强 CP 问题）</td></tr>
+</tbody>
+</table>
+
+<p>这张表有两件事值得说。</p>
+
+<p>第一件：<em class="key">引力常数 G 是这张表里最寒酸的一项</em>。它的相对不确定度大约是十万分之一——比电子磁矩差七个数量级，而且不同实验组的结果彼此之间的分歧还大于各自宣称的误差。人类能把时间测到十的负十八次方，却测不准那个决定苹果为什么落地的常数。原因不神秘：引力弱得离谱，而且没法屏蔽——你没办法给你的实验装置套一个「引力法拉第笼」，把隔壁楼、地下水位和月亮挡在外面。这件寒酸事本身是一条线索，它会在第三部和第七部反复回来。</p>
+
+<p>第二件：这张表的后两行是<em class="key">没测到</em>。而没测到也是数字，也占位置。「质子和电子的电荷大小之差小于十的负二十一次方」是一句有内容的话，它是我们相信原子严格中性的理由；「中子的电偶极矩小于十的负二十六次方 e·cm」也是一句有内容的话，它是强 CP 问题之所以成为问题的全部理由。第四部会把这种「否定性的数字」正式立成一种知识形态，这里先让它在表格里露一次脸。</p>
+
+<div class="honest">
+<p><b>但精密不是理解。</b>这一点必须在这里说清楚，否则这一篇会变成一份自我表扬。</p>
+<p>我们能把电子的磁矩算到并测到小数点后第十二位，却完全不知道电子的质量<b>为什么是这个值</b>——那个数字在标准模型里是手填进去的，理论对它没有任何意见。我们能分辨十的负二十一次方的应变，却不知道宇宙里 95% 的成分是什么东西。我们把秒定义到十的负十八次方，却测不准 G。</p>
+<p>精密是一种<b>能力</b>，不是一种<b>解释</b>。它能告诉你「理论和世界在第十二位上仍然一致」，不能告诉你理论为什么长这个样子。这两件事的差别是第 11 章（唯一那道裂缝）和第 17 章（六个数字与 95% 的无知）各自的全部内容，也是这本书后半部分一直在处理的紧张关系。</p>
+</div>
+
+<h2>那块被退役的金属</h2>
+
+<p>最后一件事发生在 2019 年 5 月 20 日，而它没有任何新数字。</p>
+
+<p>在巴黎西南郊的塞夫尔（Sèvres），国际计量局的地下室里存着一个铂铱合金圆柱，直径和高度都是 39 毫米，1889 年制成。它是「国际千克原器」。一百三十年间，「一千克」这个词的意思就是「这块金属的质量」——不是近似等于，是<b>定义为</b>。世界上所有的秤，追根究底都在和它比对。</p>
+
+<p>这个安排有一个显而易见的毛病：它会变。二十世纪的几次比对发现，这块圆柱和它的几个官方副本之间出现了几十微克的分歧。到底是原器变轻了还是副本变重了，无法回答——因为原器<b>按定义</b>不可能变。它就是一千克，哪怕它掉了几个原子。这不是一个精度问题，这是一个逻辑上的死结：你无法测量你的标尺本身。</p>
+
+<p>2019 年那一天，这个死结被解开了。千克被重新定义为：使普朗克常数 h 恰好等于 6.62607015 × 10⁻³⁴ 焦耳·秒的那个质量单位。同一天，安培改由基本电荷定义，开尔文改由玻尔兹曼常数定义，摩尔改由阿伏伽德罗数定义。秒早在 1967 年就交给了铯原子，米在 1983 年交给了光速。</p>
+
+<p>于是从那一天起，七个基本单位<em class="key">全部</em>由自然常数定义。</p>
+
+<div class="pull">人类不再用任何一件人造物来定义任何一个单位。</div>
+
+<p>塞夫尔的那块圆柱还在，被小心地保存着，但它已经退役了。它现在的质量是一个需要被测量的量，而且允许它变——测出来是 1.000000002 千克也没关系，那只是一件旧物件的属性，不再是一切的基准。</p>
+
+<p>我想把这件事讲成它真正的样子：这不是一次技术升级，是一次<em class="key">仪式</em>。在此之前，度量的最终权柄握在工匠手里——某一块金属、某一根铂铑合金米尺、某个人造物，它准，是因为我们说它准。在此之后，权柄交给了自然：单位由常数定义，而常数无处不在，任何有足够本事的实验室都能在自己的台面上把它复现出来。你不需要向巴黎申请比对，你只需要一台足够好的基布尔天平（Kibble balance）。度量从<b>一件被保管的东西</b>变成了<b>一段可以被重新执行的说明</b>。</p>
+
+<p>而这件事之所以能做，前提正是这一篇前面讲的那些数字。只有当你测常数的本事已经好过了守护那块金属的本事，你才有资格换定义——否则换过去只会变得更差。2019 年之所以是 2019 年，不是因为那年有人想通了什么道理（这个道理麦克斯韦 1870 年就讲过，他说单位应该建立在分子的性质上，因为分子不会磨损也不会被烧掉），而是因为那一年，那些十的负十几次方终于攒够了。</p>
+
+<p>麦克斯韦等了一百五十年。</p>
+</main>
+
+<footer class="ch">
+  <div class="prof">
+      <h4>物理学者的话</h4>
+      <p class="sub">本章内容在文献中的术语坐标，供想提前深入的读者定位。</p>
+
+      <p><b>预算。</b>光钟那个位数不是一个数字而是一张<b>误差预算</b>表，分项才是全部工作量：<b>黑体辐射位移</b>（最大单项，靠低温屏蔽与精确测温压制）、晶格光的<b>交流斯塔克位移</b>（须把囚禁激光调到<b>魔术波长</b>使两个钟能级位移相等）、<b>密度位移</b>（用费米子同位素令<b>泡利不相容</b>压制 s 波碰撞）、<b>二阶塞曼位移</b>，而<b>引力红移</b>如今是预算表里的一行而非待验证的预言。两个概念不可混：<b>稳定度</b>由<b>阿伦偏差</b>刻画、随平均时间下降，<b>系统不确定度</b>平均到无穷久也去不掉；前者的下限是<b>量子投影噪声</b>（<span class="eq">1/√N</span>，二项统计而非技术缺陷），压到其下须用<b>自旋压缩</b>，代价是对退相干更敏感。整套光频计量的前提是<b>光学频率梳</b>——飞秒锁模激光的等间距梳齿把光频与射频接通，无它则光钟只是振荡器。离子侧的关键词：<b>保罗阱</b>的射频四极场、<b>多普勒冷却</b>与<b>边带冷却</b>、<b>量子逻辑</b>协同冷却与读出、以<b>电子搁架</b>法读出的<b>量子跳跃</b>。</p>
+
+      <p><b>极限。</b>干涉仪噪声按频段分层，各有不同的攻法：低频是地面震动与<b>牛顿噪声</b>（附近密度起伏的引力吸引，<b>无法屏蔽</b>）、中频是镀膜的<b>布朗热噪声</b>（由涂层<b>机械损耗</b>定，须换材料而非换设计）与<b>悬挂热噪声</b>、高频是<b>散粒噪声</b>。散粒与<b>辐射压噪声</b>的乘积有下界，此即<b>标准量子极限</b>，突破靠注入<b>压缩真空</b>（把不确定性挪到另一正交分量，进阶形式是<b>频率依赖压缩</b>）。两处常被忽略的结构：<b>法布里–珀罗腔</b>与<b>功率循环镜</b>使几何臂长不等于有效作用长度；测得的是<b>无量纲应变</b> <span class="eq">h = ΔL/L</span>，靠<b>差分响应</b>抵消共模。计量侧的两条独立复现路线是<b>基布尔天平</b>（经<b>约瑟夫森效应</b>与<b>量子霍尔效应</b>把质量接到 <span class="eq">h</span>，故依赖宏观量子效应的普适性）与 <b>X 射线晶体密度法</b>；须记住<b>秒仍由铯超精细跃迁定义</b>，那是一条谱线而非基本常数。上限类结果的正确读法：总带<b>置信水平</b>，且近零信号处 <b>Feldman–Cousins</b>、贝叶斯与 <b>CLs</b> 给出不同的数。冷原子侧的旋钮是<b>费什巴赫共振</b>调<b>散射长度</b>，读出用<b>量子气体显微镜</b>，实现的是<b>哈伯德模型</b>；<b>量子模拟</b>须分<b>模拟式</b>与<b>数字式</b>。</p>
+
+      <p><b>入口。</b>Ludlow 等《Optical Atomic Clocks》（误差预算的逐项处理）；Saulson《Fundamentals of Interferometric Gravitational Wave Detectors》；Cohen-Tannoudji–Guéry-Odelin《Advances in Atomic Physics》（冷却与陷阱技术的谱系）。</p>
+    </div><nav class="pager">
+    <a href="ch06-确定但不可预测.html">← 第 6 章 确定但不可预测</a>
+    <a href="index.html">目录</a>
+    <a href="ch07-对称性作为立法者.html">第 7 章 对称性作为立法者 →</a>
+  </nav>
+</footer>
+
+</div></body></html>
