@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第34章 · 对称性的元素周期表 — 为什么我们还能理解世界</title>
+<style>
+:root{--paper:#faf8f4;--ink:#22201d;--dim:#6b6660;--blue:#1e4d6b;--ochre:#a4501e;--quote:#f1ece3;--rule:#ddd6c9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:19px/1.85 Georgia,"Songti SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+header.ch{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:40px}
+.part{font-size:13px;letter-spacing:.14em;color:var(--dim)}
+.num{font-size:13px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
+h1{font-size:34px;line-height:1.3;margin:.35em 0 .5em;font-weight:normal}
+.threads{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:12px;font-family:system-ui,sans-serif;color:var(--blue);
+  border:1px solid var(--blue);border-radius:11px;padding:2px 10px;opacity:.8}
+p{margin:0 0 1.25em;text-align:justify}
+p.lead{font-size:21px;color:#3a3730}
+.pull{font-size:23px;line-height:1.6;color:var(--blue);margin:1.8em 0;
+  padding-left:20px;border-left:3px solid var(--blue)}
+.aside{background:var(--quote);border-radius:5px;padding:20px 24px;margin:2em 0;
+  font-size:17px;line-height:1.75}
+.aside h4{margin:0 0 .6em;font-size:14px;letter-spacing:.1em;color:var(--dim);
+  font-family:system-ui,sans-serif;font-weight:600}
+.aside p:last-child{margin-bottom:0}
+.honest{border-left:3px solid var(--ochre);padding:4px 0 4px 20px;margin:2em 0;
+  font-size:17.5px;color:#4a453e}
+.honest b{color:var(--ochre);font-weight:normal}
+.honest p:last-child{margin-bottom:0}
+.eqblock{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:22px;
+  text-align:center;margin:1.6em 0 .4em;color:var(--ink)}
+.eqnote{text-align:center;font-size:15px;color:var(--dim);margin-bottom:1.8em}
+.eq{font-family:"Cambria Math",Cambria,Georgia,serif;white-space:nowrap}
+em.key{font-style:normal;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+table.data{width:100%;border-collapse:collapse;margin:1.8em 0;font-size:16.5px;
+  font-family:system-ui,sans-serif}
+table.data th{text-align:left;font-weight:600;color:var(--dim);font-size:13.5px;
+  letter-spacing:.06em;border-bottom:1px solid var(--rule);padding:8px 10px 8px 0}
+table.data td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule);line-height:1.6}
+table.data tr.hi td{background:var(--quote);color:var(--ochre)}
+.steps{margin:1.8em 0 2em;padding-left:22px;border-left:3px solid var(--ochre)}
+.steps p{margin:0 0 .7em;font-size:18px}
+.steps p:last-child{margin-bottom:0}
+figure{margin:2.2em 0}
+figure svg{display:block;width:100%;height:auto;background:#fff;
+  border:1px solid var(--rule);border-radius:4px}
+figcaption{font-size:15px;color:var(--dim);margin-top:.8em;line-height:1.65}
+h2{font-size:24px;font-weight:normal;margin:2.4em 0 .8em;color:var(--blue)}
+footer.ch{border-top:1px solid var(--rule);margin-top:56px;padding-top:26px}
+.prof{border:1px solid var(--rule);border-top:2px solid var(--blue);border-radius:4px;
+  padding:22px 26px;margin-bottom:30px;font-size:16.5px;line-height:1.72;color:#3a3730}
+.prof h4{margin:0 0 .2em;font-size:14px;letter-spacing:.1em;color:var(--blue);
+  font-family:system-ui,sans-serif;font-weight:600}
+.prof .sub{margin:0 0 1.1em;font-size:13.5px;color:var(--dim);
+  font-family:system-ui,sans-serif;line-height:1.5}
+.prof p:last-child{margin-bottom:0}
+nav.pager{display:flex;justify-content:space-between;font-size:15px;
+  font-family:system-ui,sans-serif;gap:16px}
+nav.pager a{color:var(--blue);text-decoration:none}
+nav.pager span{color:var(--dim)}
+nav.pager a:hover{text-decoration:underline}
+@media(max-width:600px){body{font-size:17.5px}.wrap{padding:36px 18px 72px}h1{font-size:27px}}
+</style></head><body><div class="wrap">
+
+<header class="ch">
+  <div class="part">第六部 · 数学：对象是什么变了</div>
+  <div class="num">第 34 章</div>
+  <h1>对称性的元素周期表</h1>
+  <div class="threads"><span class="tag">T4 否定性结果划出边界</span></div>
+</header>
+
+<main>
+<p class="lead">桌上一张正方形的纸片。你转过身去，我动它一下，你转回来，看不出我动过。</p>
+
+<p>我能有多少种动法？</p>
+
+<p>这个问题有确定的答案，而且你可以自己数出来。转 90°，看不出来。转 180°，转 270°，都看不出来。什么也不做，当然也看不出来——这个要算一种，理由等一下就清楚。然后还有翻面：沿竖直的中线翻过来，沿水平的中线翻，沿两条对角线各翻一次。</p>
+
+<p>一共八种。</p>
+
+<p>请你先确认这个八是穷尽的。正方形的四个角必须落在四个角的位置上，所以第一个角有四个去处；选定之后，整个纸片要么正着要么反着，两种。四乘二得八，没有第九种。这不是我数出来的，是被逼出来的。</p>
+
+<p>现在是关键的一步，而它不在「八」上面。</p>
+
+<p><strong>这八样东西可以相乘。</strong></p>
+
+<p>先转 90°，再沿竖中线翻——你试一下，结果和「沿某条对角线翻一次」完全一样。任意两个操作接起来，得到的还是这八个里的某一个，绝不会跑出去。「什么也不做」在这里的作用也清楚了：它是乘法里的一，任何操作乘它不变。而每个操作都有一个能把它抵消掉的操作（转 90° 的抵消者是转 270°）。</p>
+
+<p>所以这八样东西不是一堆散件，它们自己构成一个封闭的、有乘法的结构。</p>
+
+<p>这就是<strong>群</strong>。这一章不需要比这更多的定义，但那个「封闭」必须落实，因为整章都长在它上面：</p>
+
+<div class="pull">对称不是一个形容词。它是一个可以被拿走、单独研究的对象。</div>
+
+<p>「拿走」这个说法要坐实。把纸片扔掉，只留下那八个操作和它们的乘法表——一张八行八列的表，格子里写着「谁乘谁等于谁」。剩下的这个东西<em class="key">仍然是完整的</em>。它不再关于正方形了，它不关于任何具体的图形，它就是一个有八个元素的、封闭的乘法结构。</p>
+
+<p>而同一个结构可以附身在别的东西上。正方形的对称、某些晶体的对称、某个八元素的排列规则——它们可能是同一个群穿了不同的外衣。当我们说「这两样东西有同样的对称性」，说的正是这件事：外衣不同，里面那张乘法表一样。</p>
+
+<div class="steps">
+<p><strong>正方形</strong> → 载体。可以换掉，也可以扔掉。</p>
+<p><strong>那八个操作</strong> → 群的元素。真正的研究对象。</p>
+<p><strong>「先做这个再做那个」</strong> → 乘法。让这堆元素成为一个结构而不是一袋零件。</p>
+<p><strong>「什么也不做」</strong> → 乘法里的一。看着多余，其实是结构成立的条件。</p>
+</div>
+
+<p>这四个格子是这一章全部技术内容的容器。后面出现的任何东西——包括那个大得荒唐的对象——都只是往这四个格子里填不同的内容。</p>
+
+<p>现在，既然对称本身是一种对象，就可以问一个此前根本问不出来的问题。</p>
+
+<p>不是「正方形有几种对称」。是：<strong>世界上一共有几种对称？</strong></p>
+
+<h2>拆到底</h2>
+
+<p>这个问题的第一个反应应该是它没意义——对称结构显然有无穷多种。正 5 边形、正 17 边形、正 1000 边形各有自己的一套，光这一族就没完没了。</p>
+
+<p>对。所以问题要换个提法，而换的方式是数学里最老的一个套路：<strong>先问原料。</strong></p>
+
+<p>整数也有无穷多个，但整数不是一团乱麻，因为它们能被分解。12 拆成 2×2×3，100 拆成 2×2×5×5，而拆到最后剩下的那些——2、3、5、7、11——拆不动了。它们是整数的原料。整数有无穷多个，原料的种类也有无穷多种，但「先弄清原料」这一步仍然把整数的结构翻了个面。</p>
+
+<p>群也能这样拆。一个大的对称结构，常常能被拆成几个更小的对称结构的堆叠；而拆到最后拆不动的那些，叫<strong>单群</strong>——simple group。这个「单」不是「简单」的意思，恰恰相反，有些单群极其复杂。它是「不可再分」的意思，和「素数」里那个意思一样。</p>
+
+<p>于是那个问题有了一个可以处理的版本：<strong>一共有多少种单群？</strong></p>
+
+<p>而这里出现了一个岔口，它决定了这一章的全部分量，所以我要把两个比喻的分工划清楚。</p>
+
+<p><strong>素数管「分解到底」这件事。</strong>任何有限的群都能拆成单群的堆叠，就像任何整数都能拆成素数的乘积。这个比喻在这一层是准的。</p>
+
+<p><strong>但素数管不了下一件事，而下一件事才是这一章。</strong>素数有无穷多个，两千三百年前就被证明了；它们的分布至今是数学最深的秘密之一——第 33 章那桩悬案就是关于它的。素数<em class="key">永远列不完</em>，你不可能有一张素数表然后说「就这些了」。</p>
+
+<p>单群不是这样。</p>
+
+<p>单群<strong>能被列完</strong>。</p>
+
+<p>所以这一章的比喻要换成化学元素。门捷列夫 1869 年那张表和一张素数表是两种完全不同的东西，而区别恰好在这里：元素周期表有边。它有格子，格子有位置，而且——这是它最厉害的地方——<strong>空格意味着有东西还没被找到</strong>。门捷列夫留下的空格后来被一个一个填上，填进去的元素的性质和他预测的一致。一张表如果只是收集已知的东西，它做不到这件事；能做到，说明这张表知道自己该有多大。</p>
+
+<p>这三件事在单群这张表上全部成立，包括最后一件——有几个格子是先被预测出应该存在、然后才被造出来的。所以标题里的「元素周期表」不是修辞，它是一个可以逐条兑现的对照。</p>
+
+<p>这一节最后要下的伏笔就在这个「有边」上。</p>
+
+<p>如果一张表真的完整了，那它的价值就不在「表上有这些」。在<strong>表外没有别的</strong>。</p>
+
+<p>而后半句是一句否定性的断言。</p>
+
+<h2>清单，或者禁令</h2>
+
+<p>先把清单交出来，因为它比想象的短。</p>
+
+<p>有限单群一共分成两类。第一类是 <strong>18 个无穷系列</strong>：每一个系列里有无穷多个群，但它们全都按同一个配方造出来，给定配方里的参数就得到一个具体的群。这些配方大多和「在某种空间里做保持结构的变换」有关——比如所有保持某种长度不变的旋转，或者所有保持某种配对关系不变的变换。18 个系列，18 种配方，这一层不需要更多细节。</p>
+
+<p>第二类是<strong>例外</strong>。有 <strong>26 个</strong>群不属于任何一个系列。它们不是任何配方的产物，它们各自单独存在，各有自己古怪的大小和构造方式。它们叫<strong>散在群</strong>——sporadic groups，「零星散布」的意思。</p>
+
+<p>这就是全部。18 个系列加 26 个例外。任何一个有限的对称结构，拆到底，得到的一定是这份清单上的东西。</p>
+
+<p>现在我要把这句话扭过来，因为读者的默认读法是错的，而且错得很有代表性。</p>
+
+<p>默认读法是把它当成一份<strong>成果清单</strong>：数学家们努力了很久，找到了这 18 个系列和这 26 个例外。这个读法把重点放在「找到」上，于是这项工作听起来像一次大规模的采集——像编一本植物志，把标本都收齐。而如果是这样，那份清单的地位就永远是暂定的：也许哪天有人在某个角落里发现第 27 个例外，那就添一格。</p>
+
+<p>不是这样的。真正的内容是另外半句：</p>
+
+<div class="pull">除了这些，没有别的了。</div>
+
+<p>这句话不是「我们还没找到第 27 个」，是<em class="key">第 27 个不存在，这件事被证明了</em>。任何人，用任何方法，在任何时候，都不可能构造出一个不在这份清单上的有限单群——不是因为难，是因为它不存在，就像不存在一个偶素数除了 2 以外。</p>
+
+<p>这是一条禁令。而它是这本书里最后一次交付这种形状的知识，所以值得把前面那几次并排放一放。</p>
+
+<table class="data">
+<tr><th>结果</th><th>看着像什么</th><th>被排除的是什么</th></tr>
+<tr><td>贝尔不等式<br><span style="color:#6b6660">第 19–20 章</span></td><td>一个关于量子力学的实验</td><td>任何局域实在论的世界观，不管它长什么样、还没被想出来也算</td></tr>
+<tr><td>连续统假设独立<br><span style="color:#6b6660">第 22 章</span></td><td>集合论里一个技术结果</td><td>任何在通行公理系统内判决它的可能，不是「还没证出来」</td></tr>
+<tr><td>无毛定理<br><span style="color:#6b6660">第 14 章</span></td><td>一份黑洞的属性清单：质量、角动量、电荷</td><td>其余一切特征。塌缩前那颗恒星的一切细节都不留</td></tr>
+<tr><td>三维流形的分类<br><span style="color:#6b6660">第 32 章</span></td><td>一份三维形状的目录</td><td>目录之外的三维形状。它们不是没被找到，是没有</td></tr>
+<tr class="hi"><td>有限单群分类<br><span style="color:#6b6660">本章</span></td><td>18 个系列加 26 个例外的清单</td><td>第 27 个散在群。以及第 19 个系列，以及任何别的可能</td></tr>
+</table>
+
+<p>五个结果，五种领域，一个形状。第 32 章我说过一句话，这里要再说一次，因为这一章是它最纯粹的样本：<strong>一张完整的清单是一条伪装起来的禁令。</strong>伪装得很好，因为清单看起来是加法——这里有五样东西。而它实际上是减法：其余的全部没有。</p>
+
+<figure>
+<svg viewBox="0 0 640 306" role="img" aria-label="有限单群清单的形状：左侧 18 个无穷系列，右侧 26 个散在群共 26 个小方格，最后一格是魔群；整份清单被一个封闭的边框围住，框外为空">
+<defs>
+  <!-- 系列线右端渐隐：表示每条系列往右无限延伸。
+       必须用 userSpaceOnUse：水平线的包围盒高度为 0，
+       默认的 objectBoundingBox 会退化成不渲染。 -->
+  <linearGradient id="fade34" gradientUnits="userSpaceOnUse"
+                  x1="46" y1="0" x2="268" y2="0">
+    <stop offset="0" stop-color="#1e4d6b" stop-opacity="1"/>
+    <stop offset="0.55" stop-color="#1e4d6b" stop-opacity="1"/>
+    <stop offset="1" stop-color="#1e4d6b" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<!-- 定理的那条边：围住整份清单 -->
+<rect x="14" y="14" width="612" height="230" rx="5" fill="none" stroke="#a4501e" stroke-width="2.5"/>
+
+<!-- 左半：18 个无穷系列。线与右侧格子共用同一条基准（y=66 起） -->
+<rect x="32" y="40" width="256" height="180" rx="4" fill="#f1ece3" stroke="#ddd6c9"/>
+<text x="46" y="56" font-family="system-ui,sans-serif" font-size="13.5" fill="#22201d">18 个无穷系列</text>
+<g stroke="url(#fade34)" stroke-width="1.5">
+  <line x1="46" y1="81" x2="268" y2="81"/>
+  <line x1="46" y1="105" x2="268" y2="105"/>
+  <line x1="46" y1="129" x2="268" y2="129"/>
+  <line x1="46" y1="153" x2="268" y2="153"/>
+  <line x1="46" y1="177" x2="268" y2="177"/>
+</g>
+<text x="46" y="196" font-family="system-ui,sans-serif" font-size="14" fill="#6b6660">⋮</text>
+<text x="46" y="213" font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660">只画了 5 条示意，共 18 条；每条都无限延伸</text>
+
+<!-- 右半：26 个散在群，7 列 4 行（7+7+7+5），格 30×30，间隙 8。
+     起点 x=321：使整块（321–579）在左面板与边框之间左右各留 47 -->
+<text x="321" y="56" font-family="system-ui,sans-serif" font-size="13.5" fill="#22201d">26 个散在群（不属于任何系列）</text>
+<g fill="#fff" stroke="#1e4d6b" stroke-width="1.2">
+<rect x="321" y="66" width="30" height="30"/><rect x="359" y="66" width="30" height="30"/><rect x="397" y="66" width="30" height="30"/><rect x="435" y="66" width="30" height="30"/><rect x="473" y="66" width="30" height="30"/><rect x="511" y="66" width="30" height="30"/><rect x="549" y="66" width="30" height="30"/>
+<rect x="321" y="104" width="30" height="30"/><rect x="359" y="104" width="30" height="30"/><rect x="397" y="104" width="30" height="30"/><rect x="435" y="104" width="30" height="30"/><rect x="473" y="104" width="30" height="30"/><rect x="511" y="104" width="30" height="30"/><rect x="549" y="104" width="30" height="30"/>
+<rect x="321" y="142" width="30" height="30"/><rect x="359" y="142" width="30" height="30"/><rect x="397" y="142" width="30" height="30"/><rect x="435" y="142" width="30" height="30"/><rect x="473" y="142" width="30" height="30"/><rect x="511" y="142" width="30" height="30"/><rect x="549" y="142" width="30" height="30"/>
+<rect x="321" y="180" width="30" height="30"/><rect x="359" y="180" width="30" height="30"/><rect x="397" y="180" width="30" height="30"/><rect x="435" y="180" width="30" height="30"/>
+</g>
+<!-- 第 26 格：魔群，坐在表的最后 -->
+<rect x="473" y="180" width="30" height="30" fill="#a4501e" stroke="#a4501e" stroke-width="1.2"/>
+<text x="513" y="194" font-family="system-ui,sans-serif" font-size="12" fill="#a4501e">魔群</text>
+<text x="513" y="208" font-family="system-ui,sans-serif" font-size="12" fill="#a4501e">≈ 8×10⁵³</text>
+
+<!-- 框外为空：指向边框本身 -->
+<path d="M150 268 L150 252" fill="none" stroke="#a4501e" stroke-width="1.4"/>
+<path d="M146 256 L150 248 L154 256 Z" fill="#a4501e"/>
+<text x="160" y="272" font-family="system-ui,sans-serif" font-size="14" fill="#a4501e">框外面没有别的了 —— 这条边，就是定理</text>
+</svg>
+<figcaption>这张图要看出的不是「表上有多少东西」，是<strong>那个边框</strong>。格子是五十年工作的产物，但格子只是清单；定理的内容是那条边——它断言外面是空的，不是「暂时没找到」，是被证明了不存在。左侧那些虚线各代表一个无穷系列（每条都往右无限延伸，只画了五条示意，实际十八条）；右侧每个小方格是一个散在群，赭石那一格是魔群，坐在表的最后。</figcaption>
+</figure>
+
+<p>那 26 个例外里，我要单独讲一个，就是最后一格里的那个。</p>
+
+<p>它叫<strong>魔群</strong>（Monster group），是这 26 个里最大的一个。它有多大：约 8×10⁵³ 个元素。</p>
+
+<p>这个数需要一个对照才有意思。地球上所有原子的数目大约是 10⁵⁰——所以魔群的元素比构成整个地球的原子还多几千倍。你可以在这里停一下体会这个尺寸，但真正该体会的不是「大」。</p>
+
+<p>真正该体会的是：<strong>它是有限的。</strong></p>
+
+<p>它不是一个无穷的对象，不是一个需要极限过程才能触及的东西。它有确定的、可以写下来的元素个数。它的乘法表——「谁乘谁等于谁」的那张表——原则上是写死的，每一格都有唯一确定的答案。它是一个完全被确定的、封闭的、有限的对象，只是大得没有任何人能把它整个看一遍。</p>
+
+<p>而它坐在那张周期表的最后一格里。</p>
+
+<div class="aside"><h4>空格如何变成预测</h4>
+<p>门捷列夫那张表最有说服力的时刻不是它排好的那天，是空格被填上的那些天。他在锌和砷之间留了两个空位，算出了那两个东西应该有的原子量和大致性质，然后等着。镓在 1875 年被找到，锗在 1886 年——性质对上了。一张只会收纳已知物的表做不到这件事。</p>
+<p>散在群这边也有同样的时刻。有几个是先被推断出「如果存在，它必须有这么大、必须有这些性质」，然后才有人把它真正构造出来的。魔群本身就是这样：它的大小和许多性质在 1973 年前后被推算出来，而真正把它造出来是几年之后的事。<strong>在被造出来之前，它已经被知道了。</strong></p></div>
+
+<h2>一个没有作者的定理</h2>
+
+<p>上面那条禁令——「除了这些没有别的了」——是被证明的。现在我要说这个证明长什么样。</p>
+
+<p>它从 1950 年代中期开始。一般把 Brauer 和 Fowler 在 1955 年的一篇论文算作起点，因为它第一次让人看出这件事<strong>可能</strong>做得完：那篇论文证明了，如果限定了某个特定的局部特征，可能的群只有有限多种。这句话的意思是，无穷的可能性有办法被逼成有限的清单。</p>
+
+<p>然后是五十年。</p>
+
+<p>参与者超过一百位数学家。成果散落在数百篇期刊论文里，分布在几十年的不同卷期上，总量上万页。没有一篇是「主定理」——整个证明是把上百个各自独立发表的结果拼起来的，每一个处理一类情形，合起来穷尽所有情形。</p>
+
+<p><strong>没有任何一个人读完过全部。</strong></p>
+
+<p>这句话不是修辞。它是这个领域自己承认的事实，而且它有一个可以估算的理由：读完这上万页并且真正核验每一步，需要的时间大约是一个人整个学术生涯的量级——而在那期间他做不了别的事，也发表不了什么。没有人这样做过，也很难想象谁会这样做。</p>
+
+<p>接下来是这一节的关键插曲，它是真实的，而且它同时是这个故事最令人不安和最令人安心的部分。</p>
+
+<p>1980 年前后，这项工作被宣布完成了。分类定理成立，清单封闭，一代人的工作结束。这个消息被广泛接受，写进了教科书和综述，成为后续研究的基础。</p>
+
+<p>然后有人发现证明里有一个缺口。</p>
+
+<p>要说清这个缺口的性质，因为它不是笔误。不是某一步的计算错了，也不是某个引理的条件写漏了。是<strong>一整类情形从来没有被真正处理过</strong>——所有人都以为它已经被某篇论文覆盖了，而实际上没有。补上它不是改几行字的事，是需要一部专著的事。那部专著由 Aschbacher 和 Smith 写成，篇幅一千多页，2004 年发表。</p>
+
+<p>所以：<strong>分类定理完成这件事被宣布过两次，中间隔了二十多年。</strong></p>
+
+<p>现在可以正面问那个问题了。</p>
+
+<div class="pull">我们凭什么相信它？</div>
+
+<p>这个问题必须问得诚实，也就是说，先要说清它为什么是个真问题而不是一句抱怨。</p>
+
+<p>第 32 章讲佩雷尔曼的时候，我给出过一套机制，而那套机制是数学之所以可靠的实际运作方式：证明公开出来，社区花几年时间逐行核验，多个互不相干的团队各自写出详细的注释版本，把每一处跳步补足，最后结论站住。那不是靠权威，也不是靠信任作者的人品，是靠<strong>足够多的人独立地把同一件东西看懂了</strong>。</p>
+
+<p>而这套机制有一个前提：得有足够多的人能读完，并且愿意读。三篇预印本、几十页，这个前提成立，事实上有好几个团队做了这件事。</p>
+
+<p>上万页，分布在数百篇论文里，横跨五十年——这个前提<strong>不成立</strong>。1980 年那个缺口就是证据：它不是被某个逐行核验的人发现的，它是在这个领域自己反复清点自己的家底时才浮出来的，而这花了将近二十年。</p>
+
+<p>这个领域的应对不是宣布它一定对，而是别的东西，值得如实记下来。有一项持续了几十年的工程，目标是把整个证明<strong>重写</strong>——不是重新发现，是把散落在数百篇论文里的论证整理成一套统一的、自洽的、按同一套记号和同一条主线写下来的丛书，让它成为一个人有可能真的读下去的东西。这套书已经出版了多卷，仍未完成。</p>
+
+<p>这项工程的存在本身就是这个领域对信任问题的回答方式：<em class="key">不是宣称它一定对，是持续地降低它出错的可能</em>。</p>
+
+<div class="honest">
+<p><b>这笔账的形状。</b></p>
+<p>专家共识是分类定理成立，而这个共识不是随口的。最好的证据恰恰是 1980 年那个缺口——它是这个领域<strong>自己找出来并且自己补上的</strong>。一个能发现自己二十年前的错误并花一千多页去修的领域，和一个只会互相点头的领域，是两回事。</p>
+<p>但「一个定理的正确性由一个没有任何人能独自复核的分布式过程来保证」是一件新事。数学史上没有先例。欧几里得到二十世纪中叶，一个定理的证明总是某个人能完整持有的东西——可能很难，可能只有少数人懂，但那少数人是<strong>完整地</strong>懂。这一次不是。</p>
+<p><b>按第 12 章的标准，这不构成对它的怀疑。</b>这一点要明写，否则容易被误读。那一章我立的标准是：一个想法要算进知识，得或者被实验判决，或者证明了一个关于什么不可能的严格结果。分类定理有证明，证明公开，缺口被发现并被补上，它符合标准。这和「美但未观测」是完全不同的处境——超对称的问题是它没有证据，分类定理的问题是它的证据太长了。这是两种不同的处境，混为一谈会让判断标准失效。</p>
+<p>要交代的是别的东西：这件事<strong>改变了「知道」这个动作的分布方式</strong>。以前一个定理被知道，意味着有人知道它。现在可以是没有任何一个人完整地知道它，而它仍然被知道——知识存在于一百多个人各自持有的碎片之间，以及那些碎片相互咬合的方式里。</p>
+<p>形式化是对这个处境的一种回应：如果每一步都能被机器核验，那么「没有人读完」就不再是个问题。这条路到 2026 年走到了哪一步、又没能做到什么，是第 37 章的事。</p>
+</div>
+
+<h2>差一</h2>
+
+<p>到这里，那张周期表建立完了：它有边，边外面没有东西，最后一格里坐着那个有 8×10⁵³ 个元素的对象。这一章本来可以在这里结束。</p>
+
+<p>而它不结束，因为最后那一格向外漏光。</p>
+
+<p>我要给你两个数，来自两个不相干的地方。请你不要跳读，一个一个看。</p>
+
+<p><strong>第一个数。</strong></p>
+
+<p>魔群是一个抽象的东西——一堆元素和一张乘法表，没有形状，不住在任何空间里。但你可以问：能不能把它<strong>落实</strong>成某个空间里的旋转？也就是说，能不能找一个空间，让魔群的每个元素都变成那个空间里的一个具体的转动，而且转动接起来的规则和乘法表完全一致？</p>
+
+<p>对正方形那八个操作，答案是能，而且需要的空间很小：一张纸就够，二维。八个操作全都是这张纸上的转和翻。</p>
+
+<p>对魔群，也能。但需要的空间要大得多。而这里可以问一个精确的问题：<strong>最少需要多少维？</strong></p>
+
+<p>这个问题有确定的答案，它是被算出来的：</p>
+
+<p><strong>196883 维。</strong></p>
+
+<p>不是大约，不是估计。魔群没法落实在 196882 维里，196883 维刚好够。（更准确地说，有一个平凡的落实方式在一维里就能做到——让所有元素都对应「什么也不做」——那个不算，它什么信息都不携带。除掉这一个之后，最小的就是 196883。）</p>
+
+<p><strong>第二个数，来自一个和群论毫无关系的地方。</strong></p>
+
+<p>数论里有一类函数叫<strong>模形式</strong>。它们的定义方式和普通函数不一样：普通函数是你给一个输入它给一个输出，而模形式是被它的<em class="key">对称性</em>定义的——存在一大族变换，这个函数在这些变换下保持形状不变。</p>
+
+<p>这个要求苛刻到什么程度值得说一句。它不是「转 90° 之后还一样」这种一次性的对称，是一整族无穷多个变换下都得保持形状。这种要求几乎不可能被满足，所以模形式极少；而正因为它们受这么强的约束，它们成了一种极其致密的容器——大量的算术信息被压进它们的系数里，压得非常紧。这是模形式在数论里如此重要的原因，第 31 章那座桥的一整侧就是它们。</p>
+
+<p>其中最出名的一个叫 <strong>j 函数</strong>。它的头几个系数是一列整数：</p>
+
+<p>1，744，<strong>196884</strong>，21493760，……</p>
+
+<p>请你看第三个。</p>
+
+<div class="eqblock">196884 = 196883 + 1</div>
+<div class="eqnote">左边来自数论：一个模形式的第三个系数。右边来自群论：一个有限对称结构最少需要多少维才能被落实。<br>1978 年，这两个领域之间没有任何已知的联系。</div>
+
+<p>1978 年，McKay 注意到了这件事，写信告知同行。</p>
+
+<p>当时几乎所有人的第一反应是：巧合。</p>
+
+<p>这个反应是<strong>专业的</strong>，不是迟钝——这一点很重要，我在下面单独说。眼下要说的是接下来发生了什么。</p>
+
+<p>不只是第一个系数对得上。j 函数后面的系数——21493760 和它之后的那些——也都能写成魔群那些「落实方式」的维数的简单组合。不是一个数碰巧撞上了，是<strong>一整列数系统地对应</strong>。</p>
+
+<p>一个巧合可以是巧合。一整列巧合不是。</p>
+
+<p>Conway 和 Norton 在 1979 年把这件事写成了一个精确的猜想，并给了它一个名字：<strong>Monstrous Moonshine</strong>，怪异月光。选 moonshine 这个词是因为它在英语里既指月光，也指私酿的烈酒，也指胡话——当时这件事听起来就像喝多了说出来的。</p>
+
+<p>1992 年，Borcherds 证明了这个猜想。他因此获得 1998 年的菲尔兹奖。</p>
+
+<p>而他用的工具，叫<strong>顶点算子代数</strong>。</p>
+
+<p>这个东西是什么，这一章不解释——它需要的准备远超这本书能给的。要交代的只有它的来处：<strong>它是从弦论里长出来的结构。</strong>物理学家为了描述一根弦在时空里如何振动而发展出来的一套数学装置，被用来证明一个关于有限群和模形式的纯数学猜想。</p>
+
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="左边是魔群的 196883，右边是 j 函数的 196884，两者横向相连、相差 1，这是 1978 年被看见的；底下顶点算子代数（来自弦论）向左右两边各连出一条线，1992 年解释了这条横线">
+<!-- 左：群论侧 -->
+<rect x="26" y="34" width="232" height="82" rx="4" fill="#f1ece3" stroke="#ddd6c9"/>
+<text x="42" y="56" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">群论侧　魔群：最少要多少维</text>
+<text x="42" y="73" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">才能把它写下来</text>
+<text x="142" y="103" font-family="system-ui,sans-serif" font-size="22"
+      fill="#1e4d6b" text-anchor="middle">196883</text>
+
+<!-- 右：数论侧 -->
+<rect x="382" y="34" width="232" height="82" rx="4" fill="#f1ece3" stroke="#ddd6c9"/>
+<text x="398" y="56" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">数论侧　j 函数：展开式的</text>
+<text x="398" y="73" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">第三个系数</text>
+<text x="498" y="103" font-family="system-ui,sans-serif" font-size="22"
+      fill="#1e4d6b" text-anchor="middle">196884</text>
+
+<!-- 1978 年被看见的那条横线 -->
+<line x1="258" y1="75" x2="382" y2="75" stroke="#a4501e" stroke-width="1.6"/>
+<text x="320" y="66" font-family="system-ui,sans-serif" font-size="12.5"
+      fill="#a4501e" text-anchor="middle">差 1</text>
+<text x="320" y="26" font-family="system-ui,sans-serif" font-size="12"
+      fill="#6b6660" text-anchor="middle">1978 年看见：两个数挨着，可以是巧合</text>
+
+<!-- 1992 年造出来的东西，以及它向两边伸出的两条线 -->
+<rect x="206" y="214" width="228" height="58" rx="4" fill="#fff" stroke="#1e4d6b" stroke-width="1.4"/>
+<text x="320" y="238" font-family="system-ui,sans-serif" font-size="13"
+      fill="#22201d" text-anchor="middle">顶点算子代数</text>
+<text x="320" y="258" font-family="system-ui,sans-serif" font-size="12"
+      fill="#a4501e" text-anchor="middle">（来自弦论）</text>
+
+<g fill="none" stroke="#1e4d6b" stroke-width="1.4">
+  <path d="M240 214 L160 122"/>
+  <path d="M400 214 L480 122"/>
+</g>
+<path d="M156 126 L159 116 L165 122 Z" fill="#1e4d6b"/>
+<path d="M484 126 L481 116 L475 122 Z" fill="#1e4d6b"/>
+
+<text x="320" y="292" font-family="system-ui,sans-serif" font-size="12.5"
+      fill="#1e4d6b" text-anchor="middle">1992 年造出来：同时压得住左右两边，横线才成为推导</text>
+</svg>
+<figcaption>这张图要看出的不是「两个数差 1」，是<strong>底下那两条往上伸的线</strong>。上面那条横线，1978 年就有人看见了，看见的时候它什么也不说明——两个数挨着，可以是巧合。下面那两条不是看见的，是十四年里造出来的：造出一个同时压得住左右两边的东西，横线才从并列变成推导。而那个东西的原料来自弦论。</figcaption>
+</figure>
+
+<p>把落点说到位。</p>
+
+<div class="pull">周期表最后一格里的那个东西，知道数论的事。而它是通过物理学告诉我们的。</div>
+
+<p>这句话的每一部分都要能兑现，所以我逐块拆一下。</p>
+
+<p><strong>「最后一格里的那个东西」</strong>：魔群。它是从「把所有可能的对称结构分类」这个纯粹内向的工程里出来的——那个工程完全不看外面，它只问自己的清单封闭了没有。</p>
+
+<p><strong>「知道数论的事」</strong>：它的落实维数是 j 函数的系数，而 j 函数把算术信息压在自己的系数里。所以那一列维数不是随便的整数，它们携带数论的内容。魔群在它自己完全不该知道的领域里留下了指纹。</p>
+
+<p><strong>「通过物理学告诉我们的」</strong>：解释这个吻合的那把钥匙，来自一个描述弦振动的理论。1978 年那个观察是一条横线，把两个数连起来；1992 年那个证明是从下面接上来的两根线，而那两根线的材料来自物理学。</p>
+
+<p>现在把这一章和上一章并排放一下，因为这个对照是这两章之间真正的结构活。</p>
+
+<p>第 33 章讲了一个吻合：随机方阵的能级间距，和黎曼函数零点的间距，服从同一条统计规律。<strong>那个吻合至今没有被解释。</strong>我按第 12 章的标准说了，它不算知识——一个没被解释的吻合就是一个吻合。</p>
+
+<p>这一章讲了另一个吻合：196884 和 196883 差一。<strong>这个吻合被解释了。</strong>它现在是一条定理，可以被引用，可以拿去推别的东西。</p>
+
+<p>两章挨着，各有一个样本。所以上一章那句「一个未被解释的吻合后来常常被解释」不是安慰话，它在这本书里紧邻的两页上各有一个实例：一个还在等，一个已经等到了。而等到的那一个，等了十四年。</p>
+
+<div class="aside"><h4>为什么 1978 年那个「大概是巧合」是专业的</h4>
+<p>数字上的惊人吻合在数学里确实会是纯粹的偶然，而且有过著名的案例。最有名的一个是把常数 e 自乘 π 与 <span class="eq">√163</span> 之积那么多次得到的数：它极其接近一个整数，小数点后连着十二个 9，看起来非讲不可——而它<strong>确实</strong>有深刻的原因。但也有反过来的：另一些看起来同样惊人的接近，被查清之后发现纯属数值上的碰巧，背后什么都没有。</p>
+<p>而在两个几万量级的数之间，「差一」这种事的先验概率并不低——你在数学里搜集足够多的大整数，总会撞上一些。所以 1978 年那个第一反应是训练出来的反应，不是缺乏想象力：<strong>数学家知道自己容易被数字的巧合骗</strong>，所以默认怀疑。</p>
+<p>这一点也保护了上一章那笔账的诚实性。我在那里说黎曼零点那个吻合「不是空穴来风，因为同类现象已被证实过三次」——这句话是对的，但它不等于「所有吻合都有解释」。有些没有。区别只能靠具体的工作查清，靠不了直觉。</p></div>
+
+<h2>三件收束</h2>
+
+<p>第一件，关于这条主线。</p>
+
+<p>这一章是全书最后一次交付「完整清单 = 禁令」这个形状。第 32 章立下它的时候我说：分类定理的分量不在「找到了这些」，在「除了这些没有别的了」。这一章是它最极端的样本——18 个系列加 26 个例外，一份看起来最像采集成果的清单，实际上是一句关于全部可能性的封闭断言。</p>
+
+<p>但这一次有一个新东西，它是这条主线上此前没出现过的。<strong>这条禁令是集体证出来的。</strong>贝尔不等式是一个人写下来的，可以在一页纸上验证；奇点定理是一个人证的；连续统假设的独立性是一个人证的。而这一条禁令有一百多位作者，上万页，没有人完整持有它。</p>
+
+<p>这给否定性知识添了一个此前不存在的问题。以前关于一条禁令，要问的是「它对不对」。现在还得问一句：<em class="key">谁知道它？</em></p>
+
+<p>第二件，关于第六部。</p>
+
+<p>上一章我列了四种「数学在变」：换掉对象（第 30 章）、换掉领域之间的翻译（第 31 章）、借来外来的工具（第 32 章）、一门学科从工具升格为地基（第 33 章）。这一章给第五种，而它和前四种不在同一个层面上——前四种变的是数学做什么、怎么做，这一种变的是数学<strong>由谁持有</strong>。</p>
+
+<p>一个定理曾经必须住在某个人的脑子里才算被知道。现在它可以住在一百多个人之间的缝隙里。第六部问「对象是什么变了」，这是它最不像回答的一个回答：变的不是对象，是那个能说「我知道」的主语。</p>
+
+<p>第三件，往前看。</p>
+
+<p>Borcherds 用一个从弦论里长出来的结构，证明了一个关于有限群和模形式的猜想。我在上面说了这件事的落点，但没有说它其实不是孤例。</p>
+
+<p>它是一种发现模式的一个样本，而这种模式在二十世纪以前基本不存在。此前的方向是反的：数学为物理提供工具，物理学家去数学的库房里取用现成的东西。而现在有另一个方向在运转——<strong>物理学家凭直觉断言某件事应该成立，那件事是一个严格的数学命题，而且往往是数学家自己想不到去问的命题，然后数学家把它证明了。</strong></p>
+
+<p>这本书里已经埋过这条线的几个头：第 14 章那个用超引力技巧写出的两页证明，第 32 章那件从杨-米尔斯方程借来的、用来分类四维的工具。加上这一章的顶点算子代数，是三个了。</p>
+
+<p>第 35 章要正面处理它。</p>
+</main>
+
+<footer class="ch">
+  <div class="prof"><h4>数学家的话</h4>
+  <p class="sub">本章内容在文献中的术语坐标，供想提前深入的读者定位。</p>
+
+  <p><b>合成列。</b>「拆到底」的严格版是 <b>Jordan–Hölder 定理</b>：有限群<b>合成列</b>的<b>合成因子</b>带重数唯一，且皆<b>单</b>。陷阱在类比的方向：因子唯一，反向重建却不唯一——这是<b>群扩张</b>问题，由 <span class="eq">H<sup>2</sup>(G, A)</span> 分类，故「知道原料」不等于「知道群」。单性即无非平凡<b>正规子群</b>，也正是它当阻挡点的机制：<span class="eq">A<sub>n</sub></span>（<span class="eq">n ≥ 5</span>）单，即<b>五次方程根式不可解</b>。清单的准确形式为素<b>循环群</b>、<b>交错群</b>、<b>有限域上的李型群</b>（<b>Chevalley 群</b>与 <b>Steinberg–Suzuki–Ree 扭型</b>），加 <b>散在群</b>；族的数目随扭型如何归族而有不同记法，清单本身无歧义。不是<b>魔群</b>子商的那几个叫 <b>pariah</b>。</p>
+
+  <p><b>局部化。</b>证明骨架的关键词：<b>Brauer–Fowler</b> 把问题<b>局部化</b>到<b>对合中心化子</b>；<b>Feit–Thompson 定理</b>（奇阶群可解）保证对合存在；此后按 <b>2-局部结构</b>分情形——<b>小 2-秩</b>、<b>component type</b> 与 <b>B-猜想</b>、<b>characteristic 2 type</b> 与 <b>Aschbacher 经典对合定理</b>、<b>Gorenstein–Lyons–Solomon 三分定理</b>，缺口出在<b>准薄群</b>情形。<b>第二代证明</b>（GLS 丛书）仍在出。月光侧：<b>Thompson 级数</b> <span class="eq">T<sub>g</sub>(τ) = ∑ tr(g|V<sub>n</sub>)q<sup>n−1</sup></span> 须是<b>亏格零群</b>的 <b>Hauptmodul</b>，此即 <b>Conway–Norton 猜想</b>，远强于 <span class="eq">j</span>-不变量首项系数那一条数字巧合。<b>月光模</b> <span class="eq">V<sup>♮</sup></span> 是中心荷 <span class="eq">c = 24</span> 的<b>顶点算子代数</b>，取 <b>Leech 格</b>的 <span class="eq">ℤ<sub>2</sub></span>-<b>轨形</b>，自同构群为魔群，<b>分次维数</b>给出 <span class="eq">j − 744</span>；证明经<b>魔群李代数</b>（一个<b>广义 Kac–Moody 代数</b>）与 <b>Weyl 分母恒等式</b>，其中 <b>Goddard–Thorn no-ghost 定理</b>是被借入纯代数论证的一步。</p>
+
+  <p><b>入口。</b>Wilson《The Finite Simple Groups》（清单与构造）；Gorenstein《Finite Simple Groups: An Introduction to Their Classification》（局部分析的思路）；Frenkel–Lepowsky–Meurman《Vertex Operator Algebras and the Monster》（月光侧的原始构造）。</p>
+  </div>
+  <nav class="pager">
+    <a href="ch33-第二个钟形.html">← 第 33 章 高斯之外的第二个钟形</a>
+    <a href="index.html">目录</a>
+    <a href="ch35-猜想工厂.html">第 35 章 物理学作为猜想工厂 →</a>
+  </nav>
+</footer>
+
+</div></body></html>
