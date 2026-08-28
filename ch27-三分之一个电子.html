@@ -231,18 +231,71 @@ nav.pager a:hover{text-decoration:underline}
 <p>于是抖动的大小告诉你每块有多大。你测的是噪声，你得到的是电荷。<b>而这里面完全不涉及那个准粒子的任何别的性质</b>——不需要知道它的质量、大小、来历，只需要它是一个一个通过的。</p>
 
 <figure>
-<svg viewBox="0 0 620 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="散粒噪声示意：大电荷块给出粗颗粒的电流抖动，小电荷块给出细颗粒的抖动">
-<line x1="60" y1="70" x2="580" y2="70" stroke="#ddd6c9" stroke-width="1" stroke-dasharray="4 4"/>
-<line x1="60" y1="185" x2="580" y2="185" stroke="#ddd6c9" stroke-width="1" stroke-dasharray="4 4"/>
-<path d="M60 70 L84 52 L108 84 L132 58 L156 88 L180 56 L204 80 L228 54 L252 86 L276 62 L300 82 L324 52 L348 88 L372 60 L396 78 L420 54 L444 86 L468 64 L492 80 L516 56 L540 84 L564 62 L580 74" fill="none" stroke="#a4501e" stroke-width="2"/>
-<path d="M60 185 L74 179 L88 191 L102 181 L116 189 L130 178 L144 190 L158 182 L172 188 L186 180 L200 190 L214 181 L228 189 L242 179 L256 190 L270 183 L284 187 L298 180 L312 190 L326 182 L340 188 L354 179 L368 190 L382 183 L396 187 L410 180 L424 190 L438 182 L452 188 L466 180 L480 189 L494 182 L508 188 L522 180 L536 190 L550 183 L564 187 L580 184" fill="none" stroke="#1e4d6b" stroke-width="2"/>
-<text x="60" y="34" font-family="system-ui,sans-serif" font-size="14" fill="#a4501e">大的电荷块 · 块数少 · 抖动明显</text>
-<text x="60" y="149" font-family="system-ui,sans-serif" font-size="14" fill="#1e4d6b">小的电荷块 · 块数多 · 抖动被平掉</text>
-<text x="588" y="74" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">平均值</text>
-<text x="588" y="189" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">平均值</text>
-<text x="60" y="225" font-family="system-ui,sans-serif" font-size="13" fill="#6b6660">两条曲线的平均电流完全相同 —— 唯一的差别是每一份货物有多大</text>
+<svg viewBox="0 0 700 392" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="散粒噪声示意：同一个平均电流，由 e 的块搬运时事件少、抖动大；由 e/3 的块搬运时事件多三倍、抖动小根号三倍。两条曲线按 1/根号 N 的关系精确作图。">
+ <g font-family="system-ui,sans-serif">
+
+  <!-- ===== top: big blocks, q = e ===== -->
+  <text x="70" y="40" font-size="13.5" fill="#a4501e">若每块是 <tspan font-family="Cambria Math,Cambria,Georgia,serif">e</tspan>：块大 · 事件少 · 抖动明显</text>
+  <text x="70" y="57" font-size="10.5" fill="#a4501e" opacity=".8">下面画了 14 次通过</text>
+
+  <!-- tick marks: one per arrival event; spacing is IRREGULAR — that randomness is the noise -->
+  <g stroke="#a4501e" stroke-width="2" opacity=".55">
+    <line x1="98.0" y1="72" x2="98.0" y2="84"/><line x1="129.2" y1="72" x2="129.2" y2="84"/>
+    <line x1="175.4" y1="72" x2="175.4" y2="84"/><line x1="190.9" y1="72" x2="190.9" y2="84"/>
+    <line x1="247.9" y1="72" x2="247.9" y2="84"/><line x1="267.1" y1="72" x2="267.1" y2="84"/>
+    <line x1="315.5" y1="72" x2="315.5" y2="84"/><line x1="347.8" y1="72" x2="347.8" y2="84"/>
+    <line x1="357.6" y1="72" x2="357.6" y2="84"/><line x1="394.2" y1="72" x2="394.2" y2="84"/>
+    <line x1="424.6" y1="72" x2="424.6" y2="84"/><line x1="476.3" y1="72" x2="476.3" y2="84"/>
+    <line x1="506.5" y1="72" x2="506.5" y2="84"/><line x1="549.9" y1="72" x2="549.9" y2="84"/>
+  </g>
+  <text x="566" y="76" font-size="10" fill="#a4501e" opacity=".7">每一竖 = 一块通过</text>
+  <text x="566" y="88" font-size="10" fill="#a4501e" opacity=".7">疏密不均，正是抖动的来源</text>
+
+  <!-- mean line + envelope (half-height = rms of the trace below) -->
+  <rect x="70" y="115.9" width="490" height="30" fill="#a4501e" fill-opacity=".05"/>
+  <line x1="70" y1="130.9" x2="560" y2="130.9" stroke="#c9beac" stroke-width="1" stroke-dasharray="4 4"/>
+  <path d="M 80 130.9 L 98.0 156.9 L 129.2 109.5 L 175.4 143.8 L 190.9 150.0 L 247.9 120.6 L 267.1 122.3 L 315.5 133.3 L 347.8 122.1 L 357.6 146.7 L 394.2 109.5 L 424.6 140.4 L 476.3 142.6 L 506.5 132.2 L 549.9 113.7 L 560 130.9"
+        fill="none" stroke="#a4501e" stroke-width="2"/>
+  <text x="566" y="134.9" font-size="10.5" fill="#6b6660">平均值</text>
+
+  <!-- ===== bottom: small blocks, q = e/3 ===== -->
+  <text x="70" y="207" font-size="13.5" fill="#1e4d6b">若每块是 <tspan font-family="Cambria Math,Cambria,Georgia,serif">e/3</tspan>：块小 · 事件多三倍 · 抖动被平掉</text>
+  <text x="70" y="224" font-size="10.5" fill="#1e4d6b" opacity=".8">下面画了 42 次通过——同样的总电荷，块小三倍就得来三倍的次数</text>
+
+  <g stroke="#1e4d6b" stroke-width="1.4" opacity=".5">
+    <line x1="80.8" y1="239" x2="80.8" y2="249"/><line x1="101.9" y1="239" x2="101.9" y2="249"/><line x1="106.6" y1="239" x2="106.6" y2="249"/>
+    <line x1="115.0" y1="239" x2="115.0" y2="249"/><line x1="132.3" y1="239" x2="132.3" y2="249"/><line x1="141.7" y1="239" x2="141.7" y2="249"/>
+    <line x1="158.6" y1="239" x2="158.6" y2="249"/><line x1="165.3" y1="239" x2="165.3" y2="249"/><line x1="176.2" y1="239" x2="176.2" y2="249"/>
+    <line x1="188.9" y1="239" x2="188.9" y2="249"/><line x1="202.2" y1="239" x2="202.2" y2="249"/><line x1="210.6" y1="239" x2="210.6" y2="249"/>
+    <line x1="219.5" y1="239" x2="219.5" y2="249"/><line x1="237.6" y1="239" x2="237.6" y2="249"/><line x1="243.4" y1="239" x2="243.4" y2="249"/>
+    <line x1="256.6" y1="239" x2="256.6" y2="249"/><line x1="264.2" y1="239" x2="264.2" y2="249"/><line x1="282.8" y1="239" x2="282.8" y2="249"/>
+    <line x1="295.5" y1="239" x2="295.5" y2="249"/><line x1="304.8" y1="239" x2="304.8" y2="249"/><line x1="310.6" y1="239" x2="310.6" y2="249"/>
+    <line x1="329.8" y1="239" x2="329.8" y2="249"/><line x1="341.2" y1="239" x2="341.2" y2="249"/><line x1="350.3" y1="239" x2="350.3" y2="249"/>
+    <line x1="362.9" y1="239" x2="362.9" y2="249"/><line x1="368.2" y1="239" x2="368.2" y2="249"/><line x1="383.0" y1="239" x2="383.0" y2="249"/>
+    <line x1="392.4" y1="239" x2="392.4" y2="249"/><line x1="405.8" y1="239" x2="405.8" y2="249"/><line x1="421.1" y1="239" x2="421.1" y2="249"/>
+    <line x1="428.0" y1="239" x2="428.0" y2="249"/><line x1="440.6" y1="239" x2="440.6" y2="249"/><line x1="449.5" y1="239" x2="449.5" y2="249"/>
+    <line x1="463.3" y1="239" x2="463.3" y2="249"/><line x1="478.9" y1="239" x2="478.9" y2="249"/><line x1="484.8" y1="239" x2="484.8" y2="249"/>
+    <line x1="499.2" y1="239" x2="499.2" y2="249"/><line x1="503.4" y1="239" x2="503.4" y2="249"/><line x1="519.6" y1="239" x2="519.6" y2="249"/>
+    <line x1="533.7" y1="239" x2="533.7" y2="249"/><line x1="545.4" y1="239" x2="545.4" y2="249"/><line x1="552.7" y1="239" x2="552.7" y2="249"/>
+  </g>
+
+  <!-- dashed box = the band from the panel above, at identical scale; solid tint = this trace's band -->
+  <rect x="70" y="273.9" width="490" height="30" fill="none" stroke="#c9beac" stroke-width="1" stroke-dasharray="2 3"/>
+  <rect x="70" y="280.2" width="490" height="17.4" fill="#1e4d6b" fill-opacity=".05"/>
+  <line x1="70" y1="288.9" x2="560" y2="288.9" stroke="#c9beac" stroke-width="1" stroke-dasharray="4 4"/>
+  <path d="M 80 288.9 L 80.8 282.9 L 101.9 292.4 L 106.6 303.4 L 115.0 290.2 L 132.3 287.5 L 141.7 286.6 L 158.6 279.4 L 165.3 290.1 L 176.2 301.8 L 188.9 302.2 L 202.2 284.6 L 210.6 290.6 L 219.5 297.7 L 237.6 282.8 L 243.4 290.6 L 256.6 298.3 L 264.2 294.2 L 282.8 286.8 L 295.5 296.1 L 304.8 281.0 L 310.6 274.4 L 329.8 276.5 L 341.2 275.6 L 350.3 281.9 L 362.9 301.3 L 368.2 290.7 L 383.0 302.1 L 392.4 274.5 L 405.8 295.7 L 421.1 295.7 L 428.0 298.3 L 440.6 297.9 L 449.5 295.0 L 463.3 301.6 L 478.9 286.6 L 484.8 287.2 L 499.2 278.3 L 503.4 300.2 L 519.6 303.1 L 533.7 283.9 L 545.4 288.1 L 552.7 292.3 L 560 288.9"
+        fill="none" stroke="#1e4d6b" stroke-width="2"/>
+  <text x="566" y="292.9" font-size="10.5" fill="#6b6660">平均值</text>
+  <text x="566" y="266" font-size="9.5" fill="#b5aea4">虚框＝上图的</text>
+  <text x="566" y="277" font-size="9.5" fill="#b5aea4">抖动幅度，同比例</text>
+
+  <!-- ===== the quantitative point ===== -->
+  <line x1="70" y1="341" x2="560" y2="341" stroke="#eee7db" stroke-width="1"/>
+  <text x="70" y="361" font-size="11.5" fill="#22201d">两条曲线的平均电流完全相同，唯一的差别是每一份货物有多大。</text>
+  <text x="70" y="378" font-size="11" fill="#6b6660">事件数差 <tspan fill="#22201d" font-weight="600">3</tspan> 倍，抖动幅度就只差 <tspan fill="#22201d" font-weight="600">√3 ≈ 1.7</tspan> 倍——不是 3 倍。这两条曲线是按这个比例画的。</text>
+ </g>
 </svg>
-<figcaption>两条曲线代表同一个平均电流的两种情形。看这张图要看出的不是波形本身，而是<b>只有抖动的幅度不一样</b>：平均值一模一样，而由大块搬运的那个抖得厉害。所以测量抖动就是在称量每一块的大小——你不需要看见任何一块。</figcaption>
+<figcaption>两条曲线代表同一个平均电流的两种情形：上面每块是 <span class="eq">e</span>，下面每块是 <span class="eq">e/3</span>。看这张图要看出的不是波形本身，而是<b>只有抖动的幅度不一样</b>——平均值一模一样，而由大块搬运的那个抖得厉害。要紧的是这个幅度差多少：块小三倍，事件就多三倍，而抖动只按 <span class="eq">1/√N</span> 缩小，所以幅度差的是 <b>√3 而不是 3</b> 倍。图上那个虚框画的正是上图的幅度，供你直接比。这个平方根关系是整个测量的立足点：<b>你从抖动的幅度反推每块的电荷，而这一步只需要电荷是一个一个通过的</b>，不需要知道那个准粒子的质量、大小或来历。</figcaption>
 </figure>
 
 <h2>1997 年</h2>
@@ -343,37 +396,92 @@ nav.pager a:hover{text-decoration:underline}
 <p>这个说法不是比喻，它就是同一个东西：辫头发时你做的事情正是让几股头发反复交换位置，而编出来的图案取决于交换的顺序。</p>
 
 <figure>
-<svg viewBox="0 0 620 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="两种编法的辫子对比：先换 A、B 再换 B、C，与相反顺序">
-<text x="46" y="28" font-family="system-ui,sans-serif" font-size="13.5" fill="#1e4d6b">先换 A、B，再换 B、C</text>
-<text x="446" y="28" font-family="system-ui,sans-serif" font-size="13.5" fill="#a4501e">先换 B、C，再换 A、B</text>
-<line x1="22" y1="272" x2="22" y2="52" stroke="#6b6660" stroke-width="1"/>
-<path d="M22 44 l-4.5 9 l9 0 z" fill="#6b6660"/>
-<text x="14" y="180" font-family="system-ui,sans-serif" font-size="11" fill="#6b6660" transform="rotate(-90 14 180)">时间</text>
-<g fill="none" stroke="#1e4d6b" stroke-width="2.6">
-<path d="M110 272 L110 215 C110 190 50 190 50 165 L50 60"/>
-<path d="M170 272 L170 120 C170 95 110 95 110 70 L110 60"/>
-</g>
-<path d="M50 272 L50 215 C50 190 110 190 110 165 L110 120 C110 95 170 95 170 70 L170 60" fill="none" stroke="#fff" stroke-width="8"/>
-<path d="M50 272 L50 215 C50 190 110 190 110 165 L110 120 C110 95 170 95 170 70 L170 60" fill="none" stroke="#1e4d6b" stroke-width="2.6"/>
-<g fill="none" stroke="#a4501e" stroke-width="2.6">
-<path d="M570 272 L570 215 C570 190 510 190 510 165 L510 120 C510 95 450 95 450 70 L450 60"/>
-</g>
-<path d="M510 272 L510 215 C510 190 570 190 570 165 L570 60" fill="none" stroke="#fff" stroke-width="8"/>
-<path d="M510 272 L510 215 C510 190 570 190 570 165 L570 60" fill="none" stroke="#a4501e" stroke-width="2.6"/>
-<path d="M450 272 L450 120 C450 95 510 95 510 70 L510 60" fill="none" stroke="#fff" stroke-width="8"/>
-<path d="M450 272 L450 120 C450 95 510 95 510 70 L510 60" fill="none" stroke="#a4501e" stroke-width="2.6"/>
-<g fill="#22201d">
-<circle cx="50" cy="272" r="3.6"/><circle cx="110" cy="272" r="3.6"/><circle cx="170" cy="272" r="3.6"/>
-<circle cx="450" cy="272" r="3.6"/><circle cx="510" cy="272" r="3.6"/><circle cx="570" cy="272" r="3.6"/>
-</g>
-<g font-family="system-ui,sans-serif" font-size="12.5" fill="#6b6660">
-<text x="46" y="293">A</text><text x="106" y="293">B</text><text x="166" y="293">C</text>
-<text x="446" y="293">A</text><text x="506" y="293">B</text><text x="566" y="293">C</text>
-</g>
-<line x1="305" y1="52" x2="305" y2="272" stroke="#ddd6c9" stroke-width="1"/>
-<text x="288" y="172" font-family="system-ui,sans-serif" font-size="19" fill="#6b6660">≠</text>
+<svg viewBox="0 0 700 518" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="两组辫子对比。上排：三根线，两次交换的先后顺序相反，末端排列都不同（BCA 对 CAB）。下排：两根线，起点与末端完全相同，唯一差别是 A 从 B 的前面还是后面绕过去，它们在二维平面里仍然无法互相变形。">
+ <g font-family="system-ui,sans-serif">
+
+  <!-- ============ ROW 1 · order of the two swaps ============ -->
+  <!-- vertical rhythm: base 236 · run to 216 · swap to 168 · run to 148 · swap to 100 · run to 80 -->
+  <text x="170" y="30" font-size="13.5" fill="#1e4d6b" text-anchor="middle">先换左边两根，再换右边两根</text>
+  <text x="530" y="30" font-size="13.5" fill="#a4501e" text-anchor="middle">先换右边两根，再换左边两根</text>
+
+  <!-- time arrow, spans exactly the braid's own height -->
+  <line x1="24" y1="236" x2="24" y2="90" stroke="#6b6660" stroke-width="1"/>
+  <path d="M24 80 l-4.6 9.5 l9.2 0 z" fill="#6b6660"/>
+  <text x="15" y="158" font-size="11" fill="#6b6660" text-anchor="middle" transform="rotate(-90 15 158)">时间</text>
+
+  <!-- in this row, at every crossing the strand moving RIGHT passes in front -->
+  <!-- left braid · the two strands that pass behind are drawn first -->
+  <g fill="none" stroke="#1e4d6b" stroke-width="2.8">
+    <path d="M170 236 L170 216 C170 200 92 184 92 168 L92 80"/>
+    <path d="M248 236 L248 148 C248 132 170 116 170 100 L170 80"/>
+  </g>
+  <path d="M92 236 L92 216 C92 200 170 184 170 168 L170 148 C170 132 248 116 248 100 L248 80" fill="none" stroke="#fff" stroke-width="9"/>
+  <path d="M92 236 L92 216 C92 200 170 184 170 168 L170 148 C170 132 248 116 248 100 L248 80" fill="none" stroke="#1e4d6b" stroke-width="2.8"/>
+
+  <!-- right braid · C passes behind at both crossings, so it is drawn first -->
+  <path d="M608 236 L608 216 C608 200 530 184 530 168 L530 148 C530 132 452 116 452 100 L452 80" fill="none" stroke="#a4501e" stroke-width="2.8"/>
+  <path d="M530 236 L530 216 C530 200 608 184 608 168 L608 80" fill="none" stroke="#fff" stroke-width="9"/>
+  <path d="M530 236 L530 216 C530 200 608 184 608 168 L608 80" fill="none" stroke="#a4501e" stroke-width="2.8"/>
+  <path d="M452 236 L452 148 C452 132 530 116 530 100 L530 80" fill="none" stroke="#fff" stroke-width="9"/>
+  <path d="M452 236 L452 148 C452 132 530 116 530 100 L530 80" fill="none" stroke="#a4501e" stroke-width="2.8"/>
+
+  <g fill="#22201d">
+    <circle cx="92" cy="236" r="3.8"/><circle cx="170" cy="236" r="3.8"/><circle cx="248" cy="236" r="3.8"/>
+    <circle cx="452" cy="236" r="3.8"/><circle cx="530" cy="236" r="3.8"/><circle cx="608" cy="236" r="3.8"/>
+  </g>
+  <!-- both ends labelled, so every strand can be traced by eye -->
+  <g font-size="12.5" fill="#6b6660" text-anchor="middle">
+    <text x="92" y="256">A</text><text x="170" y="256">B</text><text x="248" y="256">C</text>
+    <text x="452" y="256">A</text><text x="530" y="256">B</text><text x="608" y="256">C</text>
+  </g>
+  <g font-size="12.5" font-weight="600" text-anchor="middle">
+    <text x="92" y="70" fill="#1e4d6b">B</text><text x="170" y="70" fill="#1e4d6b">C</text><text x="248" y="70" fill="#1e4d6b">A</text>
+    <text x="452" y="70" fill="#a4501e">C</text><text x="530" y="70" fill="#a4501e">A</text><text x="608" y="70" fill="#a4501e">B</text>
+  </g>
+
+  <text x="350" y="158" font-size="20" fill="#6b6660" text-anchor="middle">≠</text>
+  <text x="350" y="192" font-size="11" fill="#b5aea4" text-anchor="middle">连末端都不一样</text>
+
+  <!-- ============ ROW 2 · same endpoints, different braid ============ -->
+  <line x1="24" y1="276" x2="676" y2="276" stroke="#eee7db" stroke-width="1"/>
+  <text x="170" y="304" font-size="13.5" fill="#1e4d6b" text-anchor="middle">A 从 B 的前面绕过去</text>
+  <text x="530" y="304" font-size="13.5" fill="#a4501e" text-anchor="middle">A 从 B 的后面绕过去</text>
+
+  <line x1="24" y1="460" x2="24" y2="350" stroke="#6b6660" stroke-width="1"/>
+  <path d="M24 340 l-4.6 9.5 l9.2 0 z" fill="#6b6660"/>
+  <text x="15" y="402" font-size="11" fill="#6b6660" text-anchor="middle" transform="rotate(-90 15 402)">时间</text>
+
+  <!-- left · A in FRONT of B -->
+  <path d="M248 460 L248 436 C248 408 92 380 92 352 L92 340" fill="none" stroke="#1e4d6b" stroke-width="2.8"/>
+  <path d="M92 460 L92 436 C92 408 248 380 248 352 L248 340" fill="none" stroke="#fff" stroke-width="9"/>
+  <path d="M92 460 L92 436 C92 408 248 380 248 352 L248 340" fill="none" stroke="#1e4d6b" stroke-width="2.8"/>
+  <!-- right · A BEHIND B -->
+  <path d="M452 460 L452 436 C452 408 608 380 608 352 L608 340" fill="none" stroke="#a4501e" stroke-width="2.8"/>
+  <path d="M608 460 L608 436 C608 408 452 380 452 352 L452 340" fill="none" stroke="#fff" stroke-width="9"/>
+  <path d="M608 460 L608 436 C608 408 452 380 452 352 L452 340" fill="none" stroke="#a4501e" stroke-width="2.8"/>
+
+  <g fill="#22201d">
+    <circle cx="92" cy="460" r="3.8"/><circle cx="248" cy="460" r="3.8"/>
+    <circle cx="452" cy="460" r="3.8"/><circle cx="608" cy="460" r="3.8"/>
+  </g>
+  <g font-size="12.5" fill="#6b6660" text-anchor="middle">
+    <text x="92" y="480">A</text><text x="248" y="480">B</text>
+    <text x="452" y="480">A</text><text x="608" y="480">B</text>
+  </g>
+  <g font-size="12.5" font-weight="600" text-anchor="middle">
+    <text x="92" y="330" fill="#1e4d6b">B</text><text x="248" y="330" fill="#1e4d6b">A</text>
+    <text x="452" y="330" fill="#a4501e">B</text><text x="608" y="330" fill="#a4501e">A</text>
+  </g>
+
+  <text x="350" y="406" font-size="20" fill="#6b6660" text-anchor="middle">≠</text>
+  <text x="350" y="440" font-size="11" fill="#b5aea4" text-anchor="middle">两端却完全一样</text>
+
+  <!-- ============ legend ============ -->
+  <line x1="24" y1="494" x2="676" y2="494" stroke="#eee7db" stroke-width="1"/>
+  <text x="24" y="510" font-size="11.5" fill="#6b6660">线上的白色断口 = 这根线从<tspan fill="#22201d">后面</tspan>穿过去。这个前后之分，就是「辫子」比「谁跑到了哪里」多出来的全部内容。</text>
+ </g>
 </svg>
-<figcaption>三根世界线，时间向上。左边先交换 A、B 再交换 B、C；右边把顺序反过来。这张图要看出的是：<b>这两条辫子无法在不剪断任何一根线的前提下互相变形成对方。</b>它们是两个不同的东西，所以「先做哪一次交换」这个顺序<b>本身</b>携带信息——而这个信息不在任何一个粒子身上，它在缠绕的方式里。</figcaption>
+<figcaption>时间向上，每根线是一个粒子的轨迹；两头都标了字母，可以逐根对照。<b>上面一组</b>：两次交换的先后顺序相反，连末端排列都不同（B C A 对 C A B）——顺序确实有区别。<b>下面一组是关键</b>：两端完全相同，辫子却不同，差别只在 A 从 B 前面还是后面绕过去。信息不在任何一个粒子身上，也不在它们最后各自站在哪里，<b>而在缠绕的方式里</b>。二维平面里「从前面过」没法连续地变成「从后面过」；到了三维，把线拎出平面翻个面就行——这正是任意子必须被关在二维里的原因。</figcaption>
 </figure>
 
 <p>辫子有一个性质，而这个性质是接下来那个想法的全部基础：<b>它只取决于编法，不取决于别的任何事。</b></p>
