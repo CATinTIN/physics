@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第 1 章 · 无穷大的丑闻 — 为什么我们还能理解世界</title>
+<style>
+:root{--paper:#faf8f4;--ink:#22201d;--dim:#6b6660;--blue:#1e4d6b;--ochre:#a4501e;--quote:#f1ece3;--rule:#ddd6c9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:19px/1.85 Georgia,"Songti SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+header.ch{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:40px}
+.part{font-size:13px;letter-spacing:.14em;color:var(--dim)}
+.num{font-size:13px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
+h1{font-size:34px;line-height:1.3;margin:.35em 0 .5em;font-weight:normal}
+.threads{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:12px;font-family:system-ui,sans-serif;color:var(--blue);
+  border:1px solid var(--blue);border-radius:11px;padding:2px 10px;opacity:.8}
+p{margin:0 0 1.25em;text-align:justify}
+p.lead{font-size:21px;color:#3a3730}
+.pull{font-size:23px;line-height:1.6;color:var(--blue);margin:1.8em 0;
+  padding-left:20px;border-left:3px solid var(--blue)}
+.aside{background:var(--quote);border-radius:5px;padding:20px 24px;margin:2em 0;
+  font-size:17px;line-height:1.75}
+.aside h4{margin:0 0 .6em;font-size:14px;letter-spacing:.1em;color:var(--dim);
+  font-family:system-ui,sans-serif;font-weight:600}
+.aside p:last-child{margin-bottom:0}
+.honest{border-left:3px solid var(--ochre);padding:4px 0 4px 20px;margin:2em 0;
+  font-size:17.5px;color:#4a453e}
+.honest b{color:var(--ochre);font-weight:normal}
+.eqblock{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:22px;
+  text-align:center;margin:1.6em 0 .4em;color:var(--ink)}
+.eqnote{text-align:center;font-size:15px;color:var(--dim);margin-bottom:1.8em}
+.eq{font-family:"Cambria Math",Cambria,Georgia,serif;white-space:nowrap}
+em.key{font-style:normal;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+blockquote{margin:2em 0;padding-left:22px;border-left:2px solid var(--rule);
+  font-size:18px;color:#3f3b35;line-height:1.78}
+blockquote .src{display:block;margin-top:.7em;font-size:14.5px;color:var(--dim);
+  font-family:system-ui,sans-serif}
+figure{margin:2.2em 0}
+figure svg{display:block;width:100%;height:auto;background:#fff;
+  border:1px solid var(--rule);border-radius:4px}
+figcaption{font-size:15px;color:var(--dim);margin-top:.8em;line-height:1.65}
+h2{font-size:24px;font-weight:normal;margin:2.4em 0 .8em;color:var(--blue)}
+footer.ch{border-top:1px solid var(--rule);margin-top:56px;padding-top:26px}
+.prof{border:1px solid var(--rule);border-top:2px solid var(--blue);border-radius:4px;
+  padding:22px 26px;margin-bottom:30px;font-size:16.5px;line-height:1.72;color:#3a3730}
+.prof h4{margin:0 0 .2em;font-size:14px;letter-spacing:.1em;color:var(--blue);
+  font-family:system-ui,sans-serif;font-weight:600}
+.prof .sub{margin:0 0 1.1em;font-size:13.5px;color:var(--dim);
+  font-family:system-ui,sans-serif;line-height:1.5}
+.prof p:last-child{margin-bottom:0}
+nav.pager{display:flex;justify-content:space-between;font-size:15px;
+  font-family:system-ui,sans-serif}
+nav.pager a{color:var(--blue);text-decoration:none}
+nav.pager a:hover{text-decoration:underline}
+nav.pager span{color:#b5aea4}
+@media(max-width:600px){body{font-size:17.5px}.wrap{padding:36px 18px 72px}h1{font-size:27px}}
+</style></head><body><div class="wrap">
+
+<header class="ch">
+  <div class="part">第一部 · 尺度：为什么无知不妨碍理解</div>
+  <div class="num">第 1 章</div>
+  <h1>无穷大的丑闻</h1>
+  <div class="threads">
+    <span class="tag">T1 尺度组织了定律</span>
+  </div>
+</header>
+
+<main>
+
+<p class="lead">我们从一个简单的问题开始：电子有多重？</p>
+
+<p>实验的答案很清楚，测了一百多年，测得极准。麻烦在理论这一边。手上既然有方程，就该算得出来——至少该算出<b>一部分</b>：电子除了「自己本来的」那份质量，还应该有一份来自它自身电场的贡献。</p>
+
+<p>这个念头比量子力学老得多。带电物体周围有电场，电场储存能量，而能量就是质量——爱因斯坦之前的人对这一点已经隐约有数，只是说法不同。所以电子的质量里应该有一部分来自它自己的电场。</p>
+
+<p>那就算一算。电场的能量密度越靠近电荷越大。把整个空间的能量加起来，结果取决于一件事：敢靠多近。假设电子是一个半径为 r 的小球，这份自能大致正比于 1/r——半径越小，自能越大。</p>
+
+<p>那么电子的半径是多少？</p>
+
+<p>所有实验都指向同一个答案，而这个答案让人不安：<b>零</b>。电子看上去就是一个点。撞得越狠、看得越细，仍然没有内部结构，没有大小，没有形状。</p>
+
+<p>把 r = 0 代进 1/r。</p>
+
+<div class="eqblock">E<sub>自能</sub> ∝ 1 / r → ∞</div>
+<div class="eqnote">一个点电荷的电场能量是无穷大</div>
+
+<p>电子的质量是无穷大。</p>
+
+<p>先笑一下也无妨，这个结论当然是错的——电子的质量小得可怜。但这个荒谬的结果不是从什么可疑的新理论里推出来的。它只用了两件事：电场储存能量，电子是个点。两件事都有极强的实验支持。</p>
+
+<h2>量子力学帮了一半</h2>
+
+<p>1930 年代，人们指望量子力学能治好这个病。毕竟它治好过经典物理的许多病：原子为什么不塌缩，黑体辐射为什么不发散，都是它解释的。也许「点粒子的无穷自能」也属于同一类，量子化之后自己就消失了。</p>
+
+<p>结果是各让一步。病没治好，但换了一种病，而换成的这一种有个古怪的性质。这一节先讲没治好的部分，下一节讲那个古怪的性质——它才是这一整章真正的枢纽。</p>
+
+<p>量子场论把电磁场也量子化了，于是有了光子。随之而来的图像比经典情形更古怪：<b>真空不是空的</b>。量子场论里的真空指所有场都处在能量最低的状态，而能量最低不等于什么都没有。场在不停地涨落。不严谨地说：粒子对不断凭空冒出来，又在极短时间内消失。</p>
+
+<p>这些涨落有物理效应，而且效应量到了。但它们也让计算更难看。</p>
+
+<p>要算一个电子的性质，光算「电子自己」不够。还得算上：电子发射一个光子又把它吸收回来；那个光子在路上变成一对电子和正电子，然后又并回光子；那个电子再发射一个光子……这些过程叫「虚过程」，所有可能性都得加进去。</p>
+
+<p>费曼图就是干这个用的——它们是这些可能性的记账法。老老实实按规则加起来，会遇到下面这件事。</p>
+
+<p>最简单的图给出一个有限的、正确的答案。加上下一阶的图，也就是多一个光子的那些，得到一个修正项。这个修正项在数学上是一个积分，而积分要对<b>虚粒子所有可能的动量</b>求和——从零一直到无穷大。</p>
+
+<p>积分发散了。</p>
+
+<p>而且不止一处发散。电子的质量：发散。电子的电荷：发散。真空本身的能量密度：发散得更厉害。</p>
+
+<div class="pull">这不是某个粗心计算里的错误。这是理论在被正确使用时给出的答案。</div>
+
+<h2>一份奇怪的账</h2>
+
+<p>现在讲那个古怪的性质。它在 1950 年被当成一个技术上的运气，没人多看一眼；今天回头看，它是这整套办法能够成立的<b>全部原因</b>。</p>
+
+<p>无穷大和无穷大是不一样的。要区分它们，得问一个更细的问题：<em class="key">这份无穷大是怎么攒起来的？</em></p>
+
+<p>把那个积分按动量分档，每十倍一档：动量在 1 到 10 之间的虚粒子贡献多少，10 到 100 之间贡献多少，100 到 1000 之间贡献多少，一档一档看。</p>
+
+<p>经典的自能是这样攒的：每往下走一档（也就是每靠近十倍），贡献就大十倍。所以总和几乎完全由最后一档决定——你敢靠多近，答案就是多少。这叫<b>线性发散</b>。它不只是无穷，它是一种毫无余地的无穷：答案百分之百由你最不了解的那个尺度决定。</p>
+
+<p>量子场论里的电子质量修正不是这样攒的。虚电子-正电子对的存在把它软化了：<b>每一档贡献同样大的一份</b>。</p>
+
+<figure>
+<svg viewBox="0 0 640 344" role="img" aria-label="对数发散与线性发散的逐档贡献对比">
+<g font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+  <text x="18" y="26" font-size="13.5" font-weight="600" fill="#1e4d6b">量子场论：电子质量的修正 · 对数发散</text>
+  <text x="18" y="45" font-size="12" fill="#6b6660">每一档动量贡献同样大的一份</text>
+  <g fill="#1e4d6b">
+    <rect x="56"  y="100" width="32" height="52" opacity=".85"/>
+    <rect x="101" y="100" width="32" height="52" opacity=".85"/>
+    <rect x="146" y="100" width="32" height="52" opacity=".85"/>
+    <rect x="191" y="100" width="32" height="52" opacity=".85"/>
+    <rect x="236" y="100" width="32" height="52" opacity=".85"/>
+    <rect x="281" y="100" width="32" height="52" opacity=".85"/>
+    <rect x="326" y="100" width="32" height="52" opacity=".85"/>
+    <rect x="371" y="100" width="32" height="52" opacity=".85"/>
+    <rect x="416" y="100" width="32" height="52" opacity=".28"/>
+    <rect x="461" y="100" width="32" height="52" opacity=".28"/>
+    <rect x="506" y="100" width="32" height="52" opacity=".28"/>
+    <rect x="551" y="100" width="32" height="52" opacity=".28"/>
+  </g>
+  <path d="M416 90 L583 90" stroke="#1e4d6b" stroke-width="1" opacity=".5"/>
+  <path d="M416 90 L416 96 M583 90 L583 96" stroke="#1e4d6b" stroke-width="1" opacity=".5"/>
+  <text x="499" y="82" font-size="11.5" fill="#1e4d6b" text-anchor="middle" opacity=".85">把 Λ 往外挪四档，只多加四格</text>
+  <line x1="48" y1="152" x2="600" y2="152" stroke="#22201d" stroke-width="1"/>
+
+  <text x="18" y="192" font-size="13.5" font-weight="600" fill="#a4501e">经典：点电荷的自能 · 线性发散</text>
+  <text x="18" y="211" font-size="12" fill="#6b6660">几乎全部贡献来自最后一档，即最小的那段距离</text>
+  <g fill="#a4501e">
+    <rect x="56"  y="311" width="32" height="1"/>
+    <rect x="101" y="311" width="32" height="1"/>
+    <rect x="146" y="311" width="32" height="1"/>
+    <rect x="191" y="311" width="32" height="1"/>
+    <rect x="236" y="311" width="32" height="1"/>
+    <rect x="281" y="311" width="32" height="1"/>
+    <rect x="326" y="311" width="32" height="1"/>
+    <rect x="371" y="311" width="32" height="1"/>
+    <rect x="416" y="311" width="32" height="1"/>
+    <rect x="461" y="310" width="32" height="2"/>
+    <rect x="506" y="302" width="32" height="10"/>
+    <rect x="551" y="222" width="32" height="90"/>
+  </g>
+  <text x="543" y="248" font-size="11.5" fill="#a4501e" text-anchor="end">这一档就是全部答案 →</text>
+  <line x1="48" y1="312" x2="600" y2="312" stroke="#22201d" stroke-width="1"/>
+
+  <line x1="596" y1="92" x2="596" y2="322" stroke="#22201d" stroke-width="1"
+        stroke-dasharray="4 3" opacity=".6"/>
+  <text x="600" y="66" font-size="14" font-style="italic" fill="#22201d">Λ</text>
+  <text x="600" y="82" font-size="11" fill="#6b6660">截断</text>
+
+  <text x="48" y="336" font-size="11.5" fill="#6b6660">低动量 · 大距离</text>
+  <text x="583" y="336" font-size="11.5" fill="#6b6660" text-anchor="end">高动量 · 小距离 →</text>
+  <text x="316" y="336" font-size="11.5" fill="#6b6660" text-anchor="middle">每一格 = 动量的十倍</text>
+</g>
+</svg>
+<figcaption>把发散的积分按动量分档拆开，每格十倍。上：量子场论给出的电子质量修正是<b>对数发散</b>，每一档贡献相等，所以把截断 Λ 从原子核尺度一路挪到普朗克尺度——多出二十档——总共也只让电子质量增加不到两成。下：经典的 1/r 自能是<b>线性发散</b>，贡献按十倍递增，几乎全部落在最后一档；这时候 Λ 定在哪里，答案就是多少。要看出的不是「量子场论的病比经典的轻」，是<b>上面那一行里 Λ 几乎不起作用</b>——这一件事是后面那套办法能够成立的全部原因。</figcaption>
+</figure>
+
+<p>请看清这个差别的分量。把界线一直推到普朗克尺度——比原子核还小二十个数量级，是我们能设想的最极端的地方——由此攒起来的修正也<b>不到电子质量的两成</b>。无穷仍然是无穷，这一点没有变；可你把界线挪过了整部物理学至今所有实验的全部范围，账上的数字只动了不到两成。</p>
+
+<p>这里有件事不对劲，虽然在 1950 年没有人这么说。不对劲的地方不是数值太小。这二十个数量级里，层层叠叠地藏着我们几乎一无所知的物理——那里有什么粒子、什么结构、什么新的力，全是空白。按理说，要在某个尺度上算得准，就得先知道那个尺度上到底有什么；可那个积分对每一档一视同仁，不管那一档里究竟蹲着什么，它都只贡献同样平平无奇的一小步。</p>
+
+<p>换句话说：电子的质量，你不需要知道那些尺度上有什么，就能算出来。那二十档的具体内容——那些我们看不见、也还没能力去看的东西——在这本账上<b>几乎什么都没干</b>。</p>
+
+<p>先把这件事记下来。这一章后面还会撞见它一次，那一次它会以一个更难忽视的形式出现。</p>
+
+<h2>发散是从哪里来的</h2>
+
+<p>再看一眼那些无穷大长什么样。二十年后破案，靠的就是这条线索。</p>
+
+<p>它们全部来自积分的<b>上限</b>，也就是虚粒子动量极大的那一端。而按量子力学的规矩，动量极大意味着距离极小。所以说白了：</p>
+
+<p><em class="key">这些无穷大来自「无限小的距离」。</em></p>
+
+<p>一旦要求这套理论描述任意小的尺度，它就崩了。让它算电子在 10<sup>-15</sup> 米上的行为，它给出漂亮的答案；让它把 10<sup>-100</sup> 米、10<sup>-1000</sup> 米以及所有更小尺度上的事情也一并加进来，它给出无穷。</p>
+
+<p>1950 年前后，几乎没人从这个角度看问题。当时的共识是：无穷大属于<b>数学困难</b>，得设法消掉。至于它偏偏出现在无限小距离那一端，看着只像一个技术特征，不像一条消息。</p>
+
+<div class="aside">
+<h4>为什么不干脆说电子有大小</h4>
+<p>这是最自然的想法：给电子一个非零半径，1/r 就有限了，问题解决。</p>
+<p>不行。给了它有限大小，就得交代这个小球为什么不被自身电荷的排斥撑爆——那需要一种新的力把它捆住，而这种力谁也没见过。更致命的是刚性物体和相对论合不来：推它的一端，另一端必须同时动，而「同时」在相对论里不是一个客观的概念。</p>
+<p>二十世纪上半叶有一批极聪明的人试过各种版本的「有结构电子」，全部失败。点粒子这条路虽然给出无穷大，却是唯一同时容得下相对论和实验的路。</p>
+</div>
+
+<h2>本该是零</h2>
+
+<p>局面本来还可以这么拖着。1947 年的一个实验让「等理论自己好起来」这条路走不通了。</p>
+
+<p>那一年，兰姆（Willis Lamb）和他的学生瑞瑟福（Robert Retherford）在哥伦比亚大学量了氢原子里两个能级的差。按狄拉克的理论，这两个能级应该<b>严格相等</b>。</p>
+
+<p>它们不相等，差了大约一千兆赫——10<sup>9</sup> 赫兹。</p>
+
+<p>这个数字小得可怜，可测得毫无疑问，而且它不符的方式才是要紧处：这不是「理论算出一个数、实验量出另一个数」那种对不上。狄拉克理论说这里<b>什么都没有</b>，实验说这里有东西。</p>
+
+<p>而这东西只能来自量子场论里那些讨厌的虚过程——真空涨落轻轻推挤了电子，把两个本该重合的能级分了开。也就是说：<b>让理论发散的那套机制，同时正在产生真实的、量得到的效应。</b></p>
+
+<p>它扔不掉。它是对的。</p>
+
+<p>同年六月，纽约长岛一个叫谢尔特岛（Shelter Island）的地方开了个小会，二十来位物理学家听到了这个结果。后来人们把那次会议算作战后理论物理的起点。会上没人知道该怎么办，但所有人都清楚：不能再等了——实验已经把答案摆上桌，就等理论来解释。</p>
+
+<h2>那套让人恶心的处方</h2>
+
+<p>答案在接下来两年里出现了，而且是四个人各以不同的形式给出的。贝特（Hans Bethe）在从谢尔特岛回家的火车上做了第一个粗糙的估算；随后是施温格（Julian Schwinger）、费曼（Richard Feynman），以及战后在日本几乎与世隔绝地独立工作的朝永振一郎。戴森（Freeman Dyson）接着证明，这三套看上去毫不相干的做法其实是同一件事。</p>
+
+<p>他们的办法可以拆成四步。这里讲得尽量直白，因为<b>逻辑结构</b>远比技术细节要紧。</p>
+
+<p>第一步，认账：任意小的尺度算不了。所以先划一条界线，只把大于某个极小距离的贡献算进来——换个说法，只算动量小于某个巨大数值 Λ 的虚粒子。这条界线叫「截断」。有了它，所有积分都变得有限，可以往下算了。</p>
+
+<p>第二步，看清算出来的是什么。所有发散——所有那些在 Λ → ∞ 时爆掉的项——都<b>只出现在几个特定的位置</b>：电子的质量，电子的电荷，以及场的整体归一化。别处一个也没有。</p>
+
+<p>第三步是关键。这一步要问自己一句话：那个「裸的」电子质量，我真的知道它是多少吗？</p>
+
+<p>不知道。谁也没有量过一个不带电场的电子。凡是量到的电子，都已经披着自己的电场、带着周围真空涨落的全套装饰。<b>实验室里量到的质量，永远是「裸质量 + 自能」这个和</b>。裸质量本身根本不是可观测量。</p>
+
+<p>那就顺着这一点走：不去预言电子的质量，而是<b>把实验量到的质量代进去</b>，让那份无穷的自能，和一个同样无穷、符号相反的「裸质量」对消掉。电荷照此办理。</p>
+
+<p>第四步让整件事从骗术变成了物理。</p>
+
+<p>算<b>别的</b>东西。比如兰姆位移，比如电子的磁矩。</p>
+
+<p>这时候，无穷大不出现了。</p>
+
+<div class="pull">两个从实验借来的数字——质量和电荷——吸干了所有的无穷大。剩下的每一个预言都是有限的、明确的。</div>
+
+<p>施温格算出了电子磁矩的第一阶修正。狄拉克理论给的磁矩是一个整齐的数（g = 2），修正把它挪动了大约千分之一。实验量到的偏移与施温格算的一致。</p>
+
+<p>兰姆位移也算出来了，对得上。</p>
+
+<h2>Λ 定在哪里都一样</h2>
+
+<p>有了预言，接下来自然是验算。第一件要检查的事就是那条人为划下的界线。</p>
+
+<p>把 Λ 定在质子大小的千分之一，算兰姆位移，得到一个数。把 Λ 再缩小一千倍，重算，得到同一个数。缩小一亿倍，还是同一个数。</p>
+
+<p>1950 年，这件事被当作<b>计算没出错的证据</b>。理由很正当：Λ 是人手搭的架子，不是自然界的东西；答案要是依赖它，就说明哪里算漏了。所以「与 Λ 无关」在当时是一条自查标准，就像检查量纲对不对一样。它属于工具箱，不属于物理内容。</p>
+
+<p>但先把它当成一个赤裸的事实摆在这里，什么也别急着解释：</p>
+
+<p>一个人可以对 10<sup>-20</sup> 米以下的世界抱任何一种看法。他可以认为那里挤满了未知的粒子，可以认为那里有第五种力，可以认为那里根本不存在「距离」这个概念。这些看法差得天南地北。</p>
+
+<p>而他们算出来的氢原子能级，是同一个数。</p>
+
+<p>1950 年，没有人觉得这件事本身需要解释。</p>
+
+<h2>没人喜欢它</h2>
+
+<p>这套办法管用，而且太管用了——到今天，电子磁矩的理论值与实验值吻合到万亿分之一，序章里那个数字就是从这儿来的。</p>
+
+<p>可是在 1950 年，没有一个人为它感到骄傲。</p>
+
+<p>费曼自己的说法是：</p>
+
+<blockquote>
+我们玩的这套把戏，技术上叫「重整化」。可这个词无论多巧妙，我还是要说，这是一套犯傻的做法。正因为不得不动用这类障眼法，我们至今没能证明量子电动力学在数学上是自洽的。……我怀疑重整化在数学上是不正当的。
+<span class="src">费曼，《QED：光和物质的奇妙理论》（1985）</span>
+</blockquote>
+
+<p>他还有一个更出名的说法。1965 年领诺贝尔奖时，他把这套程序形容成「把电动力学发散的困难扫到地毯下面」——房间没打扫，只是让脏东西看不见了。</p>
+
+<p>狄拉克说得更不客气，而且到死没有松口。他说这些规则<b>不合逻辑</b>：写下一个方程，方程给出无穷，然后宣布「我不喜欢这个无穷」，于是减掉另一个无穷。在他看来这不叫解决问题，这叫把问题藏起来。他认为一个正确的理论不该需要动这种手术。</p>
+
+<div class="aside">
+<h4>狄拉克的立场值得同情</h4>
+<p>狄拉克不是老糊涂了。他的判断依据一条相当合理的标准：<b>一个基本理论应该从自身内部给出有限的答案</b>，而不是靠从实验借两个数字来堵漏。</p>
+<p>而且他的批评在技术上并没有说错。1950 年的重整化确实缺一层严格的数学根基——那些操作是好用的处方，不是证过的定理。（就连今天，把四维量子场论作为数学对象严格构造出来仍是未解决的问题，杨-米尔斯理论的存在性还挂在七个千禧年难题里。）</p>
+<p>他错的地方不在严格，而在于他默认「需要外部输入」等于「理论有病」。二十年后的转向恰恰翻了这一条：需要外部输入是<b>正常的、必然的，而且是好事</b>。只是在 1950 年，没有任何理由这么想。</p>
+</div>
+
+<p>所以 1950 年前后的物理学界处在一种<b>被成功搞出来的困窘</b>里：手上有一台运转极好的机器，同时相信这台机器的原理不对。当时最流行的期待是，重整化只是临时脚手架，等真正的理论出现——某种更深、更对称、也许根本不涉及无穷小距离的理论——脚手架就能拆掉。</p>
+
+<p>这个期待落了空。更准确地说，它以一种谁也没料到的方式被满足了。</p>
+
+<h2>被忽略的那条线索</h2>
+
+<p>回到「Λ 定在哪里都一样」那一节。那件事当时被当成一个验算手段，现在把它换个角度读一遍。</p>
+
+<p>它说的是：<em class="key">实验室里能测到的量，不依赖于我们对极小尺度作了什么假设。</em></p>
+
+<p>这就不是一句关于计算技巧的话了，这是一句关于世界结构的话。它的意思是：即便在 10<sup>-30</sup> 米的尺度上藏着一整套我们全然不知的物理——新的粒子、新的力，甚至连「距离」这个概念都不再适用——氢原子能级的预言也不会因此动摇。</p>
+
+<p>这也就是前面记在账上的那一句，现在它以那个更难忽视的形式出现了。那份「不到两成」是它的定量版本：<b>把界线从我们熟悉的地方一直挪到我们最陌生的地方，代价小得可以忽略。</b>那二十档之所以几乎什么都没干，不是一个幸运的数值，那是这个世界允许分层理解的第一份证据。</p>
+
+<p>这件事还有一层更让人不安的意思：既然那些预言对极小尺度的细节免疫，那么<b>精确到万亿分之一的成功，并不说明我们对极小尺度知道了什么</b>。</p>
+
+<p>1950 年谁把这句话说出口，都会被当成失败主义。理论物理的目标不就是找出最深层的定律吗？一个对深层细节「免疫」的理论，听着像是认输。</p>
+
+<p>转向发生在人们意识到这一点的时候：免疫不是障碍，<b>它正是知识之所以可能的原因</b>。</p>
+
+<p>不过在讲那个转向之前，我想先带你去一个看上去毫不相干的地方：一壶烧到临界点的水，和一块加热到失去磁性的铁。这两样东西之间有一个巧合，而那个巧合表面上跟电子的无穷自能一点关系都没有。</p>
+
+<p>解决它们的是同一个人，用的是同一个想法。</p>
+
+</main>
+
+<footer class="ch">
+  <div class="prof">
+  <h4>物理学者的话</h4>
+  <p class="sub">本章内容在文献中的术语坐标，供想提前深入的读者定位。</p>
+
+  <p><b>机制。</b><b>正规化</b>与<b>重整化</b>：<b>裸参数</b>、<b>抵消项</b>、重整化条件。<b>维数正规化</b>（<span class="eq">d = 4 − ε</span>）以 <span class="eq">1/ε</span> 极点取代长度截断，二次发散不显式出现；<span class="eq">Λ</span> 与重整化标度 <span class="eq">μ</span> 不可混同，这是最常踩的坑。<b>表观发散度</b>的量纲计数给出<b>可重整性</b>判据，全阶自洽性属<b>戴森–BPHZ 定理</b>，<b>Ward–Takahashi 恒等式</b>给出 <span class="eq">Z₁ = Z₂</span>。</p>
+
+  <p><b>标度与保护。</b><b>真空极化</b>、<b>耦合跑动</b>、<span class="eq">β</span> 函数、<b>重整化群方程</b>；紫外端的反面结论是<b>朗道极点</b>与 <span class="eq">φ⁴</span> 的<b>平庸性</b>。费米子质量只对数发散，源于<b>手征对称</b>下的<b>倍乘性重整化</b>，判据为 <b>'t Hooft 技术自然性</b>；等价看法是<b>康普顿波长</b>充当真空自带的软截断，使<b>空穴理论</b>中静电自能与<b>负能海涨落</b>两块线性发散相消。标量无此保护：<b>等级问题</b>（<span class="eq">δm<sub>H</sub>² ∼ Λ²</span>）与<b>宇宙学常数问题</b>（<span class="eq">Λ⁴</span>），见第 12 章。框架名为<b>有效场论</b>，<span class="eq">Λ</span> 是适用边界，<b>不可重整算符</b>标出新物理标度——与第 2–3 章的<b>威尔逊重整化群</b>同一结构。</p>
+
+  <p><b>入口。</b>Peskin &amp; Schroeder 第 10、12 章；Weinberg 第一卷 11–12 章（重整化条件的逻辑最清楚）；Schwartz 第 III 部。原始文献：Weisskopf（线性发散相消）、Weinberg（有效场论）、't Hooft（自然性）。</p>
+</div><nav class="pager">
+    <a href="ch00-三张快照.html">← 序章 三张快照</a>
+    <a href="index.html">目录</a>
+    <a href="ch02-水和磁铁的共谋.html">第 2 章 水和磁铁的共谋 →</a>
+  </nav>
+</footer>
+
+</div></body></html>
