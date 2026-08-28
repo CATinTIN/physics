@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第36章 · 两页的证明 — 为什么我们还能理解世界</title>
+<style>
+:root{--paper:#faf8f4;--ink:#22201d;--dim:#6b6660;--blue:#1e4d6b;--ochre:#a4501e;--quote:#f1ece3;--rule:#ddd6c9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:19px/1.85 Georgia,"Songti SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+header.ch{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:40px}
+.part{font-size:13px;letter-spacing:.14em;color:var(--dim)}
+.num{font-size:13px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
+h1{font-size:34px;line-height:1.3;margin:.35em 0 .5em;font-weight:normal}
+.threads{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:12px;font-family:system-ui,sans-serif;color:var(--blue);
+  border:1px solid var(--blue);border-radius:11px;padding:2px 10px;opacity:.8}
+p{margin:0 0 1.25em;text-align:justify}
+p.lead{font-size:21px;color:#3a3730}
+.pull{font-size:23px;line-height:1.6;color:var(--blue);margin:1.8em 0;
+  padding-left:20px;border-left:3px solid var(--blue)}
+.aside{background:var(--quote);border-radius:5px;padding:20px 24px;margin:2em 0;
+  font-size:17px;line-height:1.75}
+.aside h4{margin:0 0 .6em;font-size:14px;letter-spacing:.1em;color:var(--dim);
+  font-family:system-ui,sans-serif;font-weight:600}
+.aside p:last-child{margin-bottom:0}
+.honest{border-left:3px solid var(--ochre);padding:4px 0 4px 20px;margin:2em 0;
+  font-size:17.5px;color:#4a453e}
+.honest b{color:var(--ochre);font-weight:normal}
+.honest p:last-child{margin-bottom:0}
+.eqblock{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:22px;
+  text-align:center;margin:1.6em 0 .4em;color:var(--ink)}
+.eqnote{text-align:center;font-size:15px;color:var(--dim);margin-bottom:1.8em}
+.eq{font-family:"Cambria Math",Cambria,Georgia,serif;white-space:nowrap}
+em.key{font-style:normal;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+table.data{width:100%;border-collapse:collapse;margin:1.8em 0;font-size:16.5px;
+  font-family:system-ui,sans-serif}
+table.data th{text-align:left;font-weight:600;color:var(--dim);font-size:13.5px;
+  letter-spacing:.06em;border-bottom:1px solid var(--rule);padding:8px 10px 8px 0}
+table.data td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule);line-height:1.6}
+table.data tr.hi td{background:var(--quote);color:var(--ochre)}
+.steps{margin:1.8em 0 2em;padding-left:22px;border-left:3px solid var(--ochre)}
+.steps p{margin:0 0 .7em;font-size:18px}
+.steps p:last-child{margin-bottom:0}
+figure{margin:2.2em 0}
+figure svg{display:block;width:100%;height:auto;background:#fff;
+  border:1px solid var(--rule);border-radius:4px}
+figcaption{font-size:15px;color:var(--dim);margin-top:.8em;line-height:1.65}
+h2{font-size:24px;font-weight:normal;margin:2.4em 0 .8em;color:var(--blue)}
+footer.ch{border-top:1px solid var(--rule);margin-top:56px;padding-top:26px}
+.prof{border:1px solid var(--rule);border-top:2px solid var(--blue);border-radius:4px;
+  padding:22px 26px;margin-bottom:30px;font-size:16.5px;line-height:1.72;color:#3a3730}
+.prof h4{margin:0 0 .2em;font-size:14px;letter-spacing:.1em;color:var(--blue);
+  font-family:system-ui,sans-serif;font-weight:600}
+.prof .sub{margin:0 0 1.1em;font-size:13.5px;color:var(--dim);
+  font-family:system-ui,sans-serif;line-height:1.5}
+.prof p:last-child{margin-bottom:0}
+nav.pager{display:flex;justify-content:space-between;font-size:15px;
+  font-family:system-ui,sans-serif;gap:16px}
+nav.pager a{color:var(--blue);text-decoration:none}
+nav.pager span{color:var(--dim)}
+nav.pager a:hover{text-decoration:underline}
+@media(max-width:600px){body{font-size:17.5px}.wrap{padding:36px 18px 72px}h1{font-size:27px}}
+</style></head><body><div class="wrap">
+
+<header class="ch">
+  <div class="part">第六部 · 数学：对象是什么变了</div>
+  <div class="num">第 36 章</div>
+  <h1>两页的证明</h1>
+  <div class="threads"><span class="tag">T4 否定性结果划出边界</span></div>
+</header>
+
+<main>
+<p class="lead">先玩一个游戏。规则十行写完，输赢一眼看清，中间没有一个字需要预备知识。</p>
+
+<p>一副牌。每张牌上有 n 个小窗口，每个窗口里显示三种符号中的一种——就叫圆、方、叉吧。不同的牌不重复，所以这副牌一共 3<sup>n</sup> 张。</p>
+
+<p>三张牌叫做一个「组」，条件是：<em class="key">在每一个窗口上，这三张牌要么符号全相同，要么符号全不同</em>。注意是每一个窗口都得满足，有一个窗口是「两张一样、一张不一样」，这三张就不成组。</p>
+
+<p>现在的任务：从这副牌里尽可能多地拿牌，但你手上不许出现任何一个组。能拿多少张？</p>
+
+<p>n = 1 的时候，一副牌只有三张：圆、方、叉。这三张放在一起，那唯一的窗口上「全不同」，成组。所以三张不能全拿，最多拿两张。答案是 2。</p>
+
+<p>n = 2 的时候，九张牌。这个可以在纸上摆一摆，摆出来是 4。</p>
+
+<p>n = 3，二十七张牌，答案是 9。这一步我不建议你动手数——不是因为难，是因为要把所有情况排干净得花掉一个晚上，而这一章后面要说的事跟你花不花那个晚上没关系。</p>
+
+<p>再往下，答案是这样一串：</p>
+
+<div class="steps">
+<p>n = 1 → <b>2</b>　　n = 2 → <b>4</b>　　n = 3 → <b>9</b></p>
+<p>n = 4 → <b>20</b>　　n = 5 → <b>45</b>　　n = 6 → <b>112</b></p>
+<p>n = 7 → <b>？</b></p>
+</div>
+
+<p>最后那个问号不是我省略了，也不是我懒得查。它是<em class="key">没有人知道</em>。</p>
+
+<p>这里值得停一秒，因为这个问号的位置很奇怪。它不在某个需要新数学的深水区，它在第七项。前六项都算出来了，其中有几项是人靠纸笔算的，剩下的是穷举——就是让计算机把所有可能的手牌排列过一遍，看最大的那手有多少张。第七项的牌一共 3<sup>7</sup> = 2187 张，从两千多张牌里选出一手最大的无组牌，这件事的搜索空间大到今天所有的计算机加在一起也过不完，而且这个「过不完」不是差一点，是差很多个数量级。</p>
+
+<p>所以第七项卡在那里，已经卡了很久。这是一个规则十行写完的问题，前六个答案都在手上，第七个答案不知道，并且没有人认为下一代计算机会把它算出来。</p>
+
+<p>在往下走之前，说清这个游戏为什么不是一个游戏。把三种符号换成 0、1、2，一张牌就是一串数字；「每个窗口上要么全同要么全不同」这个条件，翻译过来正好是<em class="key">这三串数字构成一个等差数列</em>——第一串加第三串等于第二串的两倍，逐位算。于是「我手上没有组」就是「我这堆数里没有三项等差数列」。这就是这个游戏的真身：它是「一个集合能有多大而仍然躲开所有的三项等差数列」这个问题，在一个特别干净的舞台上的版本。这个问题的整数版本是二十世纪数论里被问得最多的问题之一，本章后面会回到它。</p>
+
+<p>但这一章不打算去要第七项。这一章要说的是，<em class="key">在被问了几十年之后，这个问题真正被回答的那个版本，跟第七项是几完全没有关系</em>。</p>
+
+<figure>
+<svg viewBox="0 0 620 240" role="img" aria-label="前六项算得出，第七项只知道落在一段区间里">
+<text x="12" y="22" font-family="system-ui,sans-serif" font-size="11" fill="#6b6660">纵轴取对数</text>
+<line x1="56" y1="196" x2="600" y2="196" stroke="#22201d" stroke-width="1.2"/>
+<g fill="#1e4d6b">
+<rect x="72" y="177" width="40" height="19"/><rect x="136" y="158" width="40" height="38"/>
+<rect x="200" y="135" width="40" height="61"/><rect x="264" y="113" width="40" height="83"/>
+<rect x="328" y="91" width="40" height="105"/><rect x="392" y="66" width="40" height="130"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="12" fill="#1e4d6b" text-anchor="middle">
+<text x="92" y="171">2</text><text x="156" y="152">4</text><text x="220" y="129">9</text>
+<text x="284" y="107">20</text><text x="348" y="85">45</text><text x="412" y="60">112</text>
+</g>
+<rect x="456" y="42" width="40" height="154" fill="none" stroke="#a4501e"
+  stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="456" y="42" width="40" height="16" fill="#a4501e" opacity=".2" stroke="none"/>
+<g stroke="#a4501e" stroke-width="1.2">
+<line x1="456" y1="42" x2="496" y2="42"/><line x1="456" y1="58" x2="496" y2="58"/>
+</g>
+<text x="476" y="132" font-family="system-ui,sans-serif" font-size="26" fill="#a4501e"
+  text-anchor="middle">?</text>
+<g stroke="#a4501e" stroke-width=".8" fill="none">
+<path d="M496 42 L510 30"/><path d="M496 58 L510 70"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="11" fill="#a4501e">
+<text x="512" y="29">上界</text><text x="512" y="75">下界</text>
+</g>
+<text x="512" y="50" font-family="system-ui,sans-serif" font-size="10.5" fill="#a4501e">柱顶在这一条里</text>
+<text x="556" y="190" font-family="system-ui,sans-serif" font-size="18" fill="#ddd6c9">…</text>
+<g font-family="system-ui,sans-serif" font-size="11" fill="#6b6660" text-anchor="middle">
+<text x="92" y="213">n=1</text><text x="156" y="213">n=2</text><text x="220" y="213">n=3</text>
+<text x="284" y="213">n=4</text><text x="348" y="213">n=5</text><text x="412" y="213">n=6</text>
+</g>
+<text x="476" y="213" font-family="system-ui,sans-serif" font-size="11" fill="#a4501e"
+  text-anchor="middle">n=7</text>
+<text x="150" y="234" font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660">前六项：算得出。第七项：只知道它落在那一小段里，不知道是哪个数。</text>
+</svg>
+<figcaption>问号不在深水区，它在第七项。而这一章要说的事全部发生在这个问号的<b>左边</b>——那三页纸没有给出第七项，它给出的是这一串数往右延伸时的整体走势，并且证明那个走势不可能更好。已知的上下界把第七项夹在一小段里，两端都不带数值：夹得再紧，也不等于知道。</figcaption>
+</figure>
+
+<h2>三十年，和三页纸</h2>
+
+<p>把问题换一个问法。</p>
+
+<p>不问「n = 7 的时候最多能拿几张」，问：<em class="key">当 n 变得很大，最多能拿的那手牌，占整副牌的比例是多少</em>。</p>
+
+<p>整副牌是 3<sup>n</sup> 张。n = 1 的时候能拿 2 张，占三分之二。n = 2 能拿 4 张，占九分之四，不到一半。n = 6 能拿 112 张，而整副牌是 729 张，只剩下大约百分之十五。比例在往下掉。</p>
+
+<p>问题是：它掉到零吗？</p>
+
+<p>这个问法比原来那个弱得多——它不要求你知道任何一项具体是几，它只问一个趋势。但正是这个弱得多的问法抵抗了三十年。</p>
+
+<p>为什么抵抗？因为「比例掉到零」这句话，跟「比例掉得很快」是两回事，而当年能用的工具只够碰前者的一个残缺版本。当时的主要手段是傅里叶分析——把这副牌的结构展开成一堆波，看波的振幅。这条路能做出结果：比例确实在掉，会掉到零。但它给出的下降速度慢得让人不安，慢到只比「掉到零」多出一点点。而所有人都相信真实的速度要快得多——快到是指数级的，也就是说无组的那手牌，相对于 3<sup>n</sup> 来说，应该稀薄得多。</p>
+
+<p>而这个速度不是一个爱好者才关心的细节。这副牌之所以被这么多人问，是因为它是一族更大的问题的试验场——同样形状的问题在整数上、在别的结构上都有一个版本，而牌这个版本是里面最干净的。<em class="key">在牌上能做出什么样的速度，大致就是这一族问题里当前水平的刻度</em>。所以把速度从「勉强掉到零」推到「指数级」不是刷新一次记录，是把刻度整个换了一格。</p>
+
+<p>「相信」和「证明」之间那道缝，就是三十年。傅里叶那条路上的每一步改进都是硬挣来的，把常数往下压一点，把误差项做紧一点，每一篇都比上一篇更技术。这是一个典型的、健康的、看起来只会这样走下去的领域：工具已经确定，剩下的是耐力。</p>
+
+<p>2016 年五月，三个人贴出一篇短文，处理的是另一个相关的问题，用的方法看上去简单到不像话。Croot、Lev、Pach——他们的对象不是这副三符号的牌，是一个近亲。但他们的做法一被读到，两个人几乎同时意识到那个做法可以直接搬过来。三周之内，Ellenberg 和 Gijswijt 各自独立地把它搬过来了，而且两个人写出来的东西几乎一样。</p>
+
+<p>那篇搬过来的证明是三页。<em class="key">从「三十年的技术积累」到「结束」，中间隔着三页纸</em>。</p>
+
+<p>这三页里做了什么？说到底是一件记账的事。你不去数牌，你把每一手可能的牌翻译成一个多项式——一个代数式子，符号和窗口都变成变量和次数。翻译之后，「这手牌里没有组」这个条件就变成了关于这些多项式的一句代数话；而所有次数不太高的多项式构成的那个集合，它有多大是可以直接算的，因为它是一个线性空间，算维数就是数一数有多少个单项式。于是「无组的手牌最多多大」被夹进了「某个多项式空间有多大」里面，而后者是一道组合计数题，中学生能做。</p>
+
+<p>这就是所谓的多项式方法。它没有什么秘密：把组合对象换成代数对象，然后用「多项式的次数不能太高」这件死板的事去挤出一个上界。它的全部力量来自代数那一侧的刚性——次数就是次数，你没法讨价还价。</p>
+
+<p>值得注意的是被换掉的是什么。傅里叶那条路把这副牌看成一个可以做频谱分析的东西，看的是它的<em class="key">分布</em>：哪些模式多、哪些模式少、离随机有多远。这是一种统计式的目光，而统计式的目光天生带误差项，误差项就是那三十年里被反复削小的东西。多项式方法根本不看分布。它把牌看成方程的解，问的是代数式子的次数够不够容纳这么多解。<em class="key">这里没有误差项，因为这里没有近似</em>——一个多项式的次数是一个整数，不是一个估计值。三十年的进展花在把误差项做紧，而换过来的这个视角里根本没有那一项要做。</p>
+
+<div class="pull">不是有人造出了更强的工具，是有人发现这个问题一直可以用一件谁都有的工具解决。</div>
+
+<p>需要说清楚的是那三页里没有省略的东西。它不是一个「大致思路」，不是一篇宣告后面还要补细节的通告。它是一个完整的证明，每一步都在纸上，任何一个学过一学期抽象代数的人可以在一个下午之内核完。而且它给出的结果比三十年里所有人做出来的都强：指数级的下降，正是大家一直相信的那个量级。</p>
+
+<p>三十年的傅里叶分析工作，在那三页面前，不是被超越了——是被绕开了。</p>
+
+<p>这里要把「绕开」这个词的分量说准，因为它容易被听成一句刻薄话。傅里叶那条路上的三十年不是白费的：正是那些工作把问题的形状磨清楚了，让人确切地知道该期待什么样的答案、真实的下降速度大概在哪个量级。三页纸的作者们知道自己该证明什么，这个「该证明什么」是三十年攒下来的。被绕开的是方法，不是那些人的判断。</p>
+
+<div class="aside">
+<h4>那三个星期</h4>
+<p>整件事的时间尺度值得记一下。五月中，Croot、Lev、Pach 把预印本贴上 arXiv。几天之内，Gowers 在自己的博客上写了一篇解读，说这个方法看起来可能对那副牌的问题有效。五月底之前，Ellenberg 和 Gijswijt 各自贴出了预印本，做的是同一件事。</p>
+<p>没有一封审稿信，没有一次会议报告。一个抵抗了三十年的问题从「有人提出一个想法」到「被两个互不知情的人独立结束」，用了三个星期，全程发生在公开的预印本和博客上。后来那两篇合成了一篇联合发表的文章——期刊那道程序是事后补的。</p>
+</div>
+
+<h2>三次同样的事</h2>
+
+<p>如果只发生过一次，这是一个故事。发生了三次，就是别的东西了。</p>
+
+<p>2008 年，一个叫有限域 Kakeya 问题的东西。粗略地说：在一个 n 维的格子空间里，你要放进一堆直线，每个方向上至少有一条，问这堆直线加起来至少要占掉多少格子。直觉上应该占掉几乎全部——方向那么多，线扫过来扫过去，很难不铺满。但这个直觉在十几年里只被证明到很弱的程度，主流路线是几何测度论那一套，工具重，进展以小步计。Dvir 的证明是一页多。方法是同一件事：把直线的集合翻译成多项式，用次数挤上界。</p>
+
+<p>2010 年，Guth 和 Katz 解决了一个从 1946 年问到 2010 年的问题——平面上 n 个点，它们之间不同距离的个数至少是多少。这个问题被无数人做过，每次把指数往上推一点点，推了六十年。Guth-Katz 的论文不算短，但它的核心是一个代数几何的观察：用一个多项式去切开平面，让点被分到不同的块里。这个观察本身可以在一页里说完。</p>
+
+<p>然后是 2016 年的那三页。</p>
+
+<table class="data">
+<thead><tr><th>问题</th><th>抵抗了多久</th><th>结束它的东西</th></tr></thead>
+<tbody>
+<tr><td>有限域 Kakeya<br><span style="color:var(--dim);font-size:15px">线要占掉多少格子</span></td><td>约 10 年<br><span style="color:var(--dim);font-size:15px">几何测度论路线</span></td><td>把对象翻译成多项式，<br>用次数挤出上界</td></tr>
+<tr><td>不同距离个数<br><span style="color:var(--dim);font-size:15px">n 个点之间</span></td><td>约 60 年<br><span style="color:var(--dim);font-size:15px">组合几何路线</span></td><td>把对象翻译成多项式，<br>用次数挤出上界</td></tr>
+<tr class="hi"><td>无组手牌的比例<br><span style="font-size:15px">掉不掉到零、掉多快</span></td><td>约 30 年<br><span style="font-size:15px">傅里叶分析路线</span></td><td>把对象翻译成多项式，<br>用次数挤出上界</td></tr>
+</tbody>
+</table>
+
+<p>第三列写了三遍，一字不改。这是这张表唯一想说的事。</p>
+
+<p>三个问题来自三个不同的领域，各自积累了各自的技术传统，各自有一批人把一生中最好的年头花在推进那个传统上。三个问题被同一件事结束，而那件事在三个领域的标准课程里都不出现——它不属于其中任何一个传统，它属于代数，一门跟它们都不挨着的科目。</p>
+
+<p>从这三次里能提出来的判断是这一条，而且它比听起来更硬：</p>
+
+<p><em class="key">一个问题抵抗了几十年这个事实，本身不构成关于它有多难的证据。</em></p>
+
+<p>这句话违反直觉，因为我们习惯把「很多聪明人试过而没成」读成「这件事很深」。但「很多聪明人试过」的准确内容是：很多聪明人<em class="key">用当时被认为该用的方法</em>试过。如果那个方法从一开始就不是对的入口，那么三十年的失败记录测量的不是问题的深度，是这个共同体在多长时间里没有换过角度。</p>
+
+<div class="aside">
+<h4>为什么换角度这么难</h4>
+<p>不是因为人笨。一个成熟领域里的方法选择不是自由的：它决定了你能读懂谁的论文、你的工作能被谁审、你的学生学什么。当傅里叶分析在这类问题上做出了三十年的成绩，它就不只是一件工具，它是这个领域彼此交流的语言。用一件别的工具去做，首先要付的代价是没有人跟你在同一个层面上讨论。</p>
+<p>这也解释了为什么突破往往来自边缘——Dvir 当时在做理论计算机科学，不是调和分析。他不欠那个传统什么。</p>
+</div>
+
+<p>还有一点得说，否则这张表会被读成一个乐观的预言。</p>
+
+<p>这三下是<em class="key">事后</em>看起来一致的。在 2008 年，Dvir 那一页多被看成一个漂亮的技巧，属于「这个具体问题运气好」那一类；没有人在当时就宣布一个方法诞生了。真正让它成为一个方法的是 2010 年那第二下——同一个动作在一个完全不相干的问题上又管用了一次，这才把它从技巧升成方法。而 2016 年那三页之所以只花了三个星期，恰恰是因为前面两下已经教会了这个共同体去认这个动作的形状：Gowers 在博客上说「这个可能有用」的时候，他认出来的是一个已经有名字的东西。</p>
+
+<p>所以这张表不能倒过来读。它不说「凡是抵抗很久的问题都有一个短证明在等着」，它只说：<em class="key">当一个问题抵抗了很久，「它很深」和「我们一直在用错的语言问它」这两种解释，从证据上讲是没法区分的</em>。要区分只有一个办法，就是有人真的换一种语言试一次。</p>
+
+<h2>长不是失败</h2>
+
+<p>到这里必须往回拉一把，否则这一章会变成一句坏话：短的证明是聪明的，长的证明是没找对路。这句坏话是错的，而且刚好用同一片领域里的两个结果就能驳掉。</p>
+
+<p>1975 年，Szemerédi 证明了一件跟那副牌同一家族的事——现在这个「同一家族」不是比喻了，开头已经说清，那副牌就是等差数列问题的一个版本：任何一个在整数里占有正比例的集合，里面一定含有任意长的等差数列。也就是说你不可能一边保持「不算稀」一边躲开所有的长等差数列，躲不掉。</p>
+
+<p>这个证明很长，而且不是长在啰嗦上，是长在结构上。它有一个几十个情况的组合分解，中间要造出一个后来被单独命名的工具（现在叫正则性引理，它把一个任意复杂的图近似成有限多块，块与块之间像随机的一样——这里不展开，只说它是从那个证明里剥出来的副产品，今天它自己就是一门课）。四十多年之后，这个证明有了别的写法，有的更短，有的用了完全不同的语言，但没有一个写法把它变成三页。它的长度不是当年的技术水平不够，是这件事本身有那么多层。</p>
+
+<p>2004 年，Green 和 Tao 证明了素数里含有任意长的等差数列。这件事有一层额外的困难：素数在整数里的比例是往零掉的，所以 Szemerédi 那个定理直接用不上——它的前提是「占正比例」。Green-Tao 做的事，是先证明素数虽然稀，但稀得「足够随机」，在那个意义上仍然可以套用 Szemerédi 的结论。这个证明也长，而且它的长度里有一大块是转移这个前提本身。</p>
+
+<p>两件事都长。两件事都是这个领域的地标，四十年、二十年过去，长度没有掉下来。所以：</p>
+
+<p><em class="key">长不是失败。有些事情就是有那么多层，证明的长度是在报告层数。</em>把这两个证明拿去跟三页纸比，比出来的不是谁更聪明，是这两类断言的内容量不一样。</p>
+
+<p>那么短的那些又在报告什么？这里有一个干净的区分，而且它决定了这一章后半段的走法。</p>
+
+<p>Szemerédi 和 Green-Tao 证的是<em class="key">存在</em>：一定有一个长等差数列在里面。存在性的证明要把那个东西找出来，或者至少要说清它藏在哪一类位置上，所以它得跟对象的全部复杂性打交道——你不能绕过对象，你要在对象里面找东西。</p>
+
+<p>那三页证的是<em class="key">不存在</em>：无组的手牌不可能大过某个尺寸。这是一条禁令。而禁令不需要你了解对象的内部——它只需要一个别人躲不过去的约束。多项式的次数就是这样一个约束：一旦你把手牌翻译进多项式的世界，次数这道天花板就压在那里了，你手牌里面到底是什么样子，无关。</p>
+
+<p>这个区分还有一个用处：它让「短」这件事不再神秘。一条禁令的证明之所以可能很短，是因为它<em class="key">要说的话本身就短</em>——「不可能超过这么多」是一句话，而一句话只需要一个理由。存在性的证明要交出一个对象，或者交出一套找到它的办法，那是一份清单，清单没法短。所以短和长不是两种才气，是两种断言的形状差异。</p>
+
+<p>反过来说也成立，而且这一半同样要记住：一条禁令的证明有可能长得可怕。本章后面出场的那个庞然大物证的正是一条最优性的禁令，而它长到没有人能独自核完。禁令<em class="key">可以</em>短，不是<em class="key">必然</em>短。</p>
+
+<p>这是这一章跟第 32 章、第 34 章的分工处。那两章说的是「完整清单就是一条禁令」——把所有可能的东西列全，清单外的一切就此被禁止。这一章说的是另一种形状：</p>
+
+<div class="pull">一个最优性证明是一条伪装起来的禁令。</div>
+
+<p>「最多能拿这么多张」听起来像一句关于成绩的话，其实它是「你不可能拿到更多」，是对所有未来尝试的一次预先驳回。它跟清单式的禁令不一样：清单是穷举出全部可能，最优性是<em class="key">不穷举而封顶</em>——你永远不会知道第七项是几，但你已经知道第七项、第八项、第一千项都在那条线以下。</p>
+
+<h2>只有第八维和第二十四维</h2>
+
+<p>最优性证明的极端例子，是堆球。</p>
+
+<p>一堆等大的球，要塞进一个空间里，尽可能不浪费。问最紧的塞法能占掉空间的多大比例。这个问题在二维就是摆硬币，答案是蜂窝那样的六边形排列，占大约 90.7%，这个证明是十九世纪的事。三维是摆橙子——水果摊那种一层一层错开的堆法，占大约 74%。所有人都知道那是最好的，但从 1611 年 Kepler 说出这句话，到它被证明，是 387 年。</p>
+
+<p>1998 年，Hales 证明了它。那个证明的做法是把无穷多种可能的堆法压缩成有限多种情形，然后一种一种排除掉。压缩之后剩下的情形数量还是巨大的，排除工作靠计算机完成，整个证明连同代码是一个庞然大物。它是对的，后来还被逐条机器核验过。但没有人会说它是一个让人愉快的证明——它没有解释为什么是 74%，它只是关掉了所有别的门。</p>
+
+<p>这里有一件事，是二维和三维之间那道跳跃留下的教训。摆硬币的时候你能看见为什么六边形最好——每个硬币周围刚好挤得下六个，一眼就懂，而这个「一眼就懂」在证明里也确实起作用。摆橙子的时候这种看见就没了。三维里球的周围能挤下十二个球，但十二个球在球面上有排布的自由，挤完之后还剩着空隙可以晃动，于是「最好的堆法」不再是一个被逼死的形状，而是一堆彼此差不多好的候选里的一个。387 年花在这个「差不多」上。</p>
+
+<p>这个庞然大物是本章的对照物，而且它正是第 30 章讲过的那种局面在数学里的样子：问题的规模压垮了人的手，于是把工作交给机器，代价是这个结论的可信度从此挂在一套没有人通读过的东西上。那一章是往这个方向走的一整章。这一章从头到这里，走的是反方向——同样是禁令，同样是最优性，一边要三百多年加一堆代码，另一边要三页纸。<em class="key">这两种结局出现在同一类断言上</em>，这是这一章值得记住的事之一。</p>
+
+<p>那是三维。四维呢？不知道。五维、六维、七维？都不知道。</p>
+
+<p>然后 2016 年，Viazovska 证明了八维的最优堆法。第二年，跟合作者一起，二十四维也证明了。</p>
+
+<p>于是今天的账目是这样的：</p>
+
+<div class="steps">
+<p>1 维　✓　　2 维　✓　　3 维　✓　<span style="color:var(--dim);font-size:16px">（387 年，庞然大物）</span></p>
+<p>4、5、6、7 维　✗　<span style="color:var(--dim);font-size:16px">全部不知道</span></p>
+<p>8 维　✓　<span style="color:var(--dim);font-size:16px">（一篇论文，二十几页）</span></p>
+<p>9 到 23 维　✗　<span style="color:var(--dim);font-size:16px">全部不知道</span></p>
+<p>24 维　✓</p>
+<p>25 维以上　✗</p>
+</div>
+
+<p>这个表看着不像数学，像地质。两个孤岛，中间和两边都是空白，而右边那座岛还比左边那座高。</p>
+
+<p>为什么偏偏是八和二十四？因为这两个维度里各有一个极其特殊的排列方式——八维里的那个叫 E<sub>8</sub>，二十四维里的那个叫 Leech 格。这两个东西的对称性大得离谱，跟同维度里所有别的排列都不是一个等级。它们在数学里到处冒头，第 34 章那份有限单群的清单末尾那个最大的散在群，就跟二十四维这个格子直接相关；那一章讲的月光现象，也是从同一个方向长出来的。这里只提一句：<em class="key">这不是巧合，是同一批特殊对象在不同问题里反复现身</em>。</p>
+
+<p>Viazovska 做的事，需要一点耐心才能说清它的奇怪在哪。</p>
+
+<p>在她之前，有一个已知的框架，叫线性规划界：你可以构造一个满足若干条件的辅助函数，每个这样的函数就给出一个堆球密度的上界。函数造得越好，界压得越低。这个框架是 2003 年就有的，而且早就有人发现：<em class="key">在八维和二十四维，这个上界看起来正好等于 E<sub>8</sub> 和 Leech 格的密度</em>——数值算出来，小数点后好多位都对得上。</p>
+
+<p>也就是说，答案早就在屏幕上了。缺的只是那个函数——一个能把上界精确压到那个值、而不是压到「非常接近那个值」的函数。这中间的差别不是精度问题，是有和没有的问题：数值吻合到小数点后五十位仍然什么也不证明，你必须把那个函数写出来。</p>
+
+<p>这个处境在数学里不常见，值得多看一眼。通常的困难是不知道答案是什么。这里的困难是答案已经知道了，连怎么证也知道了个大概框架——你要的就是一个函数，它得满足几条明确写得出来的条件，而它存在的话，剩下的推理是现成的。所有的不确定性被压进了「去哪里找这个函数」这一件事里。这不是一道理解上的难题，是一道<em class="key">在什么地方翻</em>的难题。</p>
+
+<p>十三年里没有人写出来。Viazovska 写出来了，而她的写法是这一章的主题的一个纯粹样本：她没有加强那个框架，没有发明新的界，她只是<em class="key">换了一个地方去找那个函数</em>——用模形式，一类因为对称性极强而早被研究透了的函数。E<sub>8</sub> 和 Leech 格的对称性刚好是模形式管的那种对称性，所以从模形式那边下手，那个函数是可以被构造出来的。</p>
+
+<p>这是同一个动作的第四次：不需要更强的工具，需要换一个角度看已有的东西。而它的结果又是一条最优性的禁令——在八维里，你永远造不出比 E<sub>8</sub> 更紧的堆法。不是「至今没造出」，是不可能。</p>
+
+<p>八维和三维的对比，把这一章的判断摆到了最清楚的位置。三维那个证明用了 387 年，最后靠把情形排干净收场，它给出了答案但没有给出理由；八维那个证明是一篇论文，而它给出的东西里包含一个理由——上界之所以正好落在 E<sub>8</sub> 那里，是因为 E<sub>8</sub> 的对称性和那类函数的对称性是同一种。</p>
+
+<p>八维比三维高，可能的排列方式多得多，直觉上应该更难。它更容易，因为<em class="key">那里刚好有一个东西对称到可以被算</em>。四维到七维之所以全是空白，不是因为它们介于三和八之间所以难度也介于中间，是因为那些维度里没有这种特殊的排列可以借力，两种办法都不适用：情形太多，排不干净；对称性不够，算不出来。</p>
+
+<figure>
+<svg viewBox="0 0 620 150" role="img" aria-label="堆球问题已解决的维度分布：1、2、3，然后8，然后24">
+<text x="12" y="20" font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660">维度</text>
+<g stroke="#ddd6c9" stroke-width="1" fill="#fff">
+<rect x="20" y="40" width="20" height="32"/><rect x="42" y="40" width="20" height="32"/>
+<rect x="64" y="40" width="20" height="32"/><rect x="86" y="40" width="20" height="32"/>
+<rect x="108" y="40" width="20" height="32"/><rect x="130" y="40" width="20" height="32"/>
+<rect x="152" y="40" width="20" height="32"/><rect x="174" y="40" width="20" height="32"/>
+<rect x="196" y="40" width="20" height="32"/><rect x="218" y="40" width="20" height="32"/>
+<rect x="240" y="40" width="20" height="32"/><rect x="262" y="40" width="20" height="32"/>
+<rect x="284" y="40" width="20" height="32"/><rect x="306" y="40" width="20" height="32"/>
+<rect x="328" y="40" width="20" height="32"/><rect x="350" y="40" width="20" height="32"/>
+<rect x="372" y="40" width="20" height="32"/><rect x="394" y="40" width="20" height="32"/>
+<rect x="416" y="40" width="20" height="32"/><rect x="438" y="40" width="20" height="32"/>
+<rect x="460" y="40" width="20" height="32"/><rect x="482" y="40" width="20" height="32"/>
+<rect x="504" y="40" width="20" height="32"/><rect x="526" y="40" width="20" height="32"/>
+<rect x="548" y="40" width="20" height="32"/><rect x="570" y="40" width="20" height="32"/>
+</g>
+<g fill="#a4501e" stroke="#a4501e" stroke-width="1">
+<rect x="20" y="40" width="20" height="32"/><rect x="42" y="40" width="20" height="32"/>
+<rect x="64" y="40" width="20" height="32"/><rect x="174" y="40" width="20" height="32"/>
+<rect x="526" y="40" width="20" height="32"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="11" fill="#fff" text-anchor="middle">
+<text x="30" y="61">1</text><text x="52" y="61">2</text><text x="74" y="61">3</text>
+<text x="184" y="61">8</text><text x="536" y="61">24</text>
+</g>
+<text x="592" y="61" font-family="system-ui,sans-serif" font-size="15" fill="#ddd6c9">…</text>
+<g stroke="#6b6660" stroke-width=".9" fill="none">
+<path d="M86 82 L86 92 L172 92 L172 82"/>
+<path d="M196 82 L196 92 L524 92 L524 82"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="11" fill="#6b6660" text-anchor="middle">
+<text x="129" y="106">4 个维度不知道</text><text x="360" y="106">15 个维度不知道</text>
+</g>
+<g stroke="#a4501e" stroke-width=".8" fill="none">
+<path d="M184 72 L184 118"/><path d="M536 72 L536 118"/><path d="M52 72 L52 118"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="11.5" fill="#a4501e" text-anchor="middle">
+<text x="52" y="132">古典，加 387 年</text><text x="184" y="132">E₈</text><text x="536" y="132">Leech 格</text>
+</g>
+<text x="20" y="145" font-family="system-ui,sans-serif" font-size="11" fill="#6b6660">深色 = 最紧堆法已被证明。其余全部未知，包括紧挨着的四维。</text>
+</svg>
+<figcaption>如果「维度越高越难」，这张图应该是左边一片深色然后断掉。它不是。三维之后立刻断掉，而八维和二十四维亮着——这两格亮不是因为那里简单，是因为那两个维度里各有一个对称性大得离谱的排列，<b>而对称性是可以拿来算的东西</b>。图上的空白格不是「还没做到」的进度条，它们大多没有已知的入口。</figcaption>
+</figure>
+
+<h2>回到诚实的那一边</h2>
+
+<p>2025 年，Wang 和 Zahl 证明了三维的 Kakeya 猜想——就是本章前面出现过的那个问题的原版，在真实的三维空间里，不是在格子里。这是那一族问题里最被期待的一个结果，等了几十年。</p>
+
+<p>它的证明有一百多页。</p>
+
+<p>而且这不是「本来可以短一点但作者写得细」。三维 Kakeya 是这一族问题里公认最硬的那个，几十年里被从各个方向试过，包括在格子上一击致命的那件工具——试过，不行。</p>
+
+<p>这件事应该被放在这一章的末尾，因为它把前面所有的话都放回了正确的位置。多项式方法在格子上的版本上一击致命，在真实空间的版本上救不了场——真实空间里没有那种代数刚性可以借，直线不是多项式的零点集，测度不是维数。Wang 和 Zahl 用的是几何的、层层递进的分析，一百多页里没有一页是可以跳的。</p>
+
+<p>所以这一章的结论不是「困难的问题往往是简单的」。是别的东西，而且要说得更准：</p>
+
+<div class="honest">
+<p><b>三件要交底的事。</b></p>
+<p>第一，多项式方法在别的地方大多没用。2008 到 2016 那三下之后，很多人试着把它推到相邻的问题上，绝大多数尝试没有结果。它不是一把万能钥匙，它是刚好插进了三把锁。把它讲成一个新时代的开端是不诚实的——真实的情况是，一件早就存在的初等工具在某几个特定的位置上出奇地有效，而为什么是这几个位置，我们没有一个说得清的理由。</p>
+<p>第二，这些界算不算「关于世界的知识」。按本书第 12 章立的标准算：算，而且是最硬的那一类。这些结论不需要实验裁决，因为它们不是关于我们这个宇宙的经验断言——它们是被严格证明的不可能性。八维里不存在比 E<sub>8</sub> 更紧的堆法，这句话在任何宇宙里都为真，也不会因为将来发现了什么而被修订。整本书里能拿到这种地位的结论不多，本章的这几条在里面。</p>
+<p>第三，第七项还是不知道。开头那个问号，到这一章结束的时候一个字都没变。我们知道了那个比例掉到零、掉多快、掉的速度是最优的，但那副牌在 n = 7 的时候到底最多能拿几张，仍然没有人知道，而且解决了比例问题的那三页，对这个具体的数字一句话都没说。<b>这两件事是不同的事</b>，而后一件——那个具体的数字——今天看不到路。</p>
+</div>
+
+<p>那么这一章跟第 35 章合起来说的是什么？</p>
+
+<p>上一章是外来的语言解决了本地的问题：物理学那边的一句话，翻译过来是数学这边一个没人猜到的定理。这一章是相反的一面——不需要外来的语言，只需要换一个角度看已经在手上的东西。两章的形状完全相反，但落点是同一句，那句话上一章末尾已经写出来了：「难」有时候不是问题的属性，是我们描述它的方式的属性。</p>
+
+<p>这句话在这一章有了一个可以量的版本。三十年对三页，387 年对二十几页，六十年对一页多。这些比值不是在衡量那些问题有多深，是在衡量<em class="key">我们在多长时间里没有换过描述</em>。</p>
+
+<p>不过这个说法有一个必须守住的边界，否则它会滑成一句廉价的话。它不是说难度是主观的，也不是说只要肯换角度什么都能破。Wang-Zahl 那一百多页，Szemerédi 那几十种情形，是硬的层数，换任何角度都还在那里。这一章说的只是一件更窄、也因此更可靠的事：<em class="key">在我们估计一个问题有多难的时候，我们手上并没有一把能把「问题本身的层数」和「描述方式带来的阻力」分开量的尺</em>。两者都表现为「很多人试过而没成」，读出来是同一个数字。</p>
+
+<p>这里也顺带把这一章的题目解释掉。「两页的证明」不是一句夸奖。一份两页的最优性证明，跟一份一百页的，禁的东西一样多、一样死；页数对结论的强度毫无贡献。它唯一告诉我们的事是关于我们自己的：<em class="key">在这个问题上，我们曾经用了一种比必要复杂得多的方式去看它</em>。所以读到「两页」的时候该记住的不是它多短，是它禁掉了什么——「无组的手牌不可能大过那条线」，这句话对所有的 n 成立，对所有未来的尝试成立，永远不会被修订。</p>
+
+<p>而这本书从第一章问的那个问题——我们凭什么还能理解世界——在这里露出了一个不太让人舒服的侧面。到目前为止的答案一直是关于世界的：世界按尺度分了层，信息是物理的，拓扑守住了稳健的事实。这一章的答案是关于我们的。有些理解上的困难，不在世界那一边。</p>
+
+<p>最后留一个口子。上面出现了两种证明：一种短到一个下午能核完，另一种长到没有人能独自核完全部——Hales 那个庞然大物没有任何一个人从头到尾读过每一行。这两种东西都叫「证明」，都被这个共同体接受了，而接受的理由显然不是同一个。</p>
+
+<p>「我核完了」和「我们相信它是对的」，什么时候开始分开的？这是下一章。</p>
+
+</main>
+
+<footer class="ch">
+<div class="prof">
+<h4>数学家的话</h4>
+<p class="sub">本章内容在文献中的术语坐标，供想提前深入的读者定位。</p>
+
+<p><b>刚性。</b>那副牌的正名是 <span class="eq">𝔽<sub>3</sub><sup>n</sup></span> 里的 <b>cap set 问题</b>：求不含三项<b>等差数列</b>（等价地三点共线）的最大子集基数。旧路是 <b>Roth 论证</b>在有限域上的移植——<b>傅里叶分析</b>加<b>密度增量</b>，所得上界只在 <span class="eq">3<sup>n</sup></span> 的<b>多项式因子</b>里推进。新路的原型是 <b>Croot–Lev–Pach 引理</b>，移植后把上界压到 <span class="eq">O(c<sup>n</sup>)</span>、<span class="eq">c &lt; 3</span>，即指数下降；剥掉多项式外衣后的内核是张量的 <b>slice rank</b>——「对角张量的 slice rank 有上界」。下界侧是显式<b>构造</b>，与上界之间的<b>指数缝隙</b>未合。同一手法的另两处落点：有限域 <b>Kakeya 猜想</b>（核心是 <b>Schwartz–Zippel</b> 的一个用法：低次非零多项式不能处处为零），与 <b>Erdős 不同距离问题</b>（<b>多项式分割</b>加<b>直线关联估计</b>）。使用陷阱：这套<b>代数刚性</b>不外推到实数域，因为那里直线不是<b>零点集</b>，<b>Hausdorff 维数</b>亦非线性空间维数——<span class="eq">ℝ<sup>3</sup></span> 的 Kakeya 要靠<b>尺度归纳</b>与 <b>sticky Kakeya 集</b>的结构定理。</p>
+
+<p><b>长度。</b>证明长度可以被证明为必需，这是与「技巧不足」不同的范畴：<b>Szemerédi 定理</b>剥出的<b>正则性引理</b>，其界必须是<b>塔型</b>的。<b>Green–Tao 定理</b>的体量里有一整块是<b>转移原理</b>——先用 <b>Goldston–Yıldırım 型筛法</b>说明素数在 <b>Gowers 一致性范数</b>意义下足够<b>伪随机</b>，再把结论搬到不具<b>正密度</b>的集合上。堆球侧的框架是 <b>Cohn–Elkies 线性规划界</b>：任一<b>可容许函数</b>满足 <span class="eq">f(x) ≤ 0</span>（<span class="eq">|x| ≥ r</span>）且 <span class="eq">f̂ ≥ 0</span> 即给出密度上界；难点从不在框架而在<b>取等函数</b>的构造，工具是<b>弱全纯拟模形式</b>的 <b>Laplace 变换</b>，对象是 <span class="eq">E<sub>8</sub></span> 与 <b>Leech 格</b>，结论后被加强为<b>普遍最优性</b>。三维侧属另一种长度——<b>情形穷举</b>，其可信性靠<b>形式化核验</b>（<b>Flyspeck</b>）兑现。</p>
+
+<p><b>入口。</b>Tao–Vu《Additive Combinatorics》（傅里叶路与正则性）；Guth《Polynomial Methods in Combinatorics》（多项式方法的统一处理）；Conway–Sloane《Sphere Packings, Lattices and Groups》（格与堆球的基本盘）。</p>
+</div>
+
+<nav class="pager">
+  <a href="ch35-猜想工厂.html">← 第 35 章 物理学作为猜想工厂</a>
+  <a href="index.html">目录</a>
+  <a href="ch37-机器能不能相信.html">第 37 章 机器能不能相信 →</a>
+</nav>
+</footer>
+
+</div></body></html>
