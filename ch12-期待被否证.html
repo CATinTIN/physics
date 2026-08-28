@@ -167,49 +167,96 @@ nav.pager span{color:#b5aea4}
 <p>差一点，就是差一点。可只要在 1 太电子伏附近放进超对称粒子，三条曲线的斜率就全都变了（因为跑循环的粒子种类变了），而变过之后，<b>三条线在 10¹⁶ 吉电子伏附近交于一点</b>。</p>
 
 <figure>
-<svg viewBox="0 0 700 300" role="img" aria-label="三个规范耦合的流动：标准模型交不到一点，加入超对称后汇聚">
-  <g font-family="system-ui,sans-serif" font-size="11" fill="#b5aea4">
-    <line x1="70" y1="45" x2="330" y2="45" stroke="#eee7db"/>
-    <line x1="70" y1="113" x2="330" y2="113" stroke="#eee7db"/>
-    <line x1="70" y1="182" x2="330" y2="182" stroke="#eee7db"/>
-    <line x1="400" y1="45" x2="660" y2="45" stroke="#eee7db"/>
-    <line x1="400" y1="113" x2="660" y2="113" stroke="#eee7db"/>
-    <line x1="400" y1="182" x2="660" y2="182" stroke="#eee7db"/>
-  </g>
-  <line x1="70" y1="250" x2="330" y2="250" stroke="#ddd6c9"/>
-  <line x1="400" y1="250" x2="660" y2="250" stroke="#ddd6c9"/>
+<svg viewBox="0 0 700 300" role="img" aria-label="三个规范耦合随能标的流动。左图标准模型：三条线两两相交于 10^13、10^14、10^17 吉电子伏三处，围出一个瘦长的三角形。右图在 1 太电子伏处加入超对称粒子：三条线斜率一齐改变，在 10^16 吉电子伏附近汇于一点。">
+ <g font-family="system-ui,sans-serif">
 
-  <g stroke-width="2" fill="none">
-    <line x1="70" y1="49" x2="330" y2="126" stroke="#1e4d6b"/>
-    <line x1="70" y1="149" x2="330" y2="89" stroke="#a4501e"/>
-    <line x1="70" y1="221" x2="330" y2="89" stroke="#6b6660"/>
-  </g>
-  <circle cx="330" cy="107" r="26" fill="none" stroke="#a4501e" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="64" y="17" font-size="13" fill="#22201d">标准模型：交不上</text>
+  <text x="400" y="17" font-size="13" fill="#1e4d6b">加入超对称：交上了</text>
 
-  <g stroke-width="2" fill="none">
-    <polyline points="400,49 417,54 660,169" stroke="#1e4d6b"/>
-    <polyline points="400,149 417,145 660,162" stroke="#a4501e"/>
-    <polyline points="400,221 417,212 660,159" stroke="#6b6660"/>
+  <g stroke="#efe8dc">
+    <line x1="64" y1="81.9" x2="328" y2="81.9"/>
+    <line x1="64" y1="139.3" x2="328" y2="139.3"/>
+    <line x1="64" y1="196.6" x2="328" y2="196.6"/>
+    <line x1="400" y1="81.9" x2="664" y2="81.9"/>
+    <line x1="400" y1="139.3" x2="664" y2="139.3"/>
+    <line x1="400" y1="196.6" x2="664" y2="196.6"/>
   </g>
-  <circle cx="652" cy="163" r="17" fill="none" stroke="#1e4d6b" stroke-width="1.5"/>
-  <line x1="417" y1="60" x2="417" y2="245" stroke="#ddd6c9" stroke-dasharray="3 3"/>
 
-  <g font-family="system-ui,sans-serif" font-size="12.5" fill="#6b6660">
-    <text x="70" y="278">10²</text><text x="300" y="278">10¹⁷</text>
-    <text x="400" y="278">10²</text><text x="630" y="278">10¹⁷</text>
-    <text x="200" y="296" text-anchor="middle" fill="#22201d">标准模型：交不上</text>
-    <text x="530" y="296" text-anchor="middle" fill="#1e4d6b">加入超对称：交上了</text>
-    <text x="424" y="243" font-size="11">↑ 1 TeV</text>
+  <g stroke="#ddd6c9">
+    <line x1="64" y1="36" x2="64" y2="254"/>
+    <line x1="64" y1="254" x2="328" y2="254"/>
+    <line x1="400" y1="36" x2="400" y2="254"/>
+    <line x1="400" y1="254" x2="664" y2="254"/>
+    <line x1="130" y1="254" x2="130" y2="258.5"/>
+    <line x1="196" y1="254" x2="196" y2="258.5"/>
+    <line x1="262" y1="254" x2="262" y2="258.5"/>
+    <line x1="328" y1="254" x2="328" y2="258.5"/>
+    <line x1="466" y1="254" x2="466" y2="258.5"/>
+    <line x1="532" y1="254" x2="532" y2="258.5"/>
+    <line x1="598" y1="254" x2="598" y2="258.5"/>
+    <line x1="664" y1="254" x2="664" y2="258.5"/>
   </g>
-  <g font-family="system-ui,sans-serif" font-size="12" >
-    <text x="336" y="130" fill="#1e4d6b">电磁</text>
-    <text x="336" y="93" fill="#a4501e">弱</text>
-    <text x="336" y="78" fill="#6b6660">强</text>
+
+  <polygon points="246.2,111.0 268.9,118.9 312.0,93.3" fill="#a4501e" fill-opacity=".16"
+           stroke="#a4501e" stroke-opacity=".45" stroke-width=".8"/>
+
+  <g stroke-width="2" fill="none" stroke-linecap="round">
+    <line x1="64" y1="47.6" x2="328" y2="139.5" stroke="#1e4d6b"/>
+    <line x1="64" y1="160.0" x2="328" y2="89.0" stroke="#a4501e"/>
+    <line x1="64" y1="240.7" x2="328" y2="83.8" stroke="#6b6660"/>
   </g>
-  <text x="52" y="46" font-family="system-ui,sans-serif" font-size="11" fill="#b5aea4" text-anchor="end">耦合弱</text>
-  <text x="52" y="252" font-family="system-ui,sans-serif" font-size="11" fill="#b5aea4" text-anchor="end">耦合强</text>
+  <g fill="#8a4a20">
+    <circle cx="246.2" cy="111.0" r="1.9"/>
+    <circle cx="268.9" cy="118.9" r="1.9"/>
+    <circle cx="311.8" cy="93.4" r="1.9"/>
+  </g>
+  <line x1="300" y1="74" x2="300" y2="88" stroke="#c9beac" stroke-dasharray="2 2.5"/>
+
+  <line x1="416.5" y1="36" x2="416.5" y2="254" stroke="#ddd6c9" stroke-dasharray="3 3"/>
+  <g stroke-width="2" fill="none" stroke-linecap="round">
+    <polyline points="400,47.6 416.5,53.3 664,192.0" stroke="#1e4d6b"/>
+    <polyline points="400,160.0 416.5,155.6 664,176.6" stroke="#a4501e"/>
+    <polyline points="400,240.7 416.5,230.9 664,167.8" stroke="#6b6660"/>
+  </g>
+  <circle cx="635" cy="174.5" r="13" fill="none" stroke="#1e4d6b" stroke-width="1.4"/>
+  <line x1="640" y1="142" x2="637" y2="159" stroke="#c9beac" stroke-dasharray="2 2.5"/>
+
+  <g font-size="12">
+    <text x="112" y="62" fill="#1e4d6b">电磁</text>
+    <text x="112" y="140" fill="#a4501e">弱</text>
+    <text x="112" y="202" fill="#6b6660">强</text>
+  </g>
+
+  <g font-size="11" fill="#8a4a20" text-anchor="end">
+    <text x="326" y="52">两两相交，围出一个三角形</text>
+    <text x="326" y="68">10¹³ · 10¹⁴ · 10¹⁷</text>
+  </g>
+  <g font-size="11" fill="#1e4d6b" text-anchor="end">
+    <text x="660" y="120">三条线汇于一点</text>
+    <text x="660" y="136">10¹⁶</text>
+  </g>
+  <text x="421" y="248" font-size="10.5" fill="#6b6660">1 TeV 起：超伙伴入场</text>
+
+  <g font-size="11" fill="#6b6660" text-anchor="middle">
+    <text x="64" y="270">10²</text><text x="130" y="270">10⁶</text>
+    <text x="196" y="270">10¹⁰</text><text x="262" y="270">10¹⁴</text>
+    <text x="328" y="270">10¹⁸</text>
+    <text x="400" y="270">10²</text><text x="466" y="270">10⁶</text>
+    <text x="532" y="270">10¹⁰</text><text x="598" y="270">10¹⁴</text>
+    <text x="664" y="270">10¹⁸</text>
+  </g>
+  <g font-size="10.5" fill="#b5aea4" text-anchor="middle">
+    <text x="196" y="289">能标（GeV）</text>
+    <text x="532" y="289">能标（GeV）</text>
+  </g>
+
+  <g font-size="11" fill="#b5aea4" text-anchor="end">
+    <text x="56" y="50">耦合弱</text>
+    <text x="56" y="246">耦合强</text>
+  </g>
+ </g>
 </svg>
-<figcaption>纵轴是耦合的强度（越往下越强），横轴是能标，跨十五个数量级。左边是标准模型：三条流动线互相逼近，却始终错开，虚线圈里就是那个瘦长的三角形。右边在 1 太电子伏处放进超对称粒子：三条线的斜率一齐改变，然后汇到一处。<b>两张图都不是数据，是拿测准了的低能值向上外推十几个数量级画出来的</b>——它全部的说服力来自「差一点」和「正好」这一对比，而不是来自哪一处的直接测量。</figcaption>
+<figcaption>纵轴是耦合的强度（越往下越强），横轴是能标，跨十六个数量级；两张图的两条轴刻度完全相同，可以直接比。左边是标准模型：三条流动线互相逼近，却两两错开，分别相交在 10¹³、10¹⁴、10¹⁷ 吉电子伏三处——染色的那一小片就是那个瘦长的三角形。右边在 1 太电子伏处放进超对称粒子：三条线的斜率一齐改变（图上那道折点），然后在 10¹⁶ 吉电子伏附近汇到一处。<b>两张图都不是数据，是拿测准了的低能值向上外推十几个数量级画出来的</b>——它全部的说服力来自「差一点」和「正好」这一对比，而不是来自哪一处的直接测量。还要补一句：右图那「一点」是这张图的分辨率上的一点，更精细的计算里仍留着一点残差（见章末「物理学者的话」）。</figcaption>
 </figure>
 
 <p>这一笔为什么值得尊重：它没有一处能事后回头拧。三条曲线的起点是 LEP 量出来的（第 10 章），斜率由跑循环的粒子种类定，而超对称粒子的种类不由人挑——超对称自身的结构就把它定死了。所以这是一个<b>本来很可能算不上、结果算上了</b>的预测。第 10 章那把尺子（拟合还是预言）量到这里，读数是正面的：这不是拟合。</p>
