@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第 6 章 · 确定但不可预测 — 为什么我们还能理解世界</title>
+<style>
+:root{--paper:#faf8f4;--ink:#22201d;--dim:#6b6660;--blue:#1e4d6b;--ochre:#a4501e;--quote:#f1ece3;--rule:#ddd6c9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:19px/1.85 Georgia,"Songti SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+header.ch{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:40px}
+.part{font-size:13px;letter-spacing:.14em;color:var(--dim)}
+.num{font-size:13px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
+h1{font-size:34px;line-height:1.3;margin:.35em 0 .5em;font-weight:normal}
+.threads{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:12px;font-family:system-ui,sans-serif;color:var(--blue);
+  border:1px solid var(--blue);border-radius:11px;padding:2px 10px;opacity:.8}
+p{margin:0 0 1.25em;text-align:justify}
+p.lead{font-size:21px;color:#3a3730}
+.pull{font-size:23px;line-height:1.6;color:var(--blue);margin:1.8em 0;
+  padding-left:20px;border-left:3px solid var(--blue)}
+.aside{background:var(--quote);border-radius:5px;padding:20px 24px;margin:2em 0;
+  font-size:17px;line-height:1.75}
+.aside h4{margin:0 0 .6em;font-size:14px;letter-spacing:.1em;color:var(--dim);
+  font-family:system-ui,sans-serif;font-weight:600}
+.aside p:last-child{margin-bottom:0}
+.honest{border-left:3px solid var(--ochre);padding:4px 0 4px 20px;margin:2em 0;
+  font-size:17.5px;color:#4a453e}
+.honest b{color:var(--ochre);font-weight:normal}
+.honest p:last-child{margin-bottom:0}
+.eqblock{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:22px;
+  text-align:center;margin:1.6em 0 .4em;color:var(--ink)}
+.eqnote{text-align:center;font-size:15px;color:var(--dim);margin-bottom:1.8em}
+.eq{font-family:"Cambria Math",Cambria,Georgia,serif;white-space:nowrap}
+em.key{font-style:normal;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+blockquote{margin:2em 0;padding-left:22px;border-left:2px solid var(--rule);
+  font-size:18px;color:#3f3b35;line-height:1.78}
+blockquote p:last-child{margin-bottom:0}
+blockquote .src{display:block;margin-top:.7em;font-size:14.5px;color:var(--dim);
+  font-family:system-ui,sans-serif}
+figure{margin:2.2em 0}
+figure svg{display:block;width:100%;height:auto;background:#fff;
+  border:1px solid var(--rule);border-radius:4px}
+figcaption{font-size:15px;color:var(--dim);margin-top:.8em;line-height:1.65}
+h2{font-size:24px;font-weight:normal;margin:2.4em 0 .8em;color:var(--blue)}
+table.data{width:100%;border-collapse:collapse;margin:2em 0;font-size:16.5px;
+  font-family:system-ui,sans-serif}
+table.data th{text-align:left;font-weight:600;color:var(--dim);font-size:13.5px;
+  letter-spacing:.06em;padding:8px 10px;border-bottom:1px solid var(--rule)}
+table.data td{padding:9px 10px;border-bottom:1px solid var(--rule)}
+table.data td.n{font-family:"Cambria Math",Cambria,Georgia,serif;color:var(--blue)}
+table.data tr.hi td{background:var(--quote)}
+footer.ch{border-top:1px solid var(--rule);margin-top:56px;padding-top:26px}
+.prof{border:1px solid var(--rule);border-top:2px solid var(--blue);border-radius:4px;
+  padding:22px 26px;margin-bottom:30px;font-size:16.5px;line-height:1.72;color:#3a3730}
+.prof h4{margin:0 0 .2em;font-size:14px;letter-spacing:.1em;color:var(--blue);
+  font-family:system-ui,sans-serif;font-weight:600}
+.prof .sub{margin:0 0 1.1em;font-size:13.5px;color:var(--dim);
+  font-family:system-ui,sans-serif;line-height:1.5}
+.prof p:last-child{margin-bottom:0}
+nav.pager{display:flex;justify-content:space-between;font-size:15px;
+  font-family:system-ui,sans-serif}
+nav.pager a{color:var(--blue);text-decoration:none}
+nav.pager a:hover{text-decoration:underline}
+nav.pager span{color:#b5aea4}
+@media(max-width:600px){body{font-size:17.5px}.wrap{padding:36px 18px 72px}h1{font-size:27px}
+  table.data{font-size:15px}}
+
+/* ==== 分岔图组件（作用域限于 .lmb） ==== */
+.lmb{margin:2.2em 0}
+.lmb-plot{position:relative;width:100%;aspect-ratio:880/480;
+  background:#faf7f1;border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.lmb-plot canvas,.lmb-plot svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.lmb-plot svg{background:none;border:0;border-radius:0;pointer-events:none}
+.lmb figcaption b{color:var(--ink)}
+.lmb .lmb-n{font-variant-numeric:tabular-nums}
+</style></head><body><div class="wrap">
+
+<header class="ch">
+  <div class="part">第一部 · 尺度：为什么无知不妨碍理解</div>
+  <div class="num">第 6 章</div>
+  <h1>确定但不可预测</h1>
+  <div class="threads"><span class="tag">T1 尺度组织了定律</span><span class="tag">T5 普适性是深层事实</span></div>
+</header>
+
+<main>
+<p class="lead">1961 年冬天，爱德华·洛伦兹（Edward Lorenz）想省一点时间。</p>
+
+<p>他在麻省理工用一台皇家麦克比（Royal McBee）真空管计算机跑一个简化的天气模型。这台机器每秒做几十次乘法，跑完一段模拟要几个小时。</p>
+
+<p>洛伦兹想要重新运行一段模拟，以检验某个特定的演变过程。为了节省时间，他没有从头开始，而是选择从中途某一点接续，把此前打印出来的数据重新输入机器。计算机内部会把数值精确到小数点后六位，但为了节省纸张，打印输出时只保留三位。于是洛伦兹敲进去的是 0.506，而非完整的 0.506127。</p>
+
+<p>差别是千分之一的四分之一。按当时所有人的直觉，这种误差在结果里也只该留下同样微不足道的痕迹——铅球的初速度改动千分之一，落地位置也就差个千分之一。洛伦兹去喝了杯咖啡，回来看打印结果。</p>
+
+<p>前面一段还对得上。然后两条曲线开始分开，先是慢慢地，接着越来越快，几个「月」的模拟时间之后，两份天气图已经完全不像同一个星球——一份在下雨，另一份是晴天。</p>
+
+<p>洛伦兹的第一反应和你想的一样：机器坏了。真空管年代这是最常见的解释，他去查了硬件。硬件没问题。然后他想到那个更简单的可能：<b>是那三位小数</b>。</p>
+
+<p>这件事的分量，得过一会儿才感受得到。它不是数值计算上的技术故障。它说的是：<em class="key">这个方程组的解，原则上就无法长期计算</em>——不是这台机器算不了，是任何机器都算不了，因为任何机器输入的初始条件都只有有限位数。</p>
+
+<h2>拉普拉斯的妖精是怎么死的</h2>
+
+<p>1814 年，拉普拉斯写下了决定论最著名的那个表述。他说，假如有一个智能生物，能在某一瞬间知道宇宙中所有粒子的位置和速度，并且有足够的计算能力，那么在它眼里，未来和过去都会像现在一样清晰地摊开，没有任何不确定。</p>
+
+<p>人们通常说这段话是量子力学杀死的——世界底层是概率的，所以那个妖精不可能存在。这个说法没错，但它掩盖了一件更有意思的事：<b>就算没有量子力学，就算世界是彻底的牛顿世界，那个妖精照样没用</b>。洛伦兹的方程完全确定，里面没有一丝随机性，同一个初值输入两次，结果一模一样。它依然不可预测。</p>
+
+<p>关键在拉普拉斯那句话里，有一个词所有人都滑过去了：<b>知道</b>。</p>
+
+<p>「知道一个粒子的位置」在物理上是什么意思？意思是你做了一次测量，而任何测量的精度都是有限的。精度可以提到千分之一、百万分之一、十亿分之一，但你永远拿不到一个无限长的小数。所以妖精手上从来不是「初始条件」，是<b>一小团初始条件</b>——一小片区域，里面装着所有与观测相符的可能状态。</p>
+
+<p>大多数系统里这不要紧。那一小团在演化中大致还是一小团，预测精度也就跟着大致保住。行星运动就是这样，所以我们能算出几百年后的日食，误差在秒级。</p>
+
+<p>混沌系统不是这样。在混沌系统里，那一小团会被<b>指数地拉长</b>。</p>
+
+<div class="pull">决定论和可预测性，是两件事。混沌把它们永久地分开了。</div>
+
+<p>这句话值得停一下，因为公共讨论把这两件事混了两百年。「世界是确定的」和「世界是可预测的」听起来像同一件事的两种说法，而洛伦兹证明了两者之间并没有必然联系。一个系统完全服从确定的方程，没有任何随机成分，原则上算得精确，却可以在实践上和原则上都无法长期预测。</p>
+
+<p>而这一次，我要把「原则上」这个词认真兑现——不是修辞，是一句能算出数字的陈述。</p>
+
+<h2>投入一千倍，换来三倍</h2>
+
+<p>混沌的定量刻画只需要一个式子，也是本章唯一的公式。设你对初始状态的无知是 δ₀（一个小误差），那么经过时间 t 之后，这个误差长成：</p>
+
+<div class="eqblock">δ(t) ≈ δ₀ · e<sup>λt</sup></div>
+<div class="eqnote">δ₀ 是一开始的无知，λ 是这个系统特有的一个数，叫李雅普诺夫指数</div>
+
+<p>请注意这个式子的形状。误差不随时间线性增长（那样很好办），是<b>指数</b>增长。λ 是系统的固有性质，能从方程算出来，也能从实验数据里测出来——它有单位（1/时间），倒数 1/λ 给出一个特征时间，大意是「误差翻一倍要多久」。</p>
+
+<p>现在算一道算术，本节的全部要点都在里面。</p>
+
+<p>假设能容忍的最大误差是 δ_max，那么可预测的时间是</p>
+
+<div class="eqblock">t_max ≈ (1 / λ) · ln(δ_max / δ₀)</div>
+<div class="eqnote">ln 是自然对数——长得极其慢的一个函数</div>
+
+<p>那个对数就是坏消息。它意味着：<b>初始精度提高 10 倍，可预测时间只多出 (1/λ)·ln10 ≈ 2.3/λ</b>；提高 1000 倍，只多出 6.9/λ，是前者的三倍。不是一千倍，是三倍。</p>
+
+<p>把地球大气的数字代进去。大气的李雅普诺夫时间 1/λ 大约在一天半到两天量级（看你关心哪个尺度的天气），可预测极限落在两周左右。现在假设人类干一件极端的事：把全球观测网的精度和密度整体提高一百万倍——每立方米空气都插一个传感器，每个传感器都精确到六位数。</p>
+
+<table class="data">
+<tr><th>初始精度提升</th><th>换来的额外预报天数（1/λ ≈ 1.5 天）</th></tr>
+<tr><td class="n">×10</td><td class="n">约 3.5 天</td></tr>
+<tr><td class="n">×1000</td><td class="n">约 10 天</td></tr>
+<tr><td class="n">×10⁶</td><td class="n">约 21 天</td></tr>
+<tr class="hi"><td class="n">×10¹²</td><td class="n">约 41 天</td></tr>
+</table>
+
+<p>把观测精度提高一万亿倍，天气预报从两周做到八周。而提高一万亿倍在物理上办不到——远在那之前，你就撞上了热运动的随机性，撞上了测量仪器自己在扰动大气，最后撞上量子力学。<em class="key">可预测性有一个上限，这个上限是方程本身定的，不是技术水平定的。</em></p>
+
+<p>这是第 4 章那种「可量化的知识」换了个场合重现。第 4 章说「我不知道普朗克尺度但没关系」，并且把「没关系」量化成 (E/Λ)ⁿ。这里说「我预测不了两周之后的天气」，并且把这个「预测不了」量化成 e<sup>λt</sup>。两句话都不是托词，都是带数字的陈述——<b>无知与含糊的分界线就在这里</b>。</p>
+
+<h2>三个变量就够了</h2>
+
+<p>现在必须堵掉一个非常自然的误解，它会让上一章和这一章的关系整个错位。</p>
+
+<p>你可能会想：天气当然难预测，那是 10⁴⁴ 个分子的系统，复杂得没法想象；混沌大概就是复杂系统的代名词。第 5 章讲「多了就不一样」，这一章讲「多得离谱就完全没法算」。</p>
+
+<p>这个理解是错的，反例由洛伦兹本人提供。他 1963 年那篇论文里，产生混沌的方程组<b>只有三个变量</b>。</p>
+
+<div class="eqblock">dx/dt = σ(y − x)　　dy/dt = x(ρ − z) − y　　dz/dt = xy − βz</div>
+<div class="eqnote">洛伦兹方程。x、y、z 是三个数，粗略对应对流的强度和两个温差</div>
+
+<p>三个数。不是 10²³ 个，是三个。这个方程组比一个水分子还简单，全部内容一张纸就写得下，一台手机毫秒之内能算它几万步。里面没有随机项，没有未知参数，没有任何藏起来的复杂性。</p>
+
+<p>而它不可预测。</p>
+
+<p>这件事的意义是：<b>不可预测性不来自复杂，来自非线性</b>。看那三个式子里的 <span class="eq">xz</span> 和 <span class="eq">xy</span>——变量互相乘在一起，这就够了。线性系统（变量只做加减和乘常数）永远不会混沌；一旦允许变量相乘，三个维度就足以生出一条永不重复、却又困在有限区域里的轨道。</p>
+
+<p>所以第 5 章和这一章讲的是两件不同的事，不要合并：</p>
+
+<p>第 5 章的困难是<b>层级性的</b>——底层定律为真，可高层概念不在它的词汇表里，所以高层定律得独立地被发现。这个困难在「多」。</p>
+
+<p>这一章的困难是<b>时间性的</b>——方程完全为真，概念一样不缺，下一秒甚至算得很准，可长期行为依然锁不住。这个困难在「久」，而且三个变量就造得出来。</p>
+
+<p>两个困难叠在一起，才是拉普拉斯妖精真正的死法。</p>
+
+<h2>可是混乱有结构</h2>
+
+<p>到这里，这一章还只是个坏消息。如果混沌的全部内容就是「有些东西算不准」，那它是条有用的警告，但不配进这本书——本书讲的是知识，不是知识的边界清单。</p>
+
+<p>真正让混沌成为一项<b>发现</b>而不是一项限制的，是接下来这件事。它是本章的重心，也是第一部的合拢处。</p>
+
+<p>请拿一支笔。下面这个例子可以在纸上手算，全书只有这一处我请你动手。</p>
+
+<p>考虑一个池塘里的鱼群。今年的数量决定明年的数量：鱼多了繁殖得更多，可太多了又会因为食物不足而减少。用最简单的式子把这两个效应写下来——设 x 是「相对于池塘容量的比例」，取值在 0 和 1 之间：</p>
+
+<div class="eqblock">x<sub>下一年</sub> = r · x<sub>今年</sub> · (1 − x<sub>今年</sub>)</div>
+<div class="eqnote">前一个因子 x 代表「有多少鱼在繁殖」，后一个 (1−x) 代表「还剩多少空间」。r 是繁殖率</div>
+
+<p>这个式子叫 logistic 映射，生物学家罗伯特·梅（Robert May）1976 年在《自然》上写了一篇文章，把它推广开了。它简单到荒谬——一个乘法、一个减法，比洛伦兹方程还简单，只有<b>一个</b>变量。</p>
+
+<p>现在拧 r 这个旋钮，看鱼群的长期命运。</p>
+
+<p>r = 2 时：随便从哪个初值出发，鱼群数量都收敛到固定值 0.5，然后年年不变。这叫稳定的不动点。</p>
+
+<p>r = 2.9 时：一样，收敛到一个固定值（约 0.655）。生态平衡，很好。</p>
+
+<p>r = 3.2 时：不再收敛了。鱼群开始<b>两年一循环</b>——多、少、多、少，永远这样。0.799、0.513、0.799、0.513。这在生态学上是真实现象，有些昆虫种群就是隔年爆发。</p>
+
+<p>r = 3.5 时：变成<b>四年一循环</b>。四个数字轮流出现。</p>
+
+<p>r = 3.55 时：<b>八年</b>一循环。</p>
+
+<p>r = 3.566 时：十六年。然后三十二年、六十四年……</p>
+
+<p>而每翻一次倍，r 要往前推的那一段都在<b>迅速缩小</b>。第一次分岔在 r = 3，第二次在 3.449，第三次在 3.544，第四次在 3.5644，第五次在 3.5687……间隔越来越密，密到在 r = 3.5699456… 这个地方，周期已经翻了无穷多次倍。</p>
+
+<p>过了这一点，就是混沌：轨道永不重复，而且对初值敏感——和洛伦兹的天气一样，只不过现在整个系统只剩一行算式。</p>
+
+<p>这个「越来越密」的过程画出来是这样：</p>
+
+<figure class="lmb">
+  <div class="lmb-plot">
+    <canvas></canvas>
+    <svg viewBox="0 0 880 480" preserveAspectRatio="none" role="img"
+         aria-label="logistic 映射的倍周期分岔图"></svg>
+  </div>
+  <figcaption>
+    横轴是繁殖率 r（线性刻度），纵轴是鱼群数量的长期取值——图形由
+    x<sub>n+1</sub> = r·x<sub>n</sub>(1−x<sub>n</sub>) 逐列真实迭代得出，深浅即该处被访问的频率。
+    <b>要看出的是下方那三段赭色线段的长度比</b>：1→2 占了
+    <span class="lmb-n">0.449</span> 的 r，2→4 只用 <span class="lmb-n">0.095</span>，4→8 又缩到
+    <span class="lmb-n">0.020</span>——相邻两段之比为 <span class="lmb-n">4.751</span> 和
+    <span class="lmb-n">4.656</span>，正趋向费根鲍姆常数 <span class="lmb-n">4.6692</span>。
+    正因为间隔按固定比例缩小，无穷多次分岔挤在有限区间里，在 r ≈ <span class="lmb-n">3.5699</span>
+    （赭色虚线）处一次性完成，右边就是混沌：吸引子铺满一整段，边缘因折叠而格外浓密。
+    混沌区里那几道竖白缝是「周期窗口」——规律的岛，最宽的一道在 r ≈ <span class="lmb-n">3.83</span>，是周期 3。
+  </figcaption>
+</figure>
+
+<h2>4.669</h2>
+
+<p>1975 年，洛斯阿拉莫斯有位年轻的理论物理学家米切尔·费根堡姆（Mitchell Feigenbaum），拿着一台 HP-65 手持计算器玩这个映射。手持计算器算得慢，他得等，等的时候就开始猜下一个分岔点在哪里，好知道该从哪儿起算。</p>
+
+<p>猜着猜着他发现自己越猜越准，因为那些间隔在按一个固定的比例缩小。他把那个比例算了出来：</p>
+
+<div class="eqblock">δ = 4.669201609…</div>
+<div class="eqnote">相邻两个分岔间隔的比值，在分岔序列的极限处收敛到这个数</div>
+
+<p>「在极限处」这四个字是要紧的。上面那张图里量得的前两个比值是 4.751 和 4.656，都还不等于 4.669——头几次分岔的比例仍在这个数附近晃，越往后才越贴近它。费根堡姆能在手持计算器上摸到它，靠的正是这一点：往后每多算一次分岔，晃动就小一截。</p>
+
+<p>一个数学常数从玩具生态模型里冒出来，这本身只是有点意思。真正的事在后面——费根堡姆换了一个映射。</p>
+
+<p>他把 <span class="eq">r·x·(1−x)</span> 换成 <span class="eq">r·sin(πx)</span>——完全不同的函数，正弦而不是抛物线，没有任何理由给出相同的结果。它同样经历倍周期分岔，同样通向混沌。而它的 δ 是 4.669201609…</p>
+
+<p>同一个数。</p>
+
+<div class="pull">连混乱本身也有普适类。</div>
+
+<p>这个数字不属于 logistic 映射，也不属于正弦映射。它属于<b>一整个家族</b>：所有只有单个光滑极大值的一维映射，走向混沌时的分岔比例都是 4.669201609…，跟函数的具体形状无关。<b>唯一的条件是那个极大值是二次的</b>（顶点附近像抛物线，绝大多数光滑函数都是这样）。换函数、换参数、换物理背景，只要满足这一条，那个数字不动。</p>
+
+<p>第 2 章读到水和铁共享同一组临界指数时，如果你当时觉得这背后必须有原因，那么现在你该有同样的感觉——而且这一次跨度更大，因为它甚至不是两个物理系统之间的巧合，是两条<b>纯粹的数学式子</b>之间的巧合。</p>
+
+<h2>它在实验室里</h2>
+
+<p>但真正让人没法把这件事当成数学游戏的，是 4.669 出现在了实验数据里。</p>
+
+<p>1979 年到 1980 年，阿尔贝·利布沙贝（Albert Libchaber）在巴黎做了一个精巧到极点的实验。他取一个只有几毫米的小盒子，装满液氦，从底部轻微加热。液氦开始对流——热的往上，冷的往下，形成滚筒状的流动。然后他极其缓慢地加大功率，测量流动的振荡周期。</p>
+
+<p>他看到了倍周期。振荡先是一个频率，然后分裂成两个（周期翻倍），然后四个，然后八个。在分辨率允许的范围内，他数到了四次分岔，测出的比例与 4.669 相符。</p>
+
+<p>请体会这件事的古怪之处。<b>液氦不是一维映射</b>。它是一团流体，遵守纳维-斯托克斯方程，有无穷多个自由度，有黏度有热导率有边界条件，有原子有量子力学。它和梅的鱼群方程之间没有一处相似——除了那个数字。</p>
+
+<p>而这个吻合不止出现了一次。它出现在水龙头慢慢开大时水滴的节奏里（这个实验在厨房就能做，只是做准很难），出现在非线性电子电路的振荡里，出现在受迫振动的机械系统里，出现在某些化学反应的浓度振荡里。都是 4.669。</p>
+
+<div class="honest">
+<p><b>诚实一点：实验上数到的分岔次数是有限的。</b>倍周期序列的间隔按 4.669 缩小，意味着第 n 次分岔要求的参数控制精度也按 4.669 的幂次变严——数到第五、六次就已经在挑战最好实验的极限，无穷次是数学的事。所以实验确认的是「头几次分岔的比例与理论符合」，不是「看到了无穷序列」。这个限制是真实的，但它没有削弱结论：从一维映射算出来的一个数字，在液氦对流里测到了，这件事本身就需要解释。</p>
+</div>
+
+<h2>同一个手法</h2>
+
+<p>解释是什么？</p>
+
+<p>那张树林照片，你已经见过了。答案就在里面——我现在只是把它说出来。这一刻是第一部真正的合拢处，请慢一点读这几段，这本书后面的阅读快感，很大程度上取决于你在这里认出了什么。</p>
+
+<p>先把已经解决的那个困难摆回眼前：一杯水在临界点上发白，一块铁在居里点上磁性归零，两件毫无共同之处的事却量出同一组临界指数——这需要解释。解释是那台以「模糊一次，放大回来」为一步的机器：把观察尺度当旋钮拧，理论沿着旋钮流动，不同的微观材料流向<b>同一个不动点</b>；而临界指数是那个不动点的性质，既不是水的性质，也不是铁的性质。所以指数相同不是巧合，是两条不同的河汇进了同一片海。</p>
+
+<p>费根堡姆做的是一样的事，只不过他模糊掉的不是空间，是<b>时间</b>。</p>
+
+<p>他的操作是这样：给你一个映射 f，它每一步把 x 送到 f(x)。现在别看每一步，只看每两步——定义一个新映射，把 x 直接送到 f(f(x))。这和把 2×2 四个自旋并成一个区块是同一件事：<b>把两个基本单元合成一个，然后不再管内部</b>。区块自旋合并的是相邻的两个自旋，费根堡姆合并的是相邻的两个时刻。</p>
+
+<p>然后是第二步，就是照片那里最要紧、少了就讲不通的一步：<b>重标定</b>。f(f(x)) 的图像比 f(x) 更陡更小，得把它放大回原来的尺寸再比较。模糊完的照片必须放大回原尺寸才能和原照片并排看，否则「和原来一样」这句话没有意义；这里一模一样。</p>
+
+<p>于是你手上有了一个作用在「映射」上的操作：并两步，放大。它把一个函数变成另一个函数。你可以反复施加它，看函数往哪里流。</p>
+
+<p>而它有一个不动点。</p>
+
+<p>存在一个特殊的函数 g，满足「把 g 并两步再放大，得到的还是 g」。它就是这个流的不动点——在时间粗粒化下自我复制的一个函数。它不是抛物线，也不是正弦，是自复制这个条件唯一确定下来的东西（费根堡姆用数值方法算出了它，严格的存在性证明由拉塞尔、坎贝尔和后来的兰福德等人在 1980 年代完成）。</p>
+
+<p>现在一切都对上了。<em class="key">4.669 不是任何一个映射的性质，是那个不动点的性质</em>——说具体些，把「并两步、放大」这个操作在 g 附近线性化，看各个方向上的偏离每一步被乘以多少，4.669 就是<b>唯一那个大于 1 的倍率</b>：沿着这个方向偏离一点，流就把你越推越远。</p>
+
+<p>而其余无穷多个方向的倍率都<b>小于</b> 1，偏离在那些方向上被流冲干净。这一分为二是下面几句的全部关键，所以请把两侧分开记：<b>大于 1 的那一个方向决定数字是多少，小于 1 的那无穷多个方向决定谁和谁同类。</b></p>
+
+<p>那么抛物线和正弦为什么给出同一个数？因为它们的差别正落在后一侧。它们都不在不动点上，却都在<b>流向</b>那个不动点的路上——各自的具体形状是<b>无关</b>的，而这里的「无关」不是「差别不大」，是那个技术含义：差别按指数被流冲掉，冲多快还算得出来。反复做「并两步、放大」，抛物线的细节和正弦的细节都磨没了，剩下同一个 g。就像模糊二十次之后，叶子的锯齿边缘早已不在，而树林与天空之间那条界线还在。</p>
+
+<p>所以那个数被共享的<b>原因</b>在小于 1 的那一侧，而被共享的那个<b>数</b>本身来自大于 1 的那一侧。两件事，一个不动点。</p>
+
+<div class="pull">水和铁流向同一个不动点，所以临界指数相同。鱼群和液氦流向同一个不动点，所以分岔比例相同。是同一句话。</div>
+
+<p>这就是我说第一部在这里合拢的意思。水和铁的巧合摆出了困难，模糊化那台机器解释了它，去耦定理把它变成一张免疫证明——「我不知道，但没关系」从托词变成定理，多者异也又说明每一层为什么有自己的定律。而这一章证明的是另一件事：<b>这台机器管的不只是它被发明时面对的那个问题</b>。威尔逊造它是为了临界现象，为了自旋格子和液气共存曲线。可它在一行算式的鱼群模型和一小盒液氦之间，同样有效。</p>
+
+<p>一件工具在它被设计的范围之外仍然有效——判断它是抓到了真东西还是只凑对了数据，这是最可靠的标准。这本书后面会反复用到它：解析等于拓扑的那条指标定理会以完全相同的方式跨出诞生地，随机矩阵会在铀核能级和黎曼零点之间做同一件事，而量子纠错码最后会被拿去描述时空几何。<b>每一次都请问同一个问题：它出圈了吗？</b></p>
+
+<h2>该记的和不该记的</h2>
+
+<p>混沌在 1980 年代红过一轮，红得有点过头，所以这一章需要一份清单。我把它分成三栏。</p>
+
+<p><b>该记的（真实成果）。</b>决定论与可预测性的分离，这是一条永久的认识论结果。李雅普诺夫指数：不可预测性成了可测量的量，不同系统的混乱程度能拿来比较。费根堡姆常数与倍周期普适类：混乱有分类学。KAM 定理（柯尔莫哥洛夫-阿诺德-莫泽，1954–63）：它从另一侧划界，说明太阳系这类系统里有些轨道<b>不</b>混沌，而且给出了条件——这是同一时期同等重要的结果，我在这里只给它一个名字，讲清它得另开一章。还有一整套遍历理论与动力系统的严格数学，今天已经是数学的一个成熟分支。</p>
+
+<p><b>该记的（工程后果）。</b>集合预报（ensemble forecasting）——既然单条轨道算不准，就同时算几十条略有差异的轨道，看它们散开多远。这个做法直接来自混沌理论，今天全世界的天气预报都这么做，你手机上那句「降雨概率 70%」，说的就是这几十条轨道里有多少条下雨。<b>这是个漂亮的转折：一套关于「不可预测」的理论，改进了预测的实践办法</b>，因为它告诉你该预测什么（分布）、不该预测什么（单值）。</p>
+
+<p><b>不该记的（修辞泡沫）。</b>1980 年代有一批著作和更多的二手转述，把混沌讲成了一种世界观：混沌能预测股市（不能，一个系统的 λ 只让你看到三天，知道它混沌并不帮你赚钱）、混沌解释了自由意志（这是把两个不相关的问题硬摆在一起）、混沌意味着科学的终结或者还原论的破产（恰恰相反，混沌是用还原论的方法得到的、关于确定性方程的一条定理）。「蝴蝶效应」这个词在那轮宣传里被磨成了「万物皆相连」式的空话。</p>
+
+<div class="aside"><h4>那个蝴蝶</h4>
+<p>标题不是洛伦兹起的。1972 年他去美国科学促进会开会，交了一篇讲稿但没起标题，会议组织者菲利普·梅里利斯（Philip Merilees）替他起了一个：《可预测性：巴西的一只蝴蝶拍打翅膀会在德克萨斯引起一场龙卷风吗？》</p>
+<p>而洛伦兹在文章里对这个标题的回答基本上是<b>不知道，而且这么问不太对</b>。他要说的不是「一只蝴蝶造成了那场龙卷风」——大气里每一刻都有亿万个同等量级的扰动，把一场龙卷风记在某一只蝴蝶名下毫无意义。他要说的是：既然这个量级的扰动会在两周内长成天气尺度的差异，那么<b>观测网做到什么精度都撑不起长期预报</b>。前一句是关于因果的浪漫说法，后一句是关于知识边界的技术结论，而只有后一句是真的。</p>
+<p>顺便，他最早用的动物是海鸥。</p></div>
+
+<h2>天气与气候</h2>
+
+<p>最后一件事。它是本章最有现实用处的一个区分，也是公共讨论里最常见的一处混淆。</p>
+
+<p>你会听到这样的论证：既然天气两周之后就没法预测，那么声称能预测五十年后的气候，显然是荒谬的。</p>
+
+<p>这个论证的形式看起来无懈可击，其实它把两类完全不同的问题混在了一起。混沌摧毁的是<b>单条轨道的长期预测</b>，它完全没有摧毁<b>轨道集合的统计性质</b>。</p>
+
+<p>洛伦兹方程本身就是最干净的例子。你说不出 t = 1000 时 x 是多少——那要求不可能的初始精度。但你可以极其精确地说出这条轨道待在相空间哪个区域里、那个区域什么形状、轨道在各处停留时间的比例是多少。这些性质<b>很稳</b>：换个初值，单条轨道完全不同，而这些统计性质一模一样。混沌系统的轨道不可预测，它的吸引子却是一个确定的、能精确刻画的几何对象。</p>
+
+<p>翻译成日常语言：<b>我不知道明年 7 月 15 日北京下不下雨（天气，单条轨道），但我可以知道北京 7 月的平均降水量（气候，统计性质）</b>。而如果往系统里持续注入能量——比如改变大气的成分，从而改变辐射平衡——你动的是吸引子本身，是那个统计性质。这个改变算得出来，而它算不算得出来，跟天气混沌不混沌没有关系。</p>
+
+<p>这个区分是本书判断标准的一次小型应用：<b>「某件事不可知」和「某件事不可知因此相关的一切都不可知」之间，隔着一道需要具体论证的坎</b>。混沌给出的是前者，而且是范围划得很精确的前者。而精确地划出自己无知的范围，从第 4 章开始就是这本书反复在讲的那种进步。</p>
+
+<div class="honest">
+<p><b>而湍流没有解决。</b>这一点必须说清楚，因为人们常顺手把混沌理论听成「流体的湍流问题已经搞懂了」，事实恰好相反。</p>
+<p>倍周期通向混沌，讲的是<b>只有少数几个自由度</b>的系统：一小盒液氦，恰好只有几个模式在起作用，所以一维映射的理论管得住它。真正的湍流是另一回事——一条河、一架飞机的尾流、一颗恒星的对流层，那里跨越许多数量级的涡旋同时活跃，大涡把能量交给小涡，小涡再交给更小的涡，一直交到黏性把它变成热。<b>这是第 4 章讲的「尺度分离失效」最著名的案例</b>：没有哪个尺度能安全忽略，所以没有哪一层能独立工作，所以有效理论那整套办法在这里失灵。</p>
+<p>它的数学状态也如实反映了这一点。三维纳维-斯托克斯方程的解是否永远光滑存在——连方程本身是不是总有意义都还没定——是克莱数学研究所七个千禧年问题之一，2026 年仍然开放（第 23 章会再遇到这份名单）。柯尔莫哥洛夫 1941 年的标度律给了湍流能谱一个漂亮的预言，与实验大致相符，但那是量纲分析加上一个假设，不是从方程推出来的定理。湍流是经典物理留下的最大一块空白，混沌理论并没有填上它。</p>
+</div>
+
+<p>第一部到此结束。它讲的是一件事的四个侧面：定律按尺度组织（第 3 章），所以可以对下层无知（第 4 章），所以每一层有自己的定律（第 5 章），而这套办法在诞生地之外依然有效（这一章）。</p>
+
+<p>接下来是一段短间奏，讲测量。因为上面这些结论全都压在一件我一直没交代的事上：<b>人类究竟把「看」这件事做到了多准</b>。答案比你预料的更极端——而精度一旦足够高，测量就不再只是验证理论的手段，它变成了发现的引擎。</p>
+
+<p>然后我们就有资格去看那套被检验得最狠的理论了。</p>
+</main>
+
+<footer class="ch">
+  <div class="prof">
+      <h4>物理学者的话</h4>
+      <p class="sub">本章内容在文献中的术语坐标，供想提前深入的读者定位。</p>
+
+      <p><b>刻画。</b>误差增长率的完整对象是<b>李雅普诺夫谱</b>（正文的 <span class="eq">λ</span> 是其最大者，混沌的定义即它为正）；其和由 <b>Pesin 定理</b>联系到 <b>Kolmogorov–Sinai 熵</b>，故不可预测性可按比特计价。维数门槛来自 <b>Poincaré–Bendixson 定理</b>；产生机制是<b>拉伸与折叠</b>，最小模型为 <b>Smale 马蹄</b>，其严格化工具是<b>符号动力学</b>。吸引子的几何用<b>豪斯多夫维数</b>（非整数即分形）；长期统计由<b>不变测度</b>（<b>SRB 测度</b>）承载，而「统计量随参数如何变」属<b>线性响应理论</b>，对非一致双曲系统并不自动成立。</p>
+
+      <p><b>普适性。</b>倍周期序列的常数 <span class="eq">δ</span> 与 <span class="eq">α</span> 之所以普适，因为「并两步再放大」是函数空间上的<b>重整化群算子</b>，不动点方程即 <b>Cvitanović–Feigenbaum 方程</b>；<span class="eq">δ</span> 是线性化后唯一模大于 1 的特征值，即唯一<b>相关方向</b>——与第 2、3 章的语言逐字相同。普适类的条件是<b>单峰映射</b>加二次极值（改变极值幂次即改变常数）。一维映射周期的强制序由 <b>Sharkovskii 定理</b>给出。实验一侧：<b>Rayleigh–Bénard 对流</b>与 <b>Rayleigh 数</b>；从单变量时间序列重构吸引子的依据是 <b>Takens 嵌入定理</b>；理论框架的起点是 <b>Ruelle–Takens</b> 的奇怪吸引子。可预测性的工程化即<b>集合预报</b>（bred vector、奇异向量、EnKF 皆为李雅普诺夫谱的实用形式）。量子一侧无李雅普诺夫混沌，对应物是能级统计服从<b>随机矩阵理论</b>（<b>Bohigas–Giannoni–Schmit 猜想</b>）。</p>
+
+      <p><b>入口。</b>Strogatz《Nonlinear Dynamics and Chaos》（标准入门）；Ott《Chaos in Dynamical Systems》；Cvitanović 等《ChaosBook》（在线，重整化视角最完整）；Palmer 关于大气可预测性的综述。</p>
+    </div><nav class="pager">
+    <a href="ch05-多者异也.html">← 第 5 章 多者异也</a>
+    <a href="index.html">目录</a>
+    <a href="interlude1-精密的算术.html">间奏 I 精密的算术 →</a>
+  </nav>
+</footer>
+
+</div>
+
+<script>
+/* ════════ Logistic 映射分岔图：逐列真实迭代 + 密度着色 ════════ */
+(function(){
+  const root = document.querySelector('.lmb');
+  if(!root) return;
+  const cv = root.querySelector('canvas');
+  const ov = root.querySelector('svg');
+
+  /* ── 几何 ── */
+  const W=880, H=480, L=78, R=852, T=44, B=418;
+  const R0=2.8, R1=4.0;
+  const xOf = r => L + (r-R0)/(R1-R0)*(R-L);
+  const yOf = v => B - v*(B-T);
+
+  /* ── 精确分岔点 ── */
+  const b1=3.0, b2=1+Math.sqrt(6), b3=3.544090359551922,
+        b4=3.564407266095, bInf=3.569945671870944;
+
+  /* ── 质量档位：想更快就调小 SUB / KEEP，想更细就调大 ── */
+  const SUB=2, WARM=500, KEEP=700, MAXPX=1500;
+
+  /* ── canvas：密度累积 ── */
+  function draw(){
+    const cssW=cv.clientWidth, cssH=cv.clientHeight;
+    if(!cssW) return;
+    const dpr = Math.min(window.devicePixelRatio||1, MAXPX/cssW, 2);
+    const pw = Math.round(cssW*dpr), ph = Math.round(cssH*dpr);
+    cv.width=pw; cv.height=ph;
+
+    const sx=pw/W, sy=ph/H;
+    const px0=Math.max(0,Math.floor(L*sx)), px1=Math.min(pw,Math.ceil(R*sx));
+    const py0=Math.max(0,Math.floor(T*sy)), py1=Math.min(ph,Math.ceil(B*sy));
+    const yA=B*sy, yB=(B-T)*sy;                    // 纵向映射常量，内层循环免重算
+    const rA=R0, rK=(R1-R0)/(R-L)/sx, rOff=-L;
+
+    const dens=new Float32Array(pw*ph);
+    for(let px=px0;px<px1;px++){
+      for(let s=0;s<SUB;s++){
+        const r = rA + (px+(s+0.5)/SUB + rOff*sx)*rK;
+        if(r<R0||r>R1) continue;
+        let x=0.5;
+        for(let i=0;i<WARM;i++) x = r*x*(1-x);
+        for(let i=0;i<KEEP;i++){
+          x = r*x*(1-x);
+          const yf = yA - x*yB;                    // 双线性纵向抗锯齿
+          const yi = yf|0, fr = yf-yi;
+          if(yi>=py0 && yi<py1)     dens[yi*pw+px]     += 1-fr;
+          if(yi+1>=py0 && yi+1<py1) dens[(yi+1)*pw+px] += fr;
+        }
+      }
+    }
+
+    /* 密度 → 颜色：256 级查找表 + 32 位整型写入 */
+    const bg=[250,247,241], ink=[30,77,107], GAIN=130, perCol=SUB*KEEP;
+    const probe=new Uint32Array(1); probe[0]=0x01020304;
+    const LE = new Uint8Array(probe.buffer)[0]===0x04;
+    const pack=(r,g,b)=> LE ? (255<<24|(b&255)<<16|(g&255)<<8|(r&255))>>>0
+                            : ((r&255)<<24|(g&255)<<16|(b&255)<<8|255)>>>0;
+    /* LUT 按「访问次数」分档（每次访问 STEP 档），而不是按 密度/每列总数 归一化：
+       混沌区每像素只被访问几次，归一化后 d*255/perCol < 1，会被 |0 全部截成背景色 */
+    const STEP=5, kPer=GAIN/perCol;
+    const COL=new Uint32Array(256);
+    for(let i=0;i<256;i++){
+      const a = 1-Math.exp(-kPer*(i/STEP));
+      COL[i]=pack(bg[0]+(ink[0]-bg[0])*a, bg[1]+(ink[1]-bg[1])*a, bg[2]+(ink[2]-bg[2])*a);
+    }
+    const ctx=cv.getContext('2d');
+    const img=ctx.createImageData(pw,ph);
+    const u32=new Uint32Array(img.data.buffer);
+    u32.fill(COL[0]);
+    for(let i=0,n=pw*ph;i<n;i++){
+      const d=dens[i];
+      if(d>0){ const k=d*STEP; u32[i]=COL[k>255?255:k|0]; }
+    }
+    ctx.putImageData(img,0,0);
+  }
+
+  /* ── SVG：坐标轴与标注（坐标与 canvas 共用同一映射） ── */
+  (function annotate(){
+    const o=[];
+    const txt=(x,y,s,c={})=>o.push(
+      `<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${c.a||'middle'}"`+
+      ` font-size="${c.s||12}" fill="${c.f||'#6b6660'}"`+
+      ` font-family="system-ui,'Microsoft YaHei',sans-serif">${s}</text>`);
+
+    o.push(`<line x1="${L}" y1="${B}" x2="${R+6}" y2="${B}" stroke="#ddd6c9"/>`,
+           `<line x1="${L}" y1="${T-12}" x2="${L}" y2="${B}" stroke="#ddd6c9"/>`);
+
+    for(const [r,lab] of [[2.8,'r = 2.8'],[3.0,'3.0'],[b2,'3.4495'],
+                          [bInf,'3.5699'],[3.83,'3.83'],[4.0,'4.0']]){
+      const x=xOf(r);
+      o.push(`<line x1="${x.toFixed(1)}" y1="${B}" x2="${x.toFixed(1)}" y2="${B+5}" stroke="#c9c1b2"/>`);
+      txt(x,B+21,lab,{s:15});
+    }
+    for(const v of [0,0.5,1]){
+      const y=yOf(v);
+      o.push(`<line x1="${L-5}" y1="${y}" x2="${L}" y2="${y}" stroke="#c9c1b2"/>`);
+      txt(L-10,y+5,v===0.5?'0.5':String(v),{a:'end',s:15});
+    }
+    const ym=(T+B)/2;
+    o.push(`<text x="${L-52}" y="${ym}" transform="rotate(-90 ${L-52} ${ym})" text-anchor="middle"`+
+           ` font-size="16" fill="#6b6660" font-family="system-ui,'Microsoft YaHei',sans-serif">鱼群数量 x</text>`);
+    txt((L+R)/2,B+52,'繁殖率 r（线性刻度）',{s:16});
+
+    for(const r of [b1,b2,b3])
+      o.push(`<line x1="${xOf(r).toFixed(1)}" y1="${T-6}" x2="${xOf(r).toFixed(1)}" y2="${B}"`+
+             ` stroke="#c9c1b2" stroke-dasharray="2 4"/>`);
+    o.push(`<line x1="${xOf(bInf).toFixed(1)}" y1="${T-6}" x2="${xOf(bInf).toFixed(1)}" y2="${B}"`+
+           ` stroke="#a4501e" stroke-dasharray="3 3" opacity=".55"/>`);
+
+    const mid=(a,b)=>(xOf(a)+xOf(b))/2;
+    txt(mid(2.8,b1),T-20,'周期 1',{s:16});
+    txt(mid(b1,b2),T-20,'2',{s:16});
+    txt(mid(b2,b3),T-20,'4',{s:16});
+    txt(mid(bInf,4.0),T-20,'混沌',{s:16});
+
+    /* 费根鲍姆间隔：端点全部取真实 r 值，长度比即 4.751 / 4.656 */
+    const bar=(ra,rb,v,lab,side)=>{
+      const x1=xOf(ra), x2=xOf(rb), y=yOf(v);
+      o.push(`<g stroke="#a4501e" stroke-width="1.5" fill="none"><path d="M${x1.toFixed(1)} ${y} `+
+             `L${x2.toFixed(1)} ${y} M${x1.toFixed(1)} ${y-6} L${x1.toFixed(1)} ${y+6} `+
+             `M${x2.toFixed(1)} ${y-6} L${x2.toFixed(1)} ${y+6}"/></g>`);
+      if(side==='right') txt(x2+8,y+5,lab,{a:'start',s:14.5,f:'#a4501e'});
+      else               txt((x1+x2)/2,y-11,lab,{s:14.5,f:'#a4501e'});
+    };
+    bar(b1,b2,0.235,'1 → 2 用了这么长');
+    bar(b2,b3,0.145,'2 → 4');
+    bar(b3,b4,0.062,'4 → 8 …','right');
+
+    const x3=xOf(3.8415);
+    o.push(`<path d="M${x3.toFixed(1)} ${T+8} L${x3.toFixed(1)} ${T-4}" stroke="#a4501e"/>`);
+    txt(x3+4,T-7,'周期 3 窗口',{a:'start',s:14.5,f:'#a4501e'});
+
+    ov.innerHTML=o.join('');
+  })();
+
+  /* ── 启动 + 防抖重绘 ── */
+  requestAnimationFrame(draw);
+  let tid, lastW=0;
+  addEventListener('resize',()=>{
+    if(cv.clientWidth===lastW) return;
+    clearTimeout(tid);
+    tid=setTimeout(()=>{ lastW=cv.clientWidth; draw(); },180);
+  });
+})();
+</script>
+</body></html>
