@@ -238,40 +238,73 @@ nav.pager a:hover{text-decoration:underline}
 <p>两年之内，这两条反驳全被拆了，而拆它们的过程会把这个类比变成本书第七部的全部起点。第 38 章要从贝肯斯坦手里那杯茶讲起。</p>
 
 <figure>
-<svg viewBox="0 0 720 300" role="img" aria-label="两颗完全不同的恒星塌缩后得到同一个外部时空">
-  <!-- left star A: messy -->
-  <circle cx="86" cy="66" r="40" fill="#f1ece3" stroke="#6b6660" stroke-width="1.2"/>
-  <circle cx="72" cy="52" r="7" fill="#a4501e" opacity=".55"/>
-  <circle cx="98" cy="76" r="5" fill="#a4501e" opacity=".55"/>
-  <circle cx="70" cy="82" r="4" fill="#a4501e" opacity=".4"/>
-  <path d="M50 66 C64 44,108 88,122 62" stroke="#1e4d6b" stroke-width="1.1" fill="none" opacity=".7"/>
-  <text x="86" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">巨星：磁场缠结、分层</text>
-  <text x="86" y="142" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">富碳氧、差异转动、双星</text>
-  <!-- left star B: clean -->
-  <circle cx="86" cy="212" r="34" fill="#f1ece3" stroke="#6b6660" stroke-width="1.2"/>
-  <text x="86" y="266" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">年轻星：纯氢氦、无磁场</text>
-  <text x="86" y="282" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">刚体转动、单独一颗</text>
-  <!-- arrows -->
-  <path d="M148 80 L272 122" stroke="#22201d" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
-  <path d="M142 205 L272 158" stroke="#22201d" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
-  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#22201d"/></marker></defs>
-  <text x="208" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#a4501e">塌缩</text>
-  <text x="204" y="182" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#a4501e">塌缩</text>
-  <!-- ringdown gate -->
-  <line x1="296" y1="34" x2="296" y2="266" stroke="#ddd6c9" stroke-width="1" stroke-dasharray="4 4"/>
-  <text x="330" y="46" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">铃振：几十微秒内把「不该有的」抖成引力波</text>
-  <path d="M304 140 q14 -18 28 0 q14 18 28 0 q14 -18 28 0" stroke="#a4501e" stroke-width="1.2" fill="none"/>
-  <!-- final black hole -->
-  <circle cx="520" cy="150" r="52" fill="#22201d"/>
-  <ellipse cx="520" cy="150" rx="76" ry="26" stroke="#1e4d6b" stroke-width="1.2" fill="none" opacity=".55"/>
-  <text x="520" y="232" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#1e4d6b">同一个外部时空</text>
-  <!-- the three numbers -->
-  <text x="632" y="126" font-family="system-ui,sans-serif" font-size="14" fill="#22201d">M 质量</text>
-  <text x="632" y="152" font-family="system-ui,sans-serif" font-size="14" fill="#22201d">J 角动量</text>
-  <text x="632" y="178" font-family="system-ui,sans-serif" font-size="14" fill="#22201d">Q 电荷</text>
-  <line x1="620" y1="108" x2="620" y2="192" stroke="#1e4d6b" stroke-width="2"/>
+<svg viewBox="0 0 720 360" role="img" aria-label="两条不同的塌缩路径并成一条，得到同一个外部时空，外面只剩质量、角动量、电荷三个数">
+ <defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#22201d"/></marker>
+  <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#a4501e"/></marker>
+ </defs>
+ <g font-family="system-ui,sans-serif">
+
+  <!-- ===== left: two very different stars, same final M/J/Q ===== -->
+  <circle cx="84" cy="88" r="40" fill="#f1ece3" stroke="#6b6660" stroke-width="1.2"/>
+  <circle cx="84" cy="88" r="27" fill="#eae1d2"/>
+  <circle cx="84" cy="88" r="13" fill="#e0d4c0"/>
+  <circle cx="70" cy="72" r="6.5" fill="#a4501e" opacity=".5"/>
+  <circle cx="98" cy="98" r="5" fill="#a4501e" opacity=".5"/>
+  <circle cx="72" cy="104" r="4" fill="#a4501e" opacity=".38"/>
+  <g stroke="#1e4d6b" stroke-width="1.1" fill="none" opacity=".65">
+    <path d="M52 96 C70 60, 96 118, 118 80"/>
+    <path d="M62 62 C84 82, 92 60, 112 100"/>
+  </g>
+  <text x="84" y="148" text-anchor="middle" font-size="11.5" fill="#6b6660">巨星：磁场缠结、分层</text>
+  <text x="84" y="164" text-anchor="middle" font-size="11.5" fill="#6b6660">富碳氧、差异转动、双星</text>
+
+  <text x="84" y="192" text-anchor="middle" font-size="10.5" fill="#a4501e">设两者最终的 M、J、Q 相同</text>
+
+  <circle cx="84" cy="252" r="40" fill="#f1ece3" stroke="#6b6660" stroke-width="1.2"/>
+  <text x="84" y="312" text-anchor="middle" font-size="11.5" fill="#6b6660">年轻星：纯氢氦、无磁场</text>
+  <text x="84" y="328" text-anchor="middle" font-size="11.5" fill="#6b6660">刚体转动、单独一颗</text>
+
+  <!-- ===== middle: the two histories merge into one ===== -->
+  <path d="M127.7 105.4 L282 166.8" stroke="#22201d" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+  <path d="M127.7 234.6 L282 173.2" stroke="#22201d" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+  <text x="200" y="127" text-anchor="middle" font-size="11.5" fill="#a4501e">塌缩</text>
+  <text x="200" y="218" text-anchor="middle" font-size="11.5" fill="#a4501e">塌缩</text>
+  <circle cx="290" cy="170" r="2.6" fill="#22201d"/>
+
+  <!-- ===== right: the closed surface, drawn under the infall arrow ===== -->
+  <circle cx="505" cy="170" r="88" fill="none" stroke="#c9beac" stroke-width="1" stroke-dasharray="5 4"/>
+
+  <path d="M298 170 L447 170" stroke="#22201d" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+
+  <!-- channel 1: radiated away as gravitational waves -->
+  <path d="M428 124 q-14 -12 -28 0 q-14 12 -28 0 q-14 -12 -28 0 q-14 12 -28 0"
+        stroke="#a4501e" stroke-width="1.3" fill="none" marker-end="url(#arw)"/>
+  <text x="316" y="106" font-size="10.5" fill="#a4501e">铃振：几十微秒抖成引力波</text>
+  <!-- channel 2: fell through the horizon -->
+  <text x="316" y="206" font-size="10.5" fill="#6b6660">其余的掉进视界</text>
+
+  <!-- the hole -->
+  <circle cx="505" cy="170" r="55" fill="#22201d" opacity=".1"/>
+  <circle cx="505" cy="170" r="52" fill="#22201d"/>
+
+  <text x="505" y="278" text-anchor="middle" font-size="13" fill="#1e4d6b">同一个外部时空</text>
+  <text x="505" y="299" text-anchor="middle" font-size="10.5" fill="#b5aea4">虚线：远处的一个闭合曲面</text>
+
+  <!-- the three surviving numbers -->
+  <line x1="608" y1="128" x2="608" y2="216" stroke="#1e4d6b" stroke-width="2"/>
+  <g font-size="14" fill="#22201d">
+    <text x="620" y="146">M 质量</text>
+    <text x="620" y="172">J 角动量</text>
+    <text x="620" y="198">Q 电荷</text>
+  </g>
+  <g font-size="10" fill="#b5aea4">
+    <text x="608" y="228">都是穿过虚线曲面</text>
+    <text x="608" y="241">的通量积分</text>
+  </g>
+ </g>
 </svg>
-<figcaption>这张图要你看出的不是「恒星变成了黑洞」，而是<b>两条箭头汇进了同一个圆</b>：左边两栏的那些差别都是真的、都可测、天文学家逐条量过，可它们到了右边一项不剩。右侧竖线后面那三行，就是剩下的全部。中间那道虚线是抖掉多余特征的过程，它快到在天体物理的时间尺度上等于零。</figcaption>
+<figcaption>这张图要你看出的不是「恒星变成了黑洞」，而是<b>两条箭头并成了一条</b>：左边两栏的差别都是真的、都可测、天文学家逐条量过，可它们到了右边一项不剩。要点全在那个前提上——两条路径最终的质量、角动量、电荷相同。定理说的是「<b>只要这三个数相同，外部时空就一模一样</b>」，不是「什么星塌缩都得到同一个洞」。多余的特征分两路离场：一路在几十微秒里抖成引力波跑远了（信息还在宇宙里），一路落进视界（信息也还在，只是去了你到不了的地方）。而右边那三个数之所以偏偏是它们，看虚线那个闭合曲面就明白：<b>活下来的，恰好是能在远处用通量积分测到的量</b>。图示的是定理前提之下的情形——稳态、孤立、只有引力和电磁。</figcaption>
 </figure>
 
 <h2>三个数，和一个不该被这么快接受的和解</h2>
