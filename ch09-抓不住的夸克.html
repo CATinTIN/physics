@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第 9 章 · 抓不住的夸克 — 为什么我们还能理解世界</title>
+<style>
+:root{--paper:#faf8f4;--ink:#22201d;--dim:#6b6660;--blue:#1e4d6b;--ochre:#a4501e;--quote:#f1ece3;--rule:#ddd6c9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:19px/1.85 Georgia,"Songti SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+header.ch{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:40px}
+.part{font-size:13px;letter-spacing:.14em;color:var(--dim)}
+.num{font-size:13px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
+h1{font-size:34px;line-height:1.3;margin:.35em 0 .5em;font-weight:normal}
+.threads{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:12px;font-family:system-ui,sans-serif;color:var(--blue);
+  border:1px solid var(--blue);border-radius:11px;padding:2px 10px;opacity:.8}
+p{margin:0 0 1.25em;text-align:justify}
+p.lead{font-size:21px;color:#3a3730}
+.pull{font-size:23px;line-height:1.6;color:var(--blue);margin:1.8em 0;
+  padding-left:20px;border-left:3px solid var(--blue)}
+.aside{background:var(--quote);border-radius:5px;padding:20px 24px;margin:2em 0;
+  font-size:17px;line-height:1.75}
+.aside h4{margin:0 0 .6em;font-size:14px;letter-spacing:.1em;color:var(--dim);
+  font-family:system-ui,sans-serif;font-weight:600}
+.aside p:last-child{margin-bottom:0}
+.honest{border-left:3px solid var(--ochre);padding:4px 0 4px 20px;margin:2em 0;
+  font-size:17.5px;color:#4a453e}
+.honest b{color:var(--ochre);font-weight:normal}
+.honest p:last-child{margin-bottom:0}
+.eqblock{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:22px;
+  text-align:center;margin:1.6em 0 .4em;color:var(--ink)}
+.eqnote{text-align:center;font-size:15px;color:var(--dim);margin-bottom:1.8em}
+.eq{font-family:"Cambria Math",Cambria,Georgia,serif;white-space:nowrap}
+em.key{font-style:normal;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+table.data{width:100%;border-collapse:collapse;margin:1.8em 0;font-size:16.5px;
+  font-family:system-ui,sans-serif}
+table.data th{text-align:left;font-weight:600;color:var(--dim);font-size:13.5px;
+  letter-spacing:.06em;border-bottom:1px solid var(--rule);padding:8px 10px 8px 0}
+table.data td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule);line-height:1.6}
+table.data tr.hi td{background:var(--quote);color:var(--ochre)}
+figure{margin:2.2em 0}
+figure svg{display:block;width:100%;height:auto;background:#fff;
+  border:1px solid var(--rule);border-radius:4px}
+figcaption{font-size:15px;color:var(--dim);margin-top:.8em;line-height:1.65}
+h2{font-size:24px;font-weight:normal;margin:2.4em 0 .8em;color:var(--blue)}
+footer.ch{border-top:1px solid var(--rule);margin-top:56px;padding-top:26px}
+.prof{border:1px solid var(--rule);border-top:2px solid var(--blue);border-radius:4px;
+  padding:22px 26px;margin-bottom:30px;font-size:16.5px;line-height:1.72;color:#3a3730}
+.prof h4{margin:0 0 .2em;font-size:14px;letter-spacing:.1em;color:var(--blue);
+  font-family:system-ui,sans-serif;font-weight:600}
+.prof .sub{margin:0 0 1.1em;font-size:13.5px;color:var(--dim);
+  font-family:system-ui,sans-serif;line-height:1.5}
+.prof p:last-child{margin-bottom:0}
+nav.pager{display:flex;justify-content:space-between;font-size:15px;
+  font-family:system-ui,sans-serif}
+nav.pager a{color:var(--blue);text-decoration:none}
+nav.pager a:hover{text-decoration:underline}
+nav.pager span{color:#b5aea4}
+@media(max-width:600px){body{font-size:17.5px}.wrap{padding:36px 18px 72px}h1{font-size:27px}}
+</style></head><body><div class="wrap">
+
+<header class="ch">
+  <div class="part">第二部 · 场：被检验得最狠的理论</div>
+  <div class="num">第 9 章</div>
+  <h1>抓不住的夸克</h1>
+  <div class="threads"><span class="tag">T1 尺度组织了定律</span><span class="tag">T4 否定性结果划出边界</span></div>
+</header>
+
+<main>
+
+<p class="lead">1968 年，斯坦福那台三公里长的加速器开始把电子打进质子，而它看到的东西不对。</p>
+
+<p>先说他们预期看到什么。质子不是基本粒子，这在当时已经清楚了：它有大小，约 10⁻¹⁵ 米，有内部结构，而里面的东西被某种极强的力箍着，强到谁也没能把它们分开。那么打进去该是什么景象？</p>
+
+<p>该像打进一团泥巴。如果质子内部是一堆被强力死死粘住的东西，那么高能电子撞进去，能量会被整团分摊掉，散射出来的电子应该又软又糊，而且撞击能量越高糊得越厉害——所有强耦合系统都是这个样子。你打一块果冻，冲击由果冻整体吸收，你别想从里面读出它内部颗粒的清晰消息。</p>
+
+<p>实际看到的是：电子像撞在了<em class="key">几个各自独立、自由飘着的小硬块</em>上。</p>
+
+<p>散射的角分布很尖锐，强度随能量降得极慢——说具体些，它几乎<b>只认一个无量纲的比值</b>，并不分别去看能量和角度。这个性质叫比约肯标度无关性（Bjorken scaling），1969 年理论上写了出来，实验上得到确认。而它的物理含义，正是强耦合系统里最不该出现的那一种：<b>你打的不是一团糊，是几个点</b>，并且这几个点在被撞的那一瞬间<b>像是不受任何力管束</b>。</p>
+
+<p>这个结果在当时很刺耳：质子内部竟然有近乎自由的组分。可是——</p>
+
+<h2>可是没有人能把它们弄出来</h2>
+
+<p>那些组分后来叫夸克。而关于夸克，有一句话从 1964 年它被提出来算起一直没被推翻：<b>从来没有人观测到一个孤立的夸克。</b></p>
+
+<p>这跟「还没找到」不是一回事。中微子难找，1956 年找到了；顶夸克重得离谱，1995 年造出来了。夸克的情形完全两样：我们知道它们就在质子里，能精确测出有几个、带多少电荷、自旋多少，每天还在对撞机里把它们撞得七零八落——可无论花多大能量，出来的永远是成群的强子，从来没有哪个夸克单枪匹马飞进探测器。</p>
+
+<p>而且不是「概率很低」，是零。全世界的加速器跑了六十年，孤立夸克的事例数是 0。</p>
+
+<p>把这两件事并排摆着，这一章要处理的悖论就露出来了：</p>
+
+<table class="data">
+<tr><th>你怎么看它</th><th>你看到什么</th></tr>
+<tr><td>用极高能量往里打（看极短的距离）</td><td>夸克几乎完全自由，像根本没有力箍着它</td></tr>
+<tr><td>试着把它拉出来（看较长的距离）</td><td>永远拉不出来，束缚强到实验上翻不过去</td></tr>
+</table>
+
+<p>这两行说的是同一个质子里的同一个夸克。</p>
+
+<p>这有多别扭，值得停下来体会一下。我们熟悉的力全都是<b>近处强、远处弱</b>：引力和电磁力按平方反比衰减；两块磁铁贴着难分开，拉开一点就松了；化学键在原子挨着时有效，扯开就断。这个方向普遍到什么程度呢？普遍到「力」这个字在直觉里差不多就等于「离得越近越厉害」。</p>
+
+<p>可这里的情形正好反过来：<em class="key">离得越近，力越弱；离得越远，力越强</em>。</p>
+
+<p>近处弱，就解释了 SLAC 为什么打到几个自由的小硬块：撞击能量极高，看的距离就极短，而在那个距离上夸克之间几乎不相互作用，所以每一个都像自由粒子那样被撞了一下。远处强，就解释了为什么拉不出来：你越想把一个夸克拽走，把它拽回去的力就越大。</p>
+
+<p>可见悖论的两半其实是同一条曲线的两端。问题于是只剩一个，而这个问题在 1970 年看着根本无解：</p>
+
+<p><b>什么样的力会是那个方向的？</b></p>
+
+<h2>旋钮又回来了</h2>
+
+<p>回答它要用的工具，你在第 3 章已经拿到手了。</p>
+
+<p>那一章说的是：<b>耦合强度不是常数，它随尺度变</b>。把观察尺度当成一个可以旋的旋钮，理论的参数会跟着旋钮流动。当时这话听着可能像一句关于抽象参数空间的技术性说明，现在它要交出一个具体到能用眼睛看的结果。</p>
+
+<p>先看电磁，因为这一边我们有直觉，而且它的方向是「正常」的。</p>
+
+<p>把一个电子放进真空。真空不是空的，第 8 章刚拆过这个默认——它里面不断有虚的电子-正电子对冒出来又消失。这些虚对会被那个真电子的电场极化：正电子略微被拉过去，电子略微被推开。于是那个真电子外面裹了一层薄薄的、极性相反的云，被它<b>遮住</b>了一部分。</p>
+
+<p>你从远处测它的电荷，测到的是「电子加上那层云」的净效果，比裸电荷小。你走近一点，钻进云里，遮挡少了，测到的电荷<b>反而更大</b>。</p>
+
+<p>这就是屏蔽，它给出电磁的流动方向：<b>能量越高，也就是距离越短，耦合越强</b>。这个效应是真测到了的——精细结构常数在低能是 1/137，到 LEP 对撞机的能量上（约 91 GeV）测出来约 1/128。这不是理论上的修饰，是实验数据。</p>
+
+<p>好，那么问题来了：<b>有没有可能反过来？</b></p>
+
+<p>1970 年前后，多数人的答案是不可能。屏蔽这套机制看着太一般了：真空总会拿虚粒子对去部分抵消一个荷，这几乎是从「真空会响应」直接跟出来的。当时的普遍看法就是，所有场论的耦合都在高能变强。这个看法还有一层更实际的后果：强作用要是在高能也变强，那 SLAC 看到的景象根本没法解释，而且强作用永远别想用扰动论去算——你什么都算不出来。</p>
+
+<p>转折出现在 1973 年，而它是一个符号。</p>
+
+<h2>那个负号</h2>
+
+<p>描述耦合怎么随尺度流动的那个函数叫 β 函数——第 3 章那个流的速度场，在这里就是它。它的符号定生死：正号，高能变强，那是电磁；负号，高能变弱。</p>
+
+<p>1973 年，普林斯顿的戴维·格罗斯和他的研究生弗兰克·威尔切克，以及哈佛的戴维·波利策（当时也还是研究生），各自算出了非阿贝尔规范理论的 β 函数。答案是<b>负的</b>。</p>
+
+<p>这个性质叫<b>渐近自由</b>：能量越高，耦合越弱，一直趋近于零。它正是那种「近处弱、远处强」的力。</p>
+
+<p>而它的来源，恰好是第 7 章末尾我当时故意放过的那句话。</p>
+
+<p class="pull">非阿贝尔的规范场自己带荷，所以它和自己相互作用。</p>
+
+<p>把这句话跟上面那套屏蔽机制对起来看，事情就清楚了。</p>
+
+<p>电磁这边：光子<b>不带电</b>。真空里的虚对是电子-正电子对，它们带电，围着源排列，起屏蔽作用。就这一个效应，所以符号只能是正的。</p>
+
+<p>强作用这边：胶子<b>自己带色荷</b>。于是真空里除了虚的夸克-反夸克对——它们和电磁那边一样，起屏蔽作用——还有虚的<b>胶子</b>对。而带荷的胶子干的不是遮住源这件事，是把源的色荷<em class="key">抹开</em>：它们自己身上也带着一份色荷，把它摊到了周围的空间里。</p>
+
+<p>结果就是反屏蔽。从远处看，你看到的是源的色荷加上被摊开的那一大片，总量更大；你往近处走，把摊出去的部分甩在身后，看到的<b>反而更少</b>。</p>
+
+<p>两个效应符号相反，谁赢要看数目：夸克的种数越多，屏蔽越强；胶子的种数越多，反屏蔽越强。而在我们这个世界的强作用里——三种色、六种夸克——<b>反屏蔽赢了</b>，还赢得不勉强：夸克要多到 17 种以上，符号才会翻回去。自然界只给了 6 种。</p>
+
+<div class="aside">
+<h4>他原本想证明的是相反的结论</h4>
+<p>格罗斯后来说得很直白：他当时的目标是<b>证明场论不可能有这种行为</b>。</p>
+<p>这个动机在当时相当合理。SLAC 的数据要求有近乎自由的组分，而只要能证明所有场论的耦合都在高能变强，那就等于说场论根本解释不了强作用，物理学需要换一套全新的框架——1960 年代确实有一批人在往这个方向走，S 矩阵纲领、对偶共振模型，弦论就是从那里长出来的副产品。所以他和威尔切克去算非阿贝尔理论的 β 函数，本意是把最后一个出口也堵上。</p>
+<p>算出来是负号。他们花了些时间反复确认自己没算错。波利策在哈佛独立算了同一个东西，结论一致，两篇论文 1973 年 6 月背靠背登在同一期《物理评论快报》上。</p>
+<p>2004 年的诺贝尔奖给了这三个人。这件事我想留一句评论：它在这本书里是个少见的例子——<b>为了关门而做的计算，把门推开了</b>。而他没有把结果压下来。</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 680 330" role="img" aria-label="电磁与强作用的耦合强度随能量的流动">
+  <line x1="72" y1="286" x2="640" y2="286" stroke="#22201d" stroke-width="1.2"/>
+  <line x1="72" y1="30" x2="72" y2="286" stroke="#22201d" stroke-width="1.2"/>
+  <g font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660" text-anchor="middle">
+    <line x1="72" y1="286" x2="72" y2="292" stroke="#6b6660"/><text x="72" y="308">1 GeV</text>
+    <line x1="214" y1="286" x2="214" y2="292" stroke="#6b6660"/><text x="214" y="308">10² GeV</text>
+    <line x1="356" y1="286" x2="356" y2="292" stroke="#6b6660"/><text x="356" y="308">10⁶ GeV</text>
+    <line x1="498" y1="286" x2="498" y2="292" stroke="#6b6660"/><text x="498" y="308">10¹⁰ GeV</text>
+    <line x1="640" y1="286" x2="640" y2="292" stroke="#6b6660"/><text x="636" y="308">10¹⁶ GeV</text>
+  </g>
+  <text x="78" y="24" font-family="system-ui,sans-serif" font-size="12" fill="#6b6660">↑ 耦合强度</text>
+  <path d="M78 46 C120 120 170 178 214 202 C300 240 420 256 636 266"
+        fill="none" stroke="#1e4d6b" stroke-width="2.4"/>
+  <text x="120" y="70" font-family="system-ui,sans-serif" font-size="13" fill="#1e4d6b">强作用</text>
+  <text x="120" y="88" font-family="system-ui,sans-serif" font-size="11.5" fill="#1e4d6b">（β 为负）</text>
+  <path d="M78 262 C220 259 400 252 636 232"
+        fill="none" stroke="#a4501e" stroke-width="2.4"/>
+  <text x="520" y="252" font-family="system-ui,sans-serif" font-size="13" fill="#a4501e">电磁</text>
+  <text x="520" y="270" font-family="system-ui,sans-serif" font-size="11.5" fill="#a4501e">（β 为正）</text>
+  <line x1="214" y1="202" x2="214" y2="259" stroke="#ddd6c9" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="222" y="234" font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660">LEP 能量</text>
+</svg>
+<figcaption>横轴是撞击能量，对数刻度，每一格 10⁴ 倍——换句话说就是「你在多短的距离上看它」，越往右看得越细。要看出的只有一件事：<b>两条曲线的方向相反</b>。赭石那条是电磁，随能量缓慢上升，这是屏蔽；深蓝那条是强作用，从左边的极高处一路跌下来，这是反屏蔽，而夸克能在高能撞击下表现得像自由粒子，全靠它。左端也别放过：深蓝那条在 1 GeV 附近陡然抬起，那里就是扰动论失效、夸克被永久关住的地方。</figcaption>
+</figure>
+
+<h2>结算高能这一端</h2>
+
+<p>先收容易的那一半。</p>
+
+<p>SLAC 的困惑解决了，而且解决得干净：在极高能的撞击里，夸克之间的耦合趋于零，所以它们<b>确实</b>表现得像自由粒子。电子打进去看到几个自由的小硬块，是因为在那个距离上它们真的几乎自由。比约肯标度无关性不是一个需要绕过去的反常，它是渐近自由的直接后果。</p>
+
+<p>还有一笔更实在的红利。第 1 章讲过，量子场论算东西的路子是把相互作用当成小量，一项一项往下算，而这套办法只在耦合弱的时候管用。假如强作用在所有尺度上都强，它就永远算不了，「强相互作用的理论」这几个字也只能停在纲领上。</p>
+
+<p>渐近自由把这扇门推开了：<em class="key">高能处强作用变弱，于是算得动</em>。第 10 章那些精确得让人不安的对撞机预言，包括从 LHC 每一次质子对撞里算出各种过程的产生率，全都指着这一条。这也是「强」相互作用的理论最反直觉的地方：它之所以能算得那么准，恰恰因为它在我们要算的那个区域里并不强。</p>
+
+<p>顺便说一句，这个词组本身值得停一停。<b>渐近自由</b>——越往深处看，它越接近一个自由理论。这跟第 3 章那些流向不动点的轨迹是同一回事：这里的不动点就是耦合为零，理论在极高能处流向自由场论，而推着它往那儿流的，正是它自己的自相互作用。</p>
+
+<h2>结算低能这一端</h2>
+
+<p>另一半没这么容易，而且到今天也没完全结清。</p>
+
+<p>把曲线往左读：能量降低，距离变长，耦合变强。到 1 GeV 附近，「小量」这个前提彻底作废，一项一项算的办法崩掉。至于那里究竟发生了什么，是实验告诉我们的——夸克被永久关住。</p>
+
+<p>禁闭的图像值得在脑子里画出来，而且后面还要接着用，所以慢一点读。</p>
+
+<p>取一个夸克和一个反夸克，试着把它们拉开。它们之间的胶子场不像电场那样朝四面八方铺开，而是<b>收拢成一根管子</b>，一根连着两头、粗细大致不变的通道。这个行为本身就是胶子自相互作用的后果：胶子互相吸引，所以场线不散，抱成了一束。</p>
+
+<p>管子粗细不变，就意味着每拉长一段都要付一份固定的能量。<b>能量随距离线性增长，没有上限。</b>光这一条就够解释为什么拉不出来了——把两个夸克分到无穷远，要花无穷的能量。</p>
+
+<p>但真正好看的是你继续往下拉会发生什么。</p>
+
+<p>拉到某个距离，管子里存的能量已经多到可以凭它造出一对新的夸克-反夸克（质量就是能量，这里做的是一笔能量收支的交易）。于是出现了更省的选项：<b>弦断掉</b>，断口两边各冒出一个新粒子，把两个断头封上。</p>
+
+<p>你手上原本是一根两头各挂一个夸克的弦，现在成了两根，每根两头各挂一个夸克。</p>
+
+<p class="pull">你永远得不到一个孤立的夸克。你只会得到更多的强子。</p>
+
+<p>这个画面在对撞机里天天上演，而且看得见。高能对撞打出一个夸克，它带着巨大的动能往外飞，身后的弦不停拉长、断裂、再拉长、再断裂，几百次之后，它那份能量全变成了一大群顺着原方向飞的强子。探测器看到的就是这么一束粒子，叫<b>喷注</b>（jet）。你从来看不见那个夸克，只能看见它逃跑失败留下的痕迹——而喷注的方向、能量、数目，都能用渐近自由那一端的计算精确预言。</p>
+
+<p>这里顺手澄清一个常见的误解，因为它就挨着第 8 章：<b>质子的质量几乎不是夸克的质量。</b>质子里那三个夸克的质量加起来只占质子质量的百分之一上下，剩下百分之九十九是关在里面的胶子场的能量。所以你身体的重量，绝大部分不是「物质的量」，是场的能量。第 8 章讲的希格斯机制管那百分之一，这一章讲的禁闭管那百分之九十九。</p>
+
+<div class="honest">
+<p><b>禁闭没有被证明。</b></p>
+<p>上面那一整节讲的管子、线性增长的能量、弦断裂，是一幅证据充足的图像，不是一条定理。渐近自由是严格推导出来的，那几页计算是可靠的数学，可它只在高能有效；低能这一头，那套计算方法自己就失效了，而我们手里没有一个从第一原理出发的替代证明。</p>
+<p>证据很强，强到什么程度得说清。<b>格点 QCD</b> 把时空切成离散的格子，用超级计算机直接从 QCD 的定义出发算强子的性质，不靠「小量」这个前提。它算出的质子、中子和各种介子的质量谱跟实验对得上，误差在百分之几；它算出的胶子管子确实是管子；它算出的能量确实随距离线性长。这不是拿参数去凑，是从理论定义算出来的。再加上六十年一个孤立夸克也没见过，我认为禁闭是我们对自然界最有信心的事实之一。</p>
+<p>可「有信心」不等于「证明了」。<b>杨-米尔斯理论的存在性与质量间隙，是七个千禧年问题里的一个</b>，2000 年设立，悬赏一百万美元，到 2026 年仍未解决。它要求的东西比物理学家的图像严格得多：先证明这个理论在数学上作为量子场论确实存在——连这一步都还没有——再证明它的激发有一个非零的最低能量。</p>
+<p>这一条我写足，是因为它是这本书判断标准的一次正面应用，而且刀口是朝自己的。我完全相信禁闭。但相信和证明是两种知识状态，混着用，代价会在别的地方冒出来——第 12 章和第 43 章处理的正是那种代价。这一章诚实的说法是：<b>我们有一套解释得极好、算得极准、但还没被证明的机制。</b></p>
+</div>
+
+<div class="aside">
+<h4>三种色是数出来的</h4>
+<p>第 7 章说过：对称性能告诉你力必须长什么样，但不能告诉你哪一个对称性是对的，那得从实验里读。这一章可以把其中一笔补完。</p>
+<p>强作用的规范对称性是 SU(3)，那个 3 就是色的种数。它不是猜的，也不是因为 3 这个数好看，它是<b>数出来的</b>，而且有好几种彼此独立的数法。</p>
+<p>一种是数正负电子对撞产生强子的概率。这个概率正比于所有能产生的夸克的电荷平方之和，而一种夸克有几种色，在求和里就要被数几遍。测出来的比值要求每种夸克恰好有 3 种色。这个测量在不同能量上做过很多次，每跨过一个新夸克的产生阈值，比值就往上跳一级台阶，而台阶的高度同样对应 3 种色。</p>
+<p>另一种是数 π⁰ 介子衰变成两个光子的速率。这个速率也正比于色的数目，准确说是正比于它的平方，而它测得很准，同样给出 3。这一条更深，因为它背后是量子反常——一条守恒律被量子效应破坏，破坏的量是一个拓扑数。那是第 29 章的内容，也是这本书里「数学不是工具，是物理事实」的最强论据。</p>
+<p>另外提一句，「色」这个名字跟视觉毫无关系，用它只因为三个基本色叠起来是白的，正好对应三个夸克组成一个不带色荷的强子。跟第 3 章的「群」、第 7 章的「规范」一样，这又是一个不能照字面理解的名字。</p>
+</div>
+
+<h2>为什么这一章是第一部的最好广告</h2>
+
+<p>把这一章的收获压一压，会得到一句 1970 年说不出来的话：</p>
+
+<p><b>同一个理论，一端几乎自由，另一端永久囚禁，而这两件事是同一条流动曲线的两头。</b></p>
+
+<p>留意这句话的形状。它不是「我们找到了强作用的定律」——虽然我们确实找到了，那个理论叫量子色动力学，QCD。它讲的是<b>定律和尺度的关系</b>：质子内部的物理长什么样，取决于你在哪个尺度上问；而不同尺度上的答案不只是不同，简直互相矛盾，直到你看清它们被同一个流动串在一起。</p>
+
+<p>第一部用了六章讲这个观念，讲的时候只能借临界点、借模糊化的照片、借倍周期分岔——那些例子都好，可都有点抽象，或者有点偏。这一章是它在物理学正中央的一次兑现：<em class="key">整个强相互作用的图景，是一个负号买下来的</em>。推导那个负号只花了几页纸，买到的东西却有：SLAC 的困惑、质子为什么有质量、为什么你一辈子见不到一个夸克，以及为什么「强」相互作用居然算得那么准。</p>
+
+<p>第 3 章那个旋钮，到这里该不再像个隐喻了。</p>
+
+<p>下一章去收红利。这一章留下的缺口——一套我们相信却没证明的机制——摆在第 10 章旁边会更刺眼，因为那一章要摊开的是人类造过的、被检验得最狠的理论，摊开它精确到什么程度：十二位。同时也摊开它有多丑：十九个不知道从哪儿来的数字。</p>
+</main>
+
+<footer class="ch">
+  <div class="prof"><h4>物理学者的话</h4>
+  <p class="sub">本章内容在文献中的术语坐标，供想提前深入的读者定位。</p>
+
+  <p><b>自由。</b>负的 <span class="eq">β</span> 函数即<b>渐近自由</b>，符号由胶子与鬼场圈的<b>反屏蔽</b>压过夸克圈的<b>屏蔽</b>决定；<b>Coleman–Gross 定理</b>说四维只有非阿贝尔规范理论能做到。<span class="eq">Λ<sub>QCD</sub></span> 是<b>方案依赖</b>量，规范不变的说法是<b>维度嬗变</b>：无标度的经典拉氏量由无量纲耦合的跑动长出强子标度。深度非弹性一侧是<b>结构函数</b>、<b>比约肯 x</b>、<b>标度无关性</b>及其<b>对数破坏</b>——后者由 <b>DGLAP 方程</b>给出，才是判决性预言，近似标度无关在任何有自由组分的模型里都成立。「打出小硬块」的严格版本是<b>因子化定理</b>：硬散射系数与<b>部分子分布函数</b>的卷积，被检验的核心是 PDF 的<b>普适性</b>。坑：价夸克只占质子动量的一半，<b>自旋分解</b>至今未结清。色数的独立数法有 <span class="eq">R</span> <b>比值</b>与 <span class="eq">π⁰ → γγ</span>，后者由 <b>Adler–Bell–Jackiw 反常</b>定死且据 <b>Adler–Bardeen 定理</b>不接受 QCD 修正，是强耦合区罕见的精确可算量。</p>
+
+  <p><b>禁闭。</b>「线性势」是模型陈述；规范不变判据是 <b>Wilson 圈的面积律</b>与<b>弦张力</b>，但它只对<b>纯规范</b>理论干净——有动力学轻夸克时弦会断，面积律失效，须改用<b>中心对称性</b>与 <b>Polyakov 圈</b>。故真实 QCD 里「禁闭」无公认锐利定义，成立的是<b>渐近态皆为色单态</b>。千禧年问题要求先按 <b>Osterwalder–Schrader 公理</b>构造四维杨-米尔斯，再证<b>质量间隙</b>。质量来源须分两套机制：汤川给出的是<b>当前夸克质量</b>（标度与方案依赖），质子质量的分解走<b>能量-动量张量的迹</b>与<b>迹反常</b>；而<b>手征极限</b>下质子几乎不变、π 介子归零，因为它是<b>手征对称性自发破缺</b>的<b>南部–戈德斯通玻色子</b>，关系式即 <b>GMOR 关系</b>。<b>格点 QCD</b> 因欧氏化不能算<b>实时演化</b>，有限重子密度受<b>符号问题</b>封锁；高温一侧是<b>夸克胶子等离子体</b>。扰动论精度有硬底：级数是渐近的，<b>红外重整子</b>的发散结构与 <span class="eq">Λ<sub>QCD</sub></span> 的幂次相联。组分图像的不完备处是<b>四夸克与五夸克态</b>。</p>
+
+  <p><b>入口。</b>Peskin &amp; Schroeder 第 17 章（渐近自由与 DIS）；Ellis, Stirling &amp; Webber《QCD and the Collider Physics》（因子化与 PDF 的工作手册）；Gattringer &amp; Lang《Quantum Chromodynamics on the Lattice》。</p></div><nav class="pager">
+    <a href="ch08-真空的选择.html">← 第 8 章 真空的选择</a>
+    <a href="index.html">目录</a>
+    <a href="ch10-小数点后十二位.html">第 10 章 小数点后十二位 →</a>
+  </nav>
+</footer>
+
+</div></body></html>
