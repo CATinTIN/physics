@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第 10 章 · 小数点后十二位 — 为什么我们还能理解世界</title>
+<style>
+:root{--paper:#faf8f4;--ink:#22201d;--dim:#6b6660;--blue:#1e4d6b;--ochre:#a4501e;--quote:#f1ece3;--rule:#ddd6c9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:19px/1.85 Georgia,"Songti SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+header.ch{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:40px}
+.part{font-size:13px;letter-spacing:.14em;color:var(--dim)}
+.num{font-size:13px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
+h1{font-size:34px;line-height:1.3;margin:.35em 0 .5em;font-weight:normal}
+.threads{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:12px;font-family:system-ui,sans-serif;color:var(--blue);
+  border:1px solid var(--blue);border-radius:11px;padding:2px 10px;opacity:.8}
+p{margin:0 0 1.25em;text-align:justify}
+p.lead{font-size:21px;color:#3a3730}
+.pull{font-size:23px;line-height:1.6;color:var(--blue);margin:1.8em 0;
+  padding-left:20px;border-left:3px solid var(--blue)}
+.aside{background:var(--quote);border-radius:5px;padding:20px 24px;margin:2em 0;
+  font-size:17px;line-height:1.75}
+.aside h4{margin:0 0 .6em;font-size:14px;letter-spacing:.1em;color:var(--dim);
+  font-family:system-ui,sans-serif;font-weight:600}
+.aside p:last-child{margin-bottom:0}
+.honest{border-left:3px solid var(--ochre);padding:4px 0 4px 20px;margin:2em 0;
+  font-size:17.5px;color:#4a453e}
+.honest b{color:var(--ochre);font-weight:normal}
+.honest p:last-child{margin-bottom:0}
+.eqblock{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:22px;
+  text-align:center;margin:1.6em 0 .4em;color:var(--ink)}
+.eqnote{text-align:center;font-size:15px;color:var(--dim);margin-bottom:1.8em}
+.eq{font-family:"Cambria Math",Cambria,Georgia,serif;white-space:nowrap}
+em.key{font-style:normal;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+table.data{width:100%;border-collapse:collapse;margin:1.8em 0;font-size:16.5px;
+  font-family:system-ui,sans-serif}
+table.data th{text-align:left;font-weight:600;color:var(--dim);font-size:13.5px;
+  letter-spacing:.06em;border-bottom:1px solid var(--rule);padding:8px 10px 8px 0}
+table.data td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule);line-height:1.6}
+table.data tr.hi td{background:var(--quote);color:var(--ochre)}
+table.data td.n{font-family:"Cambria Math",Cambria,Georgia,serif;white-space:nowrap}
+figure{margin:2.2em 0}
+figure svg{display:block;width:100%;height:auto;background:#fff;
+  border:1px solid var(--rule);border-radius:4px}
+figcaption{font-size:15px;color:var(--dim);margin-top:.8em;line-height:1.65}
+h2{font-size:24px;font-weight:normal;margin:2.4em 0 .8em;color:var(--blue)}
+footer.ch{border-top:1px solid var(--rule);margin-top:56px;padding-top:26px}
+.prof{border:1px solid var(--rule);border-top:2px solid var(--blue);border-radius:4px;
+  padding:22px 26px;margin-bottom:30px;font-size:16.5px;line-height:1.72;color:#3a3730}
+.prof h4{margin:0 0 .2em;font-size:14px;letter-spacing:.1em;color:var(--blue);
+  font-family:system-ui,sans-serif;font-weight:600}
+.prof .sub{margin:0 0 1.1em;font-size:13.5px;color:var(--dim);
+  font-family:system-ui,sans-serif;line-height:1.5}
+.prof p:last-child{margin-bottom:0}
+nav.pager{display:flex;justify-content:space-between;font-size:15px;
+  font-family:system-ui,sans-serif}
+nav.pager a{color:var(--blue);text-decoration:none}
+nav.pager a:hover{text-decoration:underline}
+nav.pager span{color:#b5aea4}
+@media(max-width:600px){body{font-size:17.5px}.wrap{padding:36px 18px 72px}h1{font-size:27px}}
+</style></head><body><div class="wrap">
+
+<header class="ch">
+  <div class="part">第二部 · 场：被检验得最狠的理论</div>
+  <div class="num">第 10 章</div>
+  <h1>小数点后十二位</h1>
+  <div class="threads"><span class="tag">T1 尺度组织了定律</span></div>
+</header>
+
+<main>
+
+<p class="lead">先看两个数字。</p>
+
+<p>电子是个小磁铁。它有自旋，而带电的东西转起来就有磁性，所以你可以把一个电子放进磁场，看它转得多快，由此量出它的磁性有多强。这个量有一个天然的单位，在这个单位下，最朴素的理论说它等于 1。</p>
+
+<p>实际量出来的不是 1，是比 1 大一点点。下面两行，上一行是量出来的值，下一行是算出来的值：</p>
+
+<figure>
+<svg viewBox="0 0 680 214" role="img" aria-label="电子磁矩的实验值与理论值逐位对齐">
+  <rect x="495" y="52" width="30" height="118" fill="#f1ece3"/>
+  <text x="24" y="97" font-family="system-ui,sans-serif" font-size="15" fill="#6b6660">实验测量</text>
+  <text x="24" y="147" font-family="system-ui,sans-serif" font-size="15" fill="#6b6660">理论计算</text>
+  <g font-family="Cambria Math,Cambria,Georgia,serif" font-size="26" text-anchor="middle">
+    <g fill="#22201d">
+      <text x="118" y="100">1.</text>
+      <text x="150" y="100">0</text><text x="180" y="100">0</text><text x="210" y="100">1</text>
+      <text x="250" y="100">1</text><text x="280" y="100">5</text><text x="310" y="100">9</text>
+      <text x="350" y="100">6</text><text x="380" y="100">5</text><text x="410" y="100">2</text>
+      <text x="450" y="100">1</text><text x="480" y="100">8</text>
+      <text x="118" y="150">1.</text>
+      <text x="150" y="150">0</text><text x="180" y="150">0</text><text x="210" y="150">1</text>
+      <text x="250" y="150">1</text><text x="280" y="150">5</text><text x="310" y="150">9</text>
+      <text x="350" y="150">6</text><text x="380" y="150">5</text><text x="410" y="150">2</text>
+      <text x="450" y="150">1</text><text x="480" y="150">8</text>
+    </g>
+    <g fill="#a4501e">
+      <text x="510" y="100">0</text>
+      <text x="510" y="150">2</text>
+    </g>
+    <g fill="#b5aea4">
+      <text x="550" y="100">5</text><text x="580" y="100">9</text>
+      <text x="550" y="150">0</text>
+    </g>
+  </g>
+  <line x1="510" y1="40" x2="510" y2="52" stroke="#a4501e" stroke-width="1.4"/>
+  <line x1="510" y1="170" x2="510" y2="182" stroke="#a4501e" stroke-width="1.4"/>
+  <text x="510" y="200" font-family="system-ui,sans-serif" font-size="14"
+        fill="#a4501e" text-anchor="middle">小数点后第 12 位</text>
+  <line x1="150" y1="118" x2="490" y2="118" stroke="#1e4d6b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="320" y="34" font-family="system-ui,sans-serif" font-size="14"
+        fill="#1e4d6b" text-anchor="middle">这一段完全相同</text>
+</svg>
+<figcaption>电子磁矩：一边是实验室量出来的，一边是纸上算出来的。请让眼睛沿着数字往右走——深色的部分逐位相同，赭石色标出的第十二位才终于分开，而那一位的差别仍落在两边各自的误差里。灰色的尾数是各自多走出来的几位，对方还没跟上。</figcaption>
+</figure>
+
+<p>请从左往右用眼睛走一遍。小数点后：0、0、1、1、5、9、6、5、2、1、8——十一位，一位不差。到第十二位，一个是 0，一个是 2，才终于分开。而这最后一位的差别，两边的误差都还盖得住。也就是说，<b>它们分开的地方是我们目前能力的边缘，不是它们真的不一致。</b></p>
+
+<p>换个说法：一个从纯理论算出来的数，和一个从实验室量出来的数，<em class="key">符合到万亿分之一</em>。</p>
+
+<p>这个精度是什么感觉？拿地球到月亮的距离来比：三十八万四千公里。万亿分之一是 0.4 毫米——四张打印纸叠起来那么厚。我们对电子磁性的把握就在这个量级上：报出地月的距离，误差不超过四张纸。</p>
+
+<p>而且这不是量了一个东西量得很准。这是<b>两件毫不相干的事对上了</b>：一边是一群人在实验室里用磁场和微波折腾单个电子，另一边是一群人在纸上算积分。谁也没看过谁的答案，最后在小数点后第十二位撞上了。</p>
+
+<p>这个数字是序章那个悬念的一半。当时我说，这本书要处理的核心怪事是：我们把电子的磁性算到了十二位，同时对普朗克尺度上发生什么<b>一无所知</b>——这两件事居然同时为真。你已经读了九章，这一章要把它兑现。</p>
+
+<h2>先把这个数字的来历说清楚</h2>
+
+<p>那个「比 1 大一点点」的零点一个百分点是从哪来的？</p>
+
+<p>来自真空。第 8 章和第 9 章都用到了这件事：真空不空，里面不断有虚粒子对冒出来又消失。电子周围那层虚粒子活动会轻微改变它的磁性——电子放出一个光子又收回来，这个短暂的过程就让它的磁矩偏离了最朴素的值。1948 年施温格算出了最简单的那一项修正，大小是 <span class="eq">α / 2π</span>，约 0.001 16。你在上面那行数字里看到的 001 159…，主要就是它。</p>
+
+<p>然后往后每一位都要更费力。更复杂的过程——放出两个光子、三个光子、四个、五个——贡献越来越小，而计算量越来越大。今天理论值的第十位、第十一位靠的是成千上万项，一项一项算出来，而且必须把虚的重粒子（μ 子、强子、W 玻色子）也算进去：<b>电子的磁性里，藏着比它重几十万倍的粒子留下的痕迹。</b></p>
+
+<p>这里有一个细节必须交代，它关系到这一章接下来的全部问题。上面那个理论值不是凭空算出来的，它需要一个输入：电磁耦合的强度 <span class="eq">α</span>，也就是第 9 章那个 1/137。<span class="eq">α</span> 不是理论给的，是量出来的。而今天理论值的误差（那个 182 0 的尾巴）大头不在计算不够狠，在我们对 <span class="eq">α</span> 知道得还不够准。</p>
+
+<p>所以严格地说，上面那张表不是「理论预言 vs 实验」。它是<b>两条路各走一遍，看走到的是不是同一个数</b>：一条先用原子干涉实验量出 <span class="eq">α</span>，再算电子磁矩；另一条直接量电子磁矩。两条路对上了，到十二位。这仍然是极其严苛的检验，但它的逻辑形状和「先说后看」不完全一样。</p>
+
+<p>那么，标准模型有没有真的先说后看过？</p>
+
+<p>有。而且这才是这一章真正的重心。</p>
+
+<h2>拟合与预言</h2>
+
+<p>一个理论符合数据，这件事值多少，全看它是<b>什么时候</b>符合的。</p>
+
+<p>如果数据先摆在那里，你调理论里的参数去凑它，凑上了几乎不说明什么——参数足够多，什么都能凑上。这不是学术上的洁癖，是可以算的：曲线上有 n 个点，一个带 n 个自由参数的公式一定能穿过全部。穿过了，你什么也没学到。</p>
+
+<p>反过来，如果数据还不存在，理论先报出一个数，而这个数没留下调整的余地，那实验去看的时候只有两种结局：对上，或者理论完了。</p>
+
+<p class="pull">拟合是把理论掰成数据的形状；预言是把脖子伸出去。</p>
+
+<p>标准模型伸过好几次脖子。挑三次最干净的。</p>
+
+<h2>第一次：1983 年的 W 和 Z</h2>
+
+<p>第 8 章讲完了机制：电弱对称性自发破缺，规范玻色子吃掉戈德斯通模式而获得质量。现在看这个机制在数量上有多不留余地。</p>
+
+<p>1967 年温伯格和萨拉姆把这个机制装进弱作用理论，理论里剩下几个待定的数，其中一个叫弱混合角。这个角当时还不知道，但别的实验能测——比如中性流反应的强度。1970 年代的实验确实把它测出来了。</p>
+
+<p>它一被测出来，两件事立刻锁死：<b>W 的质量、Z 的质量，还有它们的比值，全都算得出来</b>。一点余地都没有，因为这些量不是新参数，它们是已知参数的函数。1970 年代末，理论报出的答案是：W 约 80 GeV，Z 约 91 GeV。</p>
+
+<p>这两个数字在当时是一个赌注。80 GeV 的粒子重得夸张——一整个锆原子核那么重，却压在一个基本粒子身上，而当时全世界没有一台机器造得出它。CERN 为此把一台质子加速器改成了质子-反质子对撞机，就为了够到那个能量。</p>
+
+<p>1983 年 1 月，UA1 和 UA2 找到了 W。同年 5 月，找到了 Z。质量对上。</p>
+
+<p>请注意这件事的形状：<em class="key">一个粒子的质量，在人类见到它之前就被算出来了</em>。不是估个数量级，是具体数值。而算它用的输入，来自完全另一批实验。</p>
+
+<div class="aside"><h4>为什么 W 和 Z 的质量比值更硬</h4>
+<p>单独看 W 的质量，它还依赖电弱破缺的整体标度，而那个标度当时是从别处标定的。但 W 与 Z 的<b>比值</b>只依赖弱混合角这一个量——理论说，这个比值必须等于弱混合角的余弦。所以真正上台受检的是一条纯结构关系：两个还没被发现的粒子，质量之比早已被一个测好了的角度定死。1983 年那两个数一起对上，对上的是这条关系，不只是两个数字。</p></div>
+
+<h2>第二次：先算出顶夸克，再找到它</h2>
+
+<p>这一次更奇怪，而且它是「量子修正确有其事」最好的证据。</p>
+
+<p>1990 年代初，顶夸克还没被发现。人们知道它该存在（第三代的另一半，底夸克 1977 年就有了），但不知道它有多重，也造不出来——它太重，当时的对撞机能量不够。</p>
+
+<p>可 CERN 的 LEP 对撞机正在做另一件事：极精确地测量 Z 玻色子。它让电子和正电子在恰好产生 Z 的能量上对撞，一共造了约两千万个 Z，把 Z 的质量测到十万分之几，把它衰变到各种末态的比例测到千分之几。</p>
+
+<p>而顶夸克就藏在这些测量里。还是因为虚粒子：Z 周围的虚粒子活动会轻微修正它的性质，虚的顶夸克-反顶夸克对也在其中，而顶夸克越重，这份修正越大。于是<b>顶夸克有多重，就写在了那些精密测量的小数位上</b>——就像电子的磁性里藏着 W 玻色子的痕迹一样。</p>
+
+<p>1994 年，人们从 LEP 的数据里挤出一个结论：如果标准模型对，顶夸克该有 170 GeV 上下，误差二十几个 GeV。</p>
+
+<p>1995 年，费米实验室的 CDF 和 D0 直接造出了顶夸克，直接测了它的质量：约 175 GeV。</p>
+
+<p class="pull">在见到它之前，我们已经通过它对别处的影响，称出了它的重量。</p>
+
+<p>这件事值得停一秒。虚粒子这个说法听起来极其可疑——一个「不存在」的粒子怎么会有物理效应？可这里发生的是：一个谁也没见过的粒子在别处的测量里留下痕迹，我们顺着痕迹反推出它有多重，然后造一台新机器把它做出来，两个数字对上了。<b>虚粒子的效应能拿来做定量的预言，而预言兑现了。</b>这比再讨论多少遍虚粒子算不算「真实存在」都有说服力。</p>
+
+<h2>第三次：四十八年</h2>
+
+<p>希格斯玻色子的机制第 8 章已经讲完，不重复。这里只记一件事的时间跨度：</p>
+
+<p>1964 年，三组人写下这个机制，它要求有一个新粒子。2012 年 7 月 4 日，ATLAS 和 CMS 宣布找到了它。<b>四十八年</b>。中间那四十八年里，提出它的人从三十几岁变成八十几岁，其中一位没有活到那一天。</p>
+
+<p>而这一次兑现的东西里，有一项第 8 章刻意留给了这一章：</p>
+
+<p>希格斯玻色子是<em class="key">人类第一次确认自然界存在的基本标量粒子</em>——自旋为零的基本粒子。在这之前，自旋 0 这一栏空了整个粒子物理史。自旋 1/2 的我们见过（所有物质粒子），自旋 1 的也见过（所有力的载体），自旋 0 的复合粒子更是见过一堆（π 介子之类），可基本的、不由更小东西拼起来的自旋 0 粒子，一个都没有。这个空格空了几十年，然后被填上了。</p>
+
+<p>这不只是补齐一栏。标量场是宇宙学里到处在用的东西——暴胀、暗能量的各种模型、早期宇宙的相变，全都架在「存在基本标量场」这个假设上。而 2012 年之前，这个假设在实验上一个例子都没有。</p>
+
+<h2>无处可躲</h2>
+
+<p>三次预言，已经够说明这个理论不是事后凑出来的。但检验它最狠的方式其实不是这三次，而是一件不容易被感觉到的事，值得单独说：<b>过度约束</b>。</p>
+
+<p>1989 到 2000 年间，LEP 把电弱理论能测的量几乎测遍了：Z 的质量、它的总宽度、它衰变成各种粒子的分支比、正反粒子分布的前后不对称性、不同自旋取向的不对称性——几十个量，每一个都独立测出来。</p>
+
+<p>关键在于，这几十个量在理论里<b>不是几十个独立的参数</b>。它们全由少数几个数决定。所以它们必须彼此一致，而且怎么一致也是定死的：你不能调这个去救那个，因为调这个也会动那个。</p>
+
+<p>这个检验比「一个预言对上了」狠得多。一个预言对上，可能是运气。几十个量在少数几个参数下同时对上，就没有地方可以藏错——哪一处有偏差，立刻会在别处露出来，因为整个系统是刚性的。第 5 章那个词在这里再次出现，而这次不是比喻：<em class="key">一个过度约束的理论是刚性的，它没有偷偷变形的余地</em>。</p>
+
+<p>LEP 那批测量和理论一致到什么程度？几十个量，基本上都在千分之几到万分之几的水平上对上。</p>
+
+<p>而这里面有一个结果特别漂亮，因为它是<b>数出来的</b>。</p>
+
+<h2>三代中微子是数出来的</h2>
+
+<p>Z 玻色子会衰变，寿命极短。它的寿命写在共振峰的宽度上——寿命越短，峰越宽。这是量子力学最基本的关系之一。</p>
+
+<p>而 Z 的寿命取决于它有多少条衰变通道。通道越多，它死得越快，峰越宽。所以：<b>测出峰有多宽，就等于数出了 Z 能变成几种东西。</b></p>
+
+<p>Z 能变成的东西里有中微子。中微子几乎不理探测器，飞出去就再也见不到——它对总宽度有贡献，却不留任何看得见的痕迹。但这不妨事：总宽度能测，其余通道的贡献能一条一条算清，剩下那部分就是中微子的份额，再除以「一种中微子该贡献多少」，中微子有几种就出来了。</p>
+
+<p>LEP 数出来的答案是 <b>2.984 ± 0.008</b>。</p>
+
+<p>也就是 3。不是 2，不是 4，而且误差小到连「也许还有第四种，只是它很轻」这条退路都被堵死了——只要它轻到能让 Z 衰变过去，它就一定会出现在这个数里。</p>
+
+<p>请把这个手法和第 9 章那个摆在一起看。那一章数的是夸克有几种颜色，答案 3；这一章数的是中微子有几代，答案 3。<b>两次都不是假设，不是凭美感挑出来的，而是从一个测得到的数字里读出来的。</b>数出来的东西和猜出来的东西，在知识的等级上不是一回事——这本书从头到尾在意这个区别。</p>
+
+<p>读到这里，「人类造过的、被检验得最严苛的理论」这句话应该已经不再是一句形容词了。</p>
+
+<p>现在说它有多丑。</p>
+
+<h2>十九个不知道从哪来的数字</h2>
+
+<p>上面那些精确的检验，全都架在一件事上：理论里有一批参数，它们的值得由实验告诉我们。理论本身不知道它们该是多少。</p>
+
+<p>有多少个？把标准模型的参数摊开：</p>
+
+<table class="data">
+<tr><th>类别</th><th>个数</th><th>是什么</th></tr>
+<tr><td>三个耦合强度</td><td>3</td><td>强、弱、电磁各自的强度</td></tr>
+<tr><td>希格斯势的两个参数</td><td>2</td><td>第 8 章那个帽子的深度和陡度</td></tr>
+<tr><td>费米子与希格斯场的耦合</td><td>9</td><td>决定六种夸克、三种带电轻子的质量</td></tr>
+<tr><td>夸克混合（CKM）</td><td>4</td><td>三个混合角 + 一个 CP 相位</td></tr>
+<tr><td>强 CP 相位</td><td>1</td><td>实验上出奇地接近零，没人知道为什么（终章）</td></tr>
+<tr><th>合计</th><th>19</th><th></th></tr>
+</table>
+
+<p>再加上中微子的质量与混合——那是第 11 章的内容——这个数字要涨到二十六以上。</p>
+
+<p>这十九个数，我们<b>一个都不知道它为什么是那个值</b>。不是「暂时算不出来」，是理论的结构里根本没有任何东西对它们有话说。你把电子质量改成现在的两倍，标准模型不会露出一丝内部矛盾，它只是改去描述另一个宇宙。</p>
+
+<p>而这些值散得极其难看。看一眼质量的跨度：</p>
+
+<table class="data">
+<tr><th>粒子</th><th>质量</th></tr>
+<tr><td>中微子（质量之和的上限）</td><td class="n">＜ 0.1 eV</td></tr>
+<tr><td>电子</td><td class="n">511 000 eV</td></tr>
+<tr><td>质子（作为对照，非基本粒子）</td><td class="n">938 000 000 eV</td></tr>
+<tr class="hi"><td>顶夸克</td><td class="n">173 000 000 000 eV</td></tr>
+</table>
+
+<p>从中微子到顶夸克，跨了<b>十二个数量级以上</b>。给它们质量的是同一个机制（第 8 章那个），而这个机制对「为什么跨度这么大」一句话也说不出来——它只提供一个乘法：质量等于耦合强度乘以那个统一的标度。差异全在耦合强度里，而耦合强度是手填的。</p>
+
+<p>请注意这里出现了一个和第 8 章完全一样的落点，而这次它带着数字：<em class="key">机制解释了这些粒子为什么可以有质量，没有解释为什么是这些质量</em>。</p>
+
+<h2>谁订的？</h2>
+
+<p>然后是那个连该怎么问都不清楚的问题。</p>
+
+<p>基本粒子分三代。第一代是电子、电子中微子、上夸克、下夸克——你身上的每一寸都由第一代搭起来。第二代和第三代是第一代的复制品：电荷一样，自旋一样，参与的相互作用也一样，<b>唯一的区别是更重</b>。更重就意味着不稳定，所以它们很快衰变掉，所以除了对撞机里和宇宙线里，宇宙中基本见不到它们。</p>
+
+<p>问题是：为什么有三代？</p>
+
+<p>1936 年发现 μ 子，这个问题第一次以尴尬的形式冒出来。μ 子和电子一模一样，只是重两百倍。它对我们已知的一切都不必要——没有它，原子照样成立，化学照样成立，你照样在这儿。据说拉比听到这个发现，只说了一句：</p>
+
+<p class="pull">「谁订的？」</p>
+
+<p>九十年过去了。我们已经知道 μ 子属于第二代，知道还有第三代，把它们的质量测到很多位，拿它们做了无数精密实验。<b>而拉比那句话，我们仍然答不上来。</b></p>
+
+<p>不只是答不上来，是不知道它算不算一个好问题。也许三代背后有深层的原因；也许代数根本没有原因，就像行星有八颗一样（第 4 章那个对照：有些数字是定律定的，有些数字是历史定的，而你事先分不出哪个是哪个）。目前没有实验能分开这两种可能。</p>
+
+<p>顺带说一件同样丑的事：三代之间的混合有明显的层级——同代之间转换的概率接近 1，隔一代小很多，隔两代小得多。这个层级在数据里清楚得像墙上的花纹，而没有任何原理讲得出它为什么是这个花纹。</p>
+
+<h2>诚实的补充</h2>
+
+<div class="honest">
+<p><b>精确不等于完备。</b>这一章摊开的精度都是真的，下面这份清单也是真的：标准模型不包含<b>引力</b>；不包含<b>暗物质</b>（宇宙里质量的大头）；不包含<b>暗能量</b>（宇宙里能量的更大头）；不解释<b>中微子为什么有质量</b>（第 11 章）；不解释<b>物质为什么比反物质多</b>（如果不多，就没有你）。</p>
+<p>换句话说，按质能计算，标准模型精确描述的部分大约占宇宙的 5%。</p>
+<p>「被检验得最狠的理论」和「严重不完备的理论」，说的是同一个理论。这两句话同时为真，而且<b>并不矛盾</b>。为什么不矛盾，是这一章最后要说的事。</p>
+</div>
+
+<div class="honest">
+<p><b>一个曾经被寄望的偏差。</b>μ 子的磁矩和这一章开头那个电子磁矩是同一类量，但 μ 子重两百倍，所以更能感觉到重的未知粒子。它的理论值和实验值之间曾经差着约 4σ，二十年里，这是「标准模型之外还有东西」最被认真对待的一条线索。到 2025 年，格点计算成熟了，实验数据也攒够了，这扇窗基本合上。这件事的经过比结论更重要，它是第 12 章的核心素材，那里再说。</p>
+</div>
+
+<h2>为什么这两件事可以同时为真</h2>
+
+<p>现在回到序章那个悬念，正面回答它。</p>
+
+<p>把问题摆清楚：我们把电子的磁性算到了十二位。同时，比约 10⁻¹⁸ 米更短的尺度上在发生什么，我们几乎一无所知，到了普朗克尺度（10⁻³⁵ 米）更是彻底的无知。<b>凭什么？</b>凭什么底层一无所知，却能把一个量算到万亿分之一？</p>
+
+<p>要是在读第 1 章之前被问到这个问题，勉强说得通的回答大概只有两个：「运气」，或者「我们其实已经知道底层了」。两个都不对。</p>
+
+<p>该给的回答在第 3 章和第 4 章。那两章讲的是：<b>每个尺度上的物理，都有一套在那个尺度上够用的定律；高能尺度的细节要传到低能，会被压低</b>，压低多少还算得出来，按能量比的幂次往下掉。这不是一句安慰话，它是可以量化的结论：新物理若出现在能标 <span class="eq">Λ</span> 上，它对我们做得到的低能测量的污染大致按 <span class="eq">(E / Λ)ⁿ</span> 衰减，而 <span class="eq">n</span> 至少是 1，通常是 2。</p>
+
+<p>把电子磁矩的数字代进去，这句抽象的话就落成了一件具体的事：<em class="key">正因为我们对第十三位无知，才能把前十二位算准</em>。普朗克尺度上不管有什么，它给电子磁矩的那份贡献被压到了小数点后极远处，远得根本测不到，所以我们可以彻底不管它，而不管它并不会让我们算错。</p>
+
+<p>所以序章那个悬念的答案不是「标准模型很成功，但更深层的东西我们还不知道」——这么说，就把两件事摆成了一句遗憾的并列，好像精确是成就，无知是缺陷。真实的关系比这紧得多：</p>
+
+<p class="pull">不是「虽然无知却仍然精确」，而是「精确恰恰因为无知可以被隔离」。</p>
+
+<p>标准模型是一个有效场论。它在自己的适用范围里极其精确，而它<b>自带一份说明书，写着这个范围到哪儿为止</b>——那十九个参数就是说明书的一部分：它们从更深一层继承下来，在这一层解释不了。有效理论必然带着这样的参数，这不是它的失败，这就是「有效理论」这个词的意思。</p>
+
+<p>第 4 章说过一句话，这一章是它的第一次全额兑现：<b>把危机降级为无知，本身就是真实的进展。</b>矛盾上面盖不了东西，无知上面可以。这一章那十二位精度，全都盖在「不知道那十九个参数从哪来」这块地基上，而它们没有塌。</p>
+
+<p>这就是书名里那个问题的第一个正面答案。我们还能理解世界，不是因为我们理解了全部，而是因为<em class="key">世界是一层一层搭起来的，每一层都可以单独理解</em>。</p>
+
+<h2>那么，接下来看哪里</h2>
+
+<p>一个精确到十二位的理论要被超越，总得先在什么地方裂开。</p>
+
+<p>这一章摊开的丑（十九个参数、三代之谜、混合的层级）都不是裂缝——它们是没解释，不是不一致。理论没有说错任何事，它只是没说。而按有效场论的逻辑，没解释才是常态，你不能指望第 n 层去解释第 n+1 层。</p>
+
+<p>所以真正的问题是：标准模型有没有<b>真的说错过</b>？这几十年的所有测量里，有没有哪一处，理论说 A，自然说 B？</p>
+
+<p>有一处。只有一处。</p>
+
+<p>下一章。</p>
+
+</main>
+
+<footer class="ch">
+  <div class="prof"><h4>物理学者的话</h4>
+  <p class="sub">本章内容在文献中的术语坐标，供想提前深入的读者定位。</p>
+
+  <p><b>精度。</b>那个对齐量是<b>反常磁矩</b> <span class="eq">a = (g−2)/2</span>，最低阶即<b>施温格项</b> <span class="eq">α/2π</span>；电子一侧干净的原因是<b>强子真空极化</b>贡献被质量比压得极小。坑：理论值的瓶颈已从计算转到输入——两条最好的 <span class="eq">α</span> 测量（<b>原子反冲</b>）彼此不相容，故「两条路对上」的极限由输入侧的分歧设定，不由 QED 的能力设定。刚性系统的操作形式是<b>全局电弱拟合</b>：少数量为输入，产出几十个可观测量的<b>过度约束</b>。它的机理是<b>圈修正</b>对重粒子的依赖方式：<span class="eq">Δρ ∝ m<sub>t</sub>²</span> 是二次的，<span class="eq">m<sub>H</sub></span> 只进对数——正是这个二次-对数之别决定了哪个量能被精密预言、哪个只能被宽约束。偏离的通用参数化是 <b>Peskin–Takeuchi 的 <span class="eq">S, T, U</span></b>，其中 <span class="eq">T</span> 即重整化后的 <span class="eq">Δρ</span>。陷阱：<span class="eq">sin²θ<sub>W</sub></span> 有 on-shell、<span class="eq">MS̄</span>、有效轻子三套定义，跨文献比数值前须先对齐方案。</p>
+
+  <p><b>记账。</b>代数由 <b><span class="eq">Z</span> 不可见宽度</b>数出，但该计数只约束<b>有弱荷的活性中微子</b>，<b>惰性中微子</b>完全逃逸。一代之内的<b>内容</b>由<b>规范反常抵消</b>的超荷求和规则钉死（顺带给出<b>电荷量子化</b>），但<b>代数</b>本身无任何原理约束。参数计数的规范不变记法是质量加<b>混合角</b>加 <b>CP 相位</b>；CP 破坏的强度写成不依赖参数化的 <b>Jarlskog 不变量</b>。夸克混合的层级由 <b>Wolfenstein 参数化</b>组织成小参数的幂次，而轻子部门的 <b>PMNS 矩阵</b>反是大角度——这个反差是味物理最硬的结构谜。<span class="eq">θ̄</span>（<b>强 CP 相位</b>）地位不同：<b>中子电偶极矩</b>把它压得极小而无对称性理由该小，是标准模型里唯一一个<b>需要被解释的小</b>。「无知可被隔离」的操作形式是 <b>SMEFT</b>：补上一切满足规范对称性的高维算符，维数六构成 <b>Warsaw 基</b>，<span class="eq">(E/Λ)<sup>n</sup></span> 的衰减即其量纲计数；唯一的维数五算符是 <b>Weinberg 算符</b>。软肋：<b>标量质量项不受幂次压低保护</b>，故「精确源于无知可隔离」只对<b>技术自然</b>的量成立。</p>
+
+  <p><b>入口。</b>Peskin &amp; Schroeder 第 6、20 章（反常磁矩与电弱精密量）；Langacker《The Standard Model and Beyond》（全局拟合与参数化约定）；Brivio &amp; Trott 的 SMEFT 综述。</p></div><nav class="pager">
+    <a href="ch09-抓不住的夸克.html">← 第 9 章 抓不住的夸克</a>
+    <a href="index.html">目录</a>
+    <a href="ch11-唯一那道裂缝.html">第 11 章 唯一那道裂缝 →</a>
+  </nav>
+</footer>
+
+</div></body></html>
