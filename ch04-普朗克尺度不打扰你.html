@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第 4 章 · 为什么普朗克尺度不打扰你 — 为什么我们还能理解世界</title>
+<style>
+:root{--paper:#faf8f4;--ink:#22201d;--dim:#6b6660;--blue:#1e4d6b;--ochre:#a4501e;--quote:#f1ece3;--rule:#ddd6c9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:19px/1.85 Georgia,"Songti SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+header.ch{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:40px}
+.part{font-size:13px;letter-spacing:.14em;color:var(--dim)}
+.num{font-size:13px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
+h1{font-size:34px;line-height:1.3;margin:.35em 0 .5em;font-weight:normal}
+.threads{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:12px;font-family:system-ui,sans-serif;color:var(--blue);
+  border:1px solid var(--blue);border-radius:11px;padding:2px 10px;opacity:.8}
+p{margin:0 0 1.25em;text-align:justify}
+p.lead{font-size:21px;color:#3a3730}
+.pull{font-size:23px;line-height:1.6;color:var(--blue);margin:1.8em 0;
+  padding-left:20px;border-left:3px solid var(--blue)}
+.aside{background:var(--quote);border-radius:5px;padding:20px 24px;margin:2em 0;
+  font-size:17px;line-height:1.75}
+.aside h4{margin:0 0 .6em;font-size:14px;letter-spacing:.1em;color:var(--dim);
+  font-family:system-ui,sans-serif;font-weight:600}
+.aside p:last-child{margin-bottom:0}
+.honest{border-left:3px solid var(--ochre);padding:4px 0 4px 20px;margin:2em 0;
+  font-size:17.5px;color:#4a453e}
+.honest b{color:var(--ochre);font-weight:normal}
+.eqblock{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:22px;
+  text-align:center;margin:1.6em 0 .4em;color:var(--ink)}
+.eqnote{text-align:center;font-size:15px;color:var(--dim);margin-bottom:1.8em}
+.eq{font-family:"Cambria Math",Cambria,Georgia,serif;white-space:nowrap}
+em.key{font-style:normal;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+blockquote{margin:2em 0;padding-left:22px;border-left:2px solid var(--rule);
+  font-size:18px;color:#3f3b35;line-height:1.78}
+blockquote .src{display:block;margin-top:.7em;font-size:14.5px;color:var(--dim);
+  font-family:system-ui,sans-serif}
+figure{margin:2.2em 0}
+figure svg{display:block;width:100%;height:auto;background:#fff;
+  border:1px solid var(--rule);border-radius:4px}
+figcaption{font-size:15px;color:var(--dim);margin-top:.8em;line-height:1.65}
+h2{font-size:24px;font-weight:normal;margin:2.4em 0 .8em;color:var(--blue)}
+table.data{width:100%;border-collapse:collapse;margin:2em 0;font-size:16.5px;
+  font-family:system-ui,sans-serif}
+table.data th{text-align:left;font-weight:600;color:var(--dim);font-size:13.5px;
+  letter-spacing:.06em;padding:8px 10px;border-bottom:1px solid var(--rule)}
+table.data td{padding:9px 10px;border-bottom:1px solid var(--rule)}
+table.data td.n{font-family:"Cambria Math",Cambria,Georgia,serif;color:var(--blue)}
+table.data tr.hi td{background:var(--quote)}
+footer.ch{border-top:1px solid var(--rule);margin-top:56px;padding-top:26px}
+.prof{border:1px solid var(--rule);border-top:2px solid var(--blue);border-radius:4px;
+  padding:22px 26px;margin-bottom:30px;font-size:16.5px;line-height:1.72;color:#3a3730}
+.prof h4{margin:0 0 .2em;font-size:14px;letter-spacing:.1em;color:var(--blue);
+  font-family:system-ui,sans-serif;font-weight:600}
+.prof .sub{margin:0 0 1.1em;font-size:13.5px;color:var(--dim);
+  font-family:system-ui,sans-serif;line-height:1.5}
+.prof p:last-child{margin-bottom:0}
+nav.pager{display:flex;justify-content:space-between;font-size:15px;
+  font-family:system-ui,sans-serif}
+nav.pager a{color:var(--blue);text-decoration:none}
+nav.pager a:hover{text-decoration:underline}
+nav.pager span{color:#b5aea4}
+@media(max-width:600px){body{font-size:17.5px}.wrap{padding:36px 18px 72px}h1{font-size:27px}
+  table.data{font-size:15px}}
+</style></head><body><div class="wrap">
+
+<header class="ch">
+  <div class="part">第一部 · 尺度：为什么无知不妨碍理解</div>
+  <div class="num">第 4 章</div>
+  <h1>为什么普朗克尺度不打扰你</h1>
+  <div class="threads">
+    <span class="tag">T1 尺度组织了定律</span>
+  </div>
+</header>
+
+<main>
+
+<p class="lead">化学家在算一个反应放出多少热。他不知道质子内部有夸克。</p>
+
+<p>这不影响他算对。他用的是电子在原子核之间怎么重新分配的那套规则，而原子核在他眼里就是个带正电的小球，有质量、有电荷，没有内部结构。1930 年之前的化学家连中子都不知道，可他们算出的反应热和今天的一样准。</p>
+
+<p>再往上一层。天文学家在算火星探测器的轨道。他不知道火星内部的地质分层，不知道火星上有几座火山。他把火星当成一个点，只用一个数字——质量——描述它。探测器准确入轨。</p>
+
+<p>这不是废话吗。</p>
+
+<p>小尺度的细节当然不影响大尺度的行为，不然科学根本没法做。要是做任何事都得先知道一切，那就什么都做不了。这件事显然到了不值得说的程度。</p>
+
+<p>我要说的是：<b>它不显然，而且它不总是对的。</b></p>
+
+<h2>那些穿透了的尺度</h2>
+
+<p>先看几个小尺度细节没能被忽略掉的例子。都是真的，都很平常。</p>
+
+<p><b>一块铁为什么硬？</b>把铁当成连续的均匀物质，这个问题答不了。铁的硬度、延展性、反复弯折之后为什么会疲劳断裂——全部取决于晶体内部的缺陷和晶界，取决于原子尺度的排列。工程师算一根钢梁能承重多少，用的是宏观的弹性系数，可那个系数本身来自原子尺度，换一种热处理工艺就会变。小尺度的事情<b>穿透上来了</b>。</p>
+
+<p><b>太阳为什么会发光？</b>这是核尺度的事（10⁻¹⁵ 米），却决定了一个直径 140 万公里的球的全部行为，也决定了地球上有没有生命。跨过 21 个数量级，一点没削弱。</p>
+
+<p><b>原子钟为什么怕高度？</b>间奏 I 会讲这件事：把一台光钟抬高一毫米，它就走快了一点点，因为引力势变了。引力——那个通常只在天体尺度上重要的东西——穿透进了原子内部的能级。</p>
+
+<p>还有更极端的。上一章讲的<b>临界点</b>就是所有尺度全部穿透的例子：在那里，分子尺度的涨落一路长大到容器尺度，把整壶水变成白雾。临界点上没有「小尺度细节可以忽略」这回事，那正是它难对付的原因。</p>
+
+<p>所以「细节不影响大局」不是一条普遍规律。有时成立，有时不成立。<b>那么它什么时候成立？</b></p>
+
+<p>这个问题一提出来，「不是废话吗」这个反应就站不住了。一句有时对有时错的话本身没有任何信息量；有信息量的是<b>划界的那条准则</b>。而 1970 年之前，物理学没有这条准则。人们凭经验和运气：算原子光谱忽略核结构，事后发现忽略对了；算铁的硬度忽略原子排列，事后发现忽略错了。</p>
+
+<div class="pull">「近似够用」是一句托词。它没说什么时候不够用，也没说不够的时候差多少。上一章那台机器把这句托词换成了一个可以求值的表达式。</div>
+
+<p>这一章讲那个表达式。</p>
+
+<h2>把托词换成数字</h2>
+
+<p>上一章的结论一句话就能说：站在不动点附近，参数空间的每个方向都可以贴一个标签。相关的方向会在流动中长大，无关的方向按指数衰减。而无关方向占了绝大多数。</p>
+
+<p>现在把这个结论翻译成能量的语言，因为粒子物理学家习惯用能量而不是长度标记尺度。两者是一回事，只是反着来：<b>高能 = 短距离，低能 = 长距离</b>。（这个对应本身出自量子力学：要探测更小的东西，就得用波长更短、也就是能量更高的探针。加速器越大越贵，买的就是这个。）</p>
+
+<p>于是设定如下。你有一套理论，并且知道它在能量 Λ 以上不再适用——上一章说过，Λ 不是脚手架，是一条真实的界线，界线上面有你不知道的东西。你要在能量 E 下做预言，而 E 远小于 Λ。</p>
+
+<p>问：Λ 上面那些未知的东西，对你在 E 下的预言有多大影响？</p>
+
+<p>答案是这一章唯一必须记住的东西：</p>
+
+<div class="eqblock">修正 ~ (E / Λ)<sup>n</sup></div>
+<div class="eqnote">E 是实际测量的能量，Λ 是理论失效的能量，n 是正整数（通常 n ≥ 1，多数情况下 n = 2）</div>
+
+<p>这就是全部。一个比值的若干次方。</p>
+
+<p>它为什么长这个形状，说起来很短：<b>因为没有别的可能</b>。修正是个相对比例，必须无量纲，而手上只有两个能量尺度，所以它只能是这两者比值的某个幂次。它又必须在 Λ → ∞ 时趋于零（那对应「界线无限远，未知的东西无限重」，这时它当然不该有影响），所以幂次必须是正的。上一章说的「无关方向按指数衰减」，在这套语言里就表现为 n 取正整数——每个无关方向对应一个 n，n 越大，那个方向压得越死。</p>
+
+<p>现在代数字进去，因为这个公式的震撼全在数字里。</p>
+
+<p>普朗克能量——量子引力大概会登场的那个尺度，也就是最悲观情况下我们的理论最晚失效的地方——大约 10¹⁹ GeV（GeV 是十亿电子伏特）。而在实验室里测电子磁矩，牵涉的能量大约是电子的质量，0.0005 GeV。</p>
+
+<p>比值是 10⁻²²。取 n = 2：</p>
+
+<div class="eqblock">(10⁻²²)² = 10⁻⁴⁴</div>
+
+<p>「不知道普朗克尺度发生了什么」给这个预言带来的误差，落在小数点后第四十四位。</p>
+
+<p>而实验能测到小数点后第十二位左右（第 10 章会给完整数字）。差了三十二个数量级。</p>
+
+<div class="pull">电子磁矩算得准，不是运气好，也不是普朗克尺度那里恰好没什么事发生。是因为有一条定理保证：那里无论发生什么，都要被压低 10 的四十几次方倍。<b>免疫是可以证明的。</b></div>
+
+<p>请注意这句话的形状，它和「近似够用」完全不是一类东西。</p>
+
+<p>它没说「普朗克尺度不重要」——那是关于重要性的软话。它说的是「普朗克尺度的贡献在 10⁻⁴⁴ 量级，而我需要的精度是 10⁻¹²，所以我可以把它扔掉，而且我知道扔掉的是什么」。这是一句带着误差棒的硬话。<b>不确定性一旦定量，就不再是不确定性，它变成了一项已知的、可以忽略的小量。</b></p>
+
+<p>这也回答了上一节那个问题——「细节不影响大局」什么时候成立。条件是：<b>把你不懂的东西写成参数空间里的方向，那些方向必须全都无关</b>；而它们压低到什么程度，由 (E/Λ)ⁿ 给出。</p>
+
+<p>回头看那几个「穿透了」的例子，也就清楚了。铁的硬度取决于原子排列，因为那里的 E 和 Λ 挨得很近——你关心的尺度（晶界，微米量级）和产生它的尺度（原子间距，埃量级）只差四个数量级，中间还有相关方向连着。太阳的核反应能穿透 21 个数量级，因为那不是「修正」，那是主项：太阳的整个能量收支就是核反应，你不是在忽略它，你是在算它。临界点上什么都穿透，因为那里恰好<b>没有</b>尺度分离——所有尺度都挤在一起，(E/Λ) 这个比值根本没有小的那一头。</p>
+
+<p>所以尺度分离不是免费的。它是<b>一个需要检查的条件</b>。而这个世界的大部分情形恰好满足它，这既是运气，也是我们能有科学的原因。</p>
+
+<h2>一个理论应该长成的样子</h2>
+
+<p>上面那个公式还有一个用法，比「估计误差」重要得多。它可以用来<b>造理论</b>。</p>
+
+<p>假设你面对一个新领域，不知道深层机制。传统做法是：猜一个深层机制，从它推出低能后果，和实验比。猜错了换一个。这条路很难走，因为可猜的东西太多。</p>
+
+<p>有效场论给了另一条路，逻辑几乎反了过来：</p>
+
+<p><b>第一步</b>，列出低能下看得见的东西——哪些粒子（或者哪些自由度），它们服从哪些对称性。这些实验直接告诉你，不用猜。</p>
+
+<p><b>第二步</b>，写下所有<b>符合这些对称性</b>的相互作用项。全部。不管你觉得它们该不该出现，只要对称性允许就写上，每项配一个未知系数。这一步通常会写出无穷多项。</p>
+
+<p><b>第三步</b>，用 (E/Λ)ⁿ 给这无穷多项排序。n = 0 的最重要，n = 1 的压低一次，n = 2 的压低两次……</p>
+
+<p><b>第四步</b>，要多少精度就截到第几项。剩下的扔掉，而且你知道扔掉的有多小。</p>
+
+<p>这套流程有一个性质值得停下来体会：<b>全程没有假设过深层机制是什么</b>。用到的只有「低能有什么东西」和「有什么对称性」这两条实验事实。而无穷多项里那些未知系数，正是深层机制留下的全部痕迹——不必知道它们从何而来，只需从实验里量出前几个。</p>
+
+<p>这里有个要点，很多人第一次听会滑过去，我要挑明：</p>
+
+<div class="pull">有效场论不是近似理论。它是<b>完整的理论</b>，只不过对自己的适用范围有自知之明。</div>
+
+<p>「近似」这个词暗示存在一个更正确的版本，手上这个是它的劣化。有效场论不是这样。在适用范围内，它的预言可以达到任意高的精度——想更准，就多算一项 (E/Λ)ⁿ，误差按幂次往下掉。它没有「精度上限」。</p>
+
+<p>它只有<b>适用范围上限</b>。E 接近 Λ 时，那个比值不再小了，排序失效，无穷多项全都同样重要，这套办法崩溃。而它会<b>提前告诉你</b>崩溃在哪里——这是一套理论最诚实的品质：自带失效说明书。</p>
+
+<p>现在我可以把第 3 章欠的最后一笔账结掉了。</p>
+
+<p>第 1 章讲过狄拉克的拒绝，第 3 章替他翻了案：他错在把「一个理论需要从外部借入参数」当成了「这个理论有病」。现在这句翻案有了完整的形状。</p>
+
+<p>那些从实验借来的参数不是补丁。它们是<b>接口</b>——是这套描述与下面一层描述之间的连接点，是深层机制在低能世界里留下的印记。一套理论要是不需要任何外部输入，就等于宣称自己适用于所有尺度直到无穷小，而这个宣称没有实验能支持。那才是<b>更大的毛病</b>，不是优点。</p>
+
+<p><em class="key">需要外部输入不是缺陷，是一套理论在如实报告自己的位置</em>。</p>
+
+<div class="aside">
+<h4>去耦定理</h4>
+<p>1975 年，阿佩尔奎斯特（Thomas Appelquist）与卡拉佐内（Jean Carazzone）证明了一件事，让上面这套做法有了合法身份，通称<b>去耦定理</b>（decoupling theorem）。</p>
+<p>它说：假如理论里有一个很重的粒子（质量 M），那么在远低于 M 的能量下，这个粒子的全部效应都能由两件事吸收干净——一是重新定义轻粒子那几个参数，二是一系列按 (E/M)ⁿ 压低的额外项。</p>
+<p>换成人话：<b>重的东西可以整个扔掉</b>，扔掉之后世界看起来就像它从不存在，只是手上那几个参数的数值需要重新量一下。</p>
+<p>这条定理是「知识可以分层」的技术版本。它也解释了一段史实：门捷列夫完全不知道量子力学，照样写出了元素周期表；而量子力学到来之后，周期表并没有作废——它只是有了解释。<b>下一层的到来不会推翻上一层，只会解释上一层的参数从哪里来。</b>这件事在科学史上反复出现，而它背后有一条定理撑着。</p>
+</div>
+
+<h2>爱因斯坦方程只是第一项</h2>
+
+<p>现在把这套办法用到一个你不会预料到的地方。</p>
+
+<p>广义相对论有个众所周知的麻烦：把它量子化会得到无穷大，而且是那种<b>治不好</b>的无穷大——不像第 1 章的电磁情形，减掉两个数就完事；引力的发散一层比一层严重，要吸收掉它们得从实验借无穷多个参数。1970 年代，这件事被读成一句判决：<b>广义相对论与量子力学不兼容，需要一个全新的理论来取代它。</b></p>
+
+<p>这个读法和第 1 章那个「所以 Λ 可以扔掉」犯的是同一个错。</p>
+
+<p>按这一章的办法重看一遍。爱因斯坦方程算不算「所有符合对称性的项」里的一项？算。引力的对称性是坐标变换的任意性，而符合这个对称性的最简单的项，正好给出爱因斯坦方程。那么下一项呢？下一项也在——它是曲率的更高次幂，被 (E/Λ)² 压低，而这里的 Λ 就是普朗克能量。</p>
+
+<p>所以广义相对论是一套有效场论，爱因斯坦方程是它的<b>第一项</b>。</p>
+
+<p>视角一换，那个「治不好的无穷大」就不再是危机。它只是在说：把这套描述硬推到普朗克能量，它会失效。而这本来就写在有效场论自带的失效说明书上。<b>一套理论在自己声明的适用范围之外崩溃，这不是失败，是它在正常工作。</b></p>
+
+<p>而在适用范围之内，要多准有多准。人们真的这么做了：把广义相对论当有效场论来算，能得到量子引力的<b>可靠</b>预言——比如两个物体之间的引力势能有一个微小的量子修正项。这个修正在 10⁻⁷⁶ 量级，永远测不到。可它不是猜的，是算出来的，而且任何一套正确的量子引力理论都必须重现它。</p>
+
+<p>这里必须说清一条界限，否则很容易读歪：</p>
+
+<div class="honest"><b>诚实的补充。</b>把广义相对论当有效场论处理，<b>没有</b>解决量子引力问题。它做到的是把问题圈住：低能引力量子效应可算，而且无歧义；至于普朗克尺度那里究竟是什么，仍然完全未知。区别在于——1970 年人们以为面对的是「广义相对论有病，必须换掉」，今天我们知道面对的是「我们不知道 10¹⁹ GeV 那里有什么」。这两句话的信息量差别巨大：前者要求推翻一套反复验证过的理论，后者只是承认一处无知。<b>把危机降级为无知，是一种真实的进展</b>，即使那处无知一点没有填上。这本书里会不止一次遇到这种进展。</div>
+
+<p>把整个尺度阶梯摊开看一眼，这一章的图景就完整了。</p>
+
+<figure>
+<svg viewBox="0 0 620 400" role="img" aria-label="能量尺度的阶梯与各层的有效理论">
+  <!-- 竖轴 -->
+  <line x1="150" y1="30" x2="150" y2="372" stroke="#ddd6c9" stroke-width="1.5"/>
+  <text x="150" y="20" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660">高能 · 短距离</text>
+  <text x="150" y="390" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11.5" fill="#6b6660">低能 · 长距离</text>
+  <g font-family="system-ui,sans-serif" font-size="13">
+    <!-- 每层：刻度、能量、理论名、压低量级 -->
+    <g>
+      <circle cx="150" cy="48" r="4" fill="#a4501e"/>
+      <text x="140" y="44" text-anchor="end" fill="#a4501e">10¹⁹ GeV</text>
+      <text x="164" y="44" fill="#22201d">？（普朗克尺度，未知）</text>
+      <text x="164" y="61" font-size="11.5" fill="#6b6660">这一层是什么，我们不知道</text>
+    </g>
+    <g>
+      <circle cx="150" cy="118" r="4" fill="#1e4d6b"/>
+      <text x="140" y="114" text-anchor="end" fill="#1e4d6b">10³ GeV</text>
+      <text x="164" y="114" fill="#22201d">标准模型（LHC 的地盘）</text>
+      <text x="164" y="131" font-size="11.5" fill="#6b6660">上一层的影响被压到 10⁻³²</text>
+    </g>
+    <g>
+      <circle cx="150" cy="188" r="4" fill="#1e4d6b"/>
+      <text x="140" y="184" text-anchor="end" fill="#1e4d6b">1 GeV</text>
+      <text x="164" y="184" fill="#22201d">核物理（质子、中子）</text>
+      <text x="164" y="201" font-size="11.5" fill="#6b6660">夸克被打包进去了，看不见</text>
+    </g>
+    <g>
+      <circle cx="150" cy="258" r="4" fill="#1e4d6b"/>
+      <text x="140" y="254" text-anchor="end" fill="#1e4d6b">10⁻⁶ GeV</text>
+      <text x="164" y="254" fill="#22201d">原子物理 · 化学</text>
+      <text x="164" y="271" font-size="11.5" fill="#6b6660">核只剩质量和电荷两个数</text>
+    </g>
+    <g>
+      <circle cx="150" cy="328" r="4" fill="#1e4d6b"/>
+      <text x="140" y="324" text-anchor="end" fill="#1e4d6b">日常</text>
+      <text x="164" y="324" fill="#22201d">流体 · 固体 · 你</text>
+      <text x="164" y="341" font-size="11.5" fill="#6b6660">原子只剩密度、弹性系数……</text>
+    </g>
+  </g>
+</svg>
+<figcaption>这张图要看出一件事：<b>每一层都不需要往上看</b>。化学家不必知道夸克，核物理学家不必知道普朗克尺度，而每一层都能达到极高的精度。上一层留给下一层的遗产，只有几个必须从实验量出来的数字（图中每层下方那句话）——去耦定理保证了遗产只有这么多。整个阶梯跨过 25 个数量级，而顶端那个问号不妨碍其余每一层干活。</figcaption>
+</figure>
+
+<h2>两门学问其实是一门</h2>
+
+<p>还有一个后果，我认为是这一章最出人意料的部分。它在专业圈里是常识，圈外几乎没人知道。</p>
+
+<p>把前面三章的机器摆在一起看：</p>
+
+<p>研究相变的人手上有一个格子，格距是原子间距，他们想知道大尺度上会发生什么。于是反复模糊化，看流往哪去，找不动点。<b>他们的 Λ 是原子间距的倒数。</b></p>
+
+<p>研究粒子的人手上有一套场论，它在某个高能标度以上失效，他们想知道加速器能达到的能量下会看到什么。于是从高能往低能跑流，把重粒子扔掉，写下所有符合对称性的项。<b>他们的 Λ 是那个未知的高能标度。</b></p>
+
+<p>这是同一台机器，同一个参数空间，同一套关于相关与无关方向的分类。<b>唯一的区别是 Λ 的数值差了几十个数量级</b>——而机器完全不在乎那个数值是多少。</p>
+
+<p>这不是类比，也不是「两个领域有相似之处」这种软说法。这是同一套数学，同一批定理，写在同一批教科书里。今天学理论凝聚态的研究生和学理论粒子物理的研究生，前两年学的东西大面积重合。</p>
+
+<p>而两边的往来是<b>双向</b>的。这一点更值得说，因为人们通常以为方向只有一个：基础的那门喂养应用的那门。</p>
+
+<p>欠得最多的一笔，其实是粒子物理欠凝聚态的。<b>自发对称破缺</b>——那个给了所有基本粒子质量的机制——原型来自超导。1957 年 BCS 理论解释超导用的那套想法，1963 年经安德森（Philip Anderson）写成非相对论版本的「规范玻色子获得质量」，1964 年由希格斯等人改写成相对论版本。<b>凝聚态先做出来，粒子物理后借用。</b>第 8 章会完整讲这笔交易。</p>
+
+<p>反方向也一样。规范场论的技术回流到凝聚态，用来处理自旋液体和分数量子霍尔效应；场论的拓扑方法给出了拓扑绝缘体（第五部整部）；而第七部会看到最极端的一次——用<b>引力</b>算强相互作用等离子体的粘度，同一台机器被推到了让人难以置信的地方。</p>
+
+<p>顺便，这也把安德森那句流传最广的话摆回了正确的位置。他说「更多是不同的」（more is different），第 5 章整章讲这句话。人们常把它读成一种反还原论的宣言，好像在说基本定律不重要。不是。它说的是这一章的另一面：<b>既然每一层对上一层的细节免疫，每一层就有自己的、自主的定律</b>，而那些定律不是从下一层「推出来」的——它们得独立地被发现。</p>
+
+<p>免疫和自主是同一件事的两个说法。这一章说的是它的第一面，下一章说第二面。</p>
+
+<h2>书名里那个问题</h2>
+
+<p>序章挂了一个悬念：一套理论完全不知道更深层的机制，却能精确到万亿分之一，这怎么可能？</p>
+
+<p>现在可以回答了，答案短得有点让人不满足：</p>
+
+<p><b>因为低能物理对高能细节的免疫不是运气，是一条定理；而这条定理带着一个可以求值的压低因子。</b></p>
+
+<p>我想把这个回答的性质说清楚，它很容易被听成一句安慰。</p>
+
+<p>1950 年，一个物理学家承认自己不知道更深层的机制，就等于同时承认自己的计算只是权宜之计——他手上没有任何东西能保证那些未知的东西不会毁掉他的答案。他在赌运气，而且他知道自己在赌。狄拉克的不安完全合理：在那个时候，重整化<b>确实</b>只是一个来路不明的处方。</p>
+
+<p>1975 年之后，情形反了过来。你可以不知道更深层的机制，<b>并且知道自己凭什么有权不知道</b>。那个「有权」不是哲学立场，是一个带指数的因子。</p>
+
+<div class="pull">这七十年最大的成就之一，是把「我不知道，但没关系」从一句托词变成了一条定理。</div>
+
+<p>而这件事的适用范围远远超出物理学，这是我想留给你的最后一点。</p>
+
+<p>任何一门知识，只要想在不掌握底层机制的前提下干活——经济学不掌握个体心理就谈通货膨胀，生物学不掌握量子化学就谈基因调控，工程学不掌握金属晶界就造桥——都在暗中依赖同一个结构：<b>存在尺度分离，底层的细节压得很低</b>。</p>
+
+<p>物理学的贡献不是宣布这个结构存在，是搞清楚了它<b>什么时候</b>存在，以及不存在的时候会怎样。临界点告诉我们，不存在的时候真的会很惨：所有尺度纠缠在一起，没有任何一层可以独立工作。经济学里的金融危机、生态学里的系统性崩溃为什么难对付，大概与此有关——那些是各自领域的临界点，尺度分离在那里失效了。这一段是我的推测，不是定理，我标出来。</p>
+
+<p>第一部还剩两章。第 5 章讲免疫的另一面：每一层的自主性从哪里来，以及为什么「知道基本定律」不等于「能推出高层现象」。第 6 章讲一个更极端的例子——确定性的方程怎么会产生原则上不可预测的行为，以及连混乱本身也有普适类。</p>
+
+<p>然后我们就有资格去看那套被检验得最狠的理论了。</p>
+
+</main>
+
+<footer class="ch">
+  <div class="prof">
+      <h4>物理学者的话</h4>
+      <p class="sub">本章内容在文献中的术语坐标，供想提前深入的读者定位。</p>
+
+      <p><b>记账。</b>那套排序叫<b>幂次计数</b>，依据是算符的<b>正规量纲</b> <span class="eq">d</span>（系数带 <span class="eq">Λ<sup>4−d</sup></span>，故 <span class="eq">n = d − 4</span>），三分法与上一章同名：<b>相关 / 边缘 / 无关</b>；边缘情形须由<b>反常维数</b>定号。「扔掉重粒子」的技术名称是<b>积掉</b>与<b>匹配</b>（在 <span class="eq">μ ≈ M</span> 处令全理论与有效理论振幅逐阶相等），随后用重整化群方程<b>跑动</b>到实验标度——匹配与跑动的分工即精度可控的来源。相关定理为 <b>Appelquist–Carazzone 去耦定理</b>；其前提值得记住：质量源于自发破缺的粒子<b>不去耦</b>（顶夸克，故有电弱精密检验的预言能力）。</p>
+
+      <p><b>实例与例外。</b>方法的系统表述见 Weinberg 1979；成熟范例为<b>手征扰动论</b>（Gasser–Leutwyler）、<b>重夸克有效理论</b>，以及费米四费米相互作用（<span class="eq">d = 6</span>，其 <span class="eq">G<sub>F</sub></span> 编码 <span class="eq">m<sub>W</sub></span>）。当代形态是 <b>SMEFT</b>：<span class="eq">d = 6</span> 算符的 <b>Warsaw 基</b>，由数据约束系数而不预设新粒子。引力侧，广义相对论作为有效场论的展开为 <span class="eq">ℒ = √−g(Λ<sub>cc</sub> + R/16πG + c₁R² + …)</span>；牛顿势的量子修正之所以可靠，源于引力子圈的<b>非解析项</b>（<span class="eq">ln q²</span>）不可被任何局域高维算符改动。<span class="eq">Λ</span> 以上的可能出路：<b>渐近安全</b>（猜想）或弦论式的有限性。唯一不受此保护的是相关算符——被 <span class="eq">Λ</span> 正幂放大，即<b>等级问题</b>与<b>宇宙学常数问题</b>，判据仍是 <b>'t Hooft 技术自然性</b>。</p>
+
+      <p><b>入口。</b>Donoghue、Golowich &amp; Holstein《Dynamics of the Standard Model》；Manohar 的 EFT 讲义（Les Houches 2017，最好的现代综述）；Burgess《Introduction to Effective Field Theory》；Donoghue 关于引力作为 EFT 的系列文章。</p>
+    </div><nav class="pager">
+    <a href="ch03-显微镜旋钮.html">← 第 3 章 Wilson 的显微镜旋钮</a>
+    <a href="index.html">目录</a>
+    <a href="ch05-多者异也.html">第 5 章 多者异也 →</a>
+  </nav>
+</footer>
+
+</div></body></html>
